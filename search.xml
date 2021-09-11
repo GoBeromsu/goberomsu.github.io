@@ -8,12 +8,12 @@
       <link href="/2021/09/11/fixHexoBlog/"/>
       <url>/2021/09/11/fixHexoBlog/</url>
       
-        <content type="html"><![CDATA[<h1 id="Hexo-Blog-Error-해결"><a href="#Hexo-Blog-Error-해결" class="headerlink" title="Hexo Blog Error 해결"></a>Hexo Blog Error 해결</h1><h2 id="Category-amp-amp-tags-화면-렌더링-오류"><a href="#Category-amp-amp-tags-화면-렌더링-오류" class="headerlink" title="Category &amp;&amp; tags 화면 렌더링 오류"></a>Category &amp;&amp; tags 화면 렌더링 오류</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure><ul><li>source\tags\index.md에서 type: “tags” 또는 layout: tags를 추가한다.</li><li>헥소 블로그의 경우 카테고리와 태그 페이지를 직접 만드는데 <strong>hexo new page tags</strong> 명령어를 입력하여 index.md를 만들면 layout이나 type 옵션이 추가 되어 있지않다.<ul><li>페이지를 만들 때 scaffold 양식 그대로 만들기 때문이다</li></ul></li><li>category도 똑같은 방식대로 해결하면 된다</li></ul><h2 id="Github-배포-안됨"><a href="#Github-배포-안됨" class="headerlink" title="Github 배포 안됨"></a>Github 배포 안됨</h2><ul><li>git 모듈이 설치가 안되어 있어서 그런 것이다. 그냥 설치하면 된다.</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save hexo-deployer-git</span></span><br></pre></td></tr></table></figure><h2 id="하위-Category에서-404-not-found-뜰-때"><a href="#하위-Category에서-404-not-found-뜰-때" class="headerlink" title="하위 Category에서 404 not found  뜰 때"></a>하위 Category에서 404 not found  뜰 때</h2><ul><li>메인 config.yml에서 filename_case 값을 0 에서 표시하고 싶은 depth만큼으로 바꾼다<ul><li>나 같은 경우 2로 설정했다</li></ul></li></ul><h2 id="이미지-렌더링-안될-때"><a href="#이미지-렌더링-안될-때" class="headerlink" title="이미지 렌더링 안될 때"></a>이미지 렌더링 안될 때</h2><ul><li>로컬 서버에서는 이미지가 보이는데, 배포하면 이미지가 404 not found가 뜨는 오류가 있었다.</li><li>이미지 확장자를 대문자 JPG로 했었는데, jpg로 바꾸니까 오류 해결</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="Hexo-Blog-Error-해결"><a href="#Hexo-Blog-Error-해결" class="headerlink" title="Hexo Blog Error 해결"></a>Hexo Blog Error 해결</h1><h2 id="Category-amp-amp-tags-화면-렌더링-오류"><a href="#Category-amp-amp-tags-화면-렌더링-오류" class="headerlink" title="Category &amp;&amp; tags 화면 렌더링 오류"></a>Category &amp;&amp; tags 화면 렌더링 오류</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure><ul><li>source\tags\index.md에서 type: “tags” 또는 layout: tags를 추가한다.</li><li>헥소 블로그의 경우 카테고리와 태그 페이지를 직접 만드는데 <strong>hexo new page tags</strong> 명령어를 입력하여 index.md를 만들면 layout이나 type 옵션이 추가 되어 있지않다.<ul><li>페이지를 만들 때 scaffold 양식 그대로 만들기 때문이다</li></ul></li><li>category도 똑같은 방식대로 해결하면 된다</li></ul><h2 id="Github-배포-안됨"><a href="#Github-배포-안됨" class="headerlink" title="Github 배포 안됨"></a>Github 배포 안됨</h2><ul><li>git 모듈이 설치가 안되어 있어서 그런 것이다. 그냥 설치하면 된다.</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save hexo-deployer-git</span></span><br></pre></td></tr></table></figure><h2 id="이미지-렌더링-안될-때"><a href="#이미지-렌더링-안될-때" class="headerlink" title="이미지 렌더링 안될 때"></a>이미지 렌더링 안될 때</h2><ul><li>로컬 서버에서는 이미지가 보이는데, 배포하면 이미지가 404 not found가 뜨는 오류가 있었다.</li><li>이미지 확장자를 대문자 JPG로 했었는데, jpg로 바꾸니까 오류 해결</li></ul>]]></content>
       
       
       <categories>
           
-          <category> hexo </category>
+          <category> Hexo </category>
           
       </categories>
       
@@ -32,7 +32,7 @@
       
       <categories>
           
-          <category> hexo </category>
+          <category> Hexo </category>
           
       </categories>
       
