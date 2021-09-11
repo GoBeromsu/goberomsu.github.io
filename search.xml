@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Hexo 블로그 오류 해결</title>
+      <link href="/2021/09/11/fixHexoBlog/"/>
+      <url>/2021/09/11/fixHexoBlog/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hexo-Blog-Error-해결"><a href="#Hexo-Blog-Error-해결" class="headerlink" title="Hexo Blog Error 해결"></a>Hexo Blog Error 해결</h1><h2 id="Category-amp-amp-tags-화면-렌더링-오류"><a href="#Category-amp-amp-tags-화면-렌더링-오류" class="headerlink" title="Category &amp;&amp; tags 화면 렌더링 오류"></a>Category &amp;&amp; tags 화면 렌더링 오류</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">title: tags</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure><ul><li>source\tags\index.md에서 type: “tags” 또는 layout: tags를 추가한다.</li><li>헥소 블로그의 경우 카테고리와 태그 페이지를 직접 만드는데 <strong>hexo new page tags</strong> 명령어를 입력하여 index.md를 만들면 layout이나 type 옵션이 추가 되어 있지않다.<ul><li>페이지를 만들 때 scaffold 양식 그대로 만들기 때문이다</li></ul></li><li>category도 똑같은 방식대로 해결하면 된다</li></ul><h2 id="Github-배포-안됨"><a href="#Github-배포-안됨" class="headerlink" title="Github 배포 안됨"></a>Github 배포 안됨</h2><ul><li>git 모듈이 설치가 안되어 있어서 그런 것이다. 그냥 설치하면 된다.</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install --save hexo-deployer-git</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo Blog 설정</title>
       <link href="/2021/09/11/setHexoBlog/"/>
       <url>/2021/09/11/setHexoBlog/</url>
