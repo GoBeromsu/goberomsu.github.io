@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>리눅스 쉘 스크립트 익히기</title>
+      <link href="/2021/09/16/shellscript/"/>
+      <url>/2021/09/16/shellscript/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Hacker-Rank로-쉘-스크립트를-배우다"><a href="#Hacker-Rank로-쉘-스크립트를-배우다" class="headerlink" title="Hacker Rank로 쉘 스크립트를 배우다"></a>Hacker Rank로 쉘 스크립트를 배우다</h2><p>알고리즘 연습용 사이트를 찾다가, 영어이긴 하지만 해커랭크에서는 문제를 많이 풀면 배찌? 등급도 나눠준다길래 동기부여에 좋을거 같아 시작했다.</p><p>막상 시작하니 해커랭크에서 알고리즘을 비롯한 SQL, Shell 등 챌린지도 있길래, 마침 쉘스크립팅 능력의 필요성을 느끼고 있어 시작하게 되었다.</p><h2 id="Linux-Shell-with-Hacker-Rank"><a href="#Linux-Shell-with-Hacker-Rank" class="headerlink" title="Linux Shell with Hacker Rank"></a>Linux Shell with Hacker Rank</h2><h3 id="Let’s-Echo"><a href="#Let’s-Echo" class="headerlink" title="Let’s Echo"></a>Let’s Echo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;HELLO&quot;</span></span></span><br></pre></td></tr></table></figure><p>명령어 echo는 출력 명령어이다.</p><h3 id="Looping-and-Skipping"><a href="#Looping-and-Skipping" class="headerlink" title="Looping and Skipping"></a>Looping and Skipping</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for var in &#123;1..99..2&#125;</span><br><span class="line">do</span><br><span class="line">    echo $var</span><br><span class="line">done</span><br></pre></td></tr></table></figure><ul><li>변수를 사용할 때는 변수 앞에 $를 붙여야 인식한다</li></ul><h3 id="A-Personalized-Echo"><a href="#A-Personalized-Echo" class="headerlink" title="A Personalized Echo"></a>A Personalized Echo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">read name</span><br><span class="line">echo Welcome $name</span><br></pre></td></tr></table></figure><ul><li>read는 입력 값을 받는 명령어이다<ul><li>read [var]</li></ul></li></ul><h3 id="The-World-of-Numbers"><a href="#The-World-of-Numbers" class="headerlink" title="The World of Numbers"></a>The World of Numbers</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">read varX</span><br><span class="line">read varY</span><br><span class="line"></span><br><span class="line">echo $(($varX + $varY))</span><br><span class="line">echo $(($varX - $varY))</span><br><span class="line">echo $(($varX * $varY))</span><br><span class="line">echo $(($varX / $varY))</span><br></pre></td></tr></table></figure><ul><li>(var)처럼 변수를 감싸서 변수를 연산을 인식 시킬 수 있다</li><li>expr 명령어나 사칙 연산 값을 변수에 담아서도 풀 수 있다.</li><li><img src="/img/index.jpg" alt="w"></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo 블로그 오류 해결</title>
       <link href="/2021/09/11/fixHexoBlog/"/>
       <url>/2021/09/11/fixHexoBlog/</url>
