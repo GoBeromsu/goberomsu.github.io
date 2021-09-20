@@ -4,11 +4,49 @@
   
     
     <entry>
+      <title>블로그에 Snapscroll 애니메이션 추가하기 -2</title>
+      <link href="/2021/09/20/makesnapscroll-2/"/>
+      <url>/2021/09/20/makesnapscroll-2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="javascript로-도전"><a href="#javascript로-도전" class="headerlink" title="javascript로 도전!"></a>javascript로 도전!</h2><h3 id="태그에-순서를-부여하자"><a href="#태그에-순서를-부여하자" class="headerlink" title="태그에 순서를 부여하자"></a>태그에 순서를 부여하자</h3><p>태그들의 절대 위치와 상대위치를 저장 후 태그 하나당 카운트 하나로 정한다.<br>스크롤 할 경우 순차적으로 태그 위치로 이동하도록 한다</p><ul><li><strong>To Do List</strong><ul><li>어떻게 위치들을 저장할 것인가</li><li>뷰포트 내에 태그가 2개 이상이라면 기능 Off</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>블로그에 Snapscroll 애니메이션 추가하기 -1</title>
+      <link href="/2021/09/20/makeSnapScroll_1/"/>
+      <url>/2021/09/20/makeSnapScroll_1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="사전-조사"><a href="#사전-조사" class="headerlink" title="사전 조사"></a>사전 조사</h2><p>hexo blog의 경우 markdown을 html로 변환하기 때문에 포스트의 내용이 page-content란 이름으로 div 태그 아래에 저장되고 뿌려진다.</p><p>즉 내 블로그 같은 경우 페이지 단위가 아니라 소제목 단위로 애니메이션을 발동 시키면 비슷하게 구현할 수 있을거라 생각한다</p><p>주로 스냅 스크롤은 <a href="https://alvarotrigo.com/fullPage/ko/">fullPage.js</a>나 이번에 CSS 업데이트하면서 추가된 CSS-Snap-Scroll 기능을 이용한다.</p><p>안되면.. 자바스크립트라던가.</p><h2 id="javascript로-도전"><a href="#javascript로-도전" class="headerlink" title="javascript로 도전!"></a>javascript로 도전!</h2><h3 id="뷰포트-기준으로-태그들을-정렬하면-되지-않을까-실패"><a href="#뷰포트-기준으로-태그들을-정렬하면-되지-않을까-실패" class="headerlink" title="뷰포트 기준으로 태그들을 정렬하면 되지 않을까? - 실패"></a>뷰포트 기준으로 태그들을 정렬하면 되지 않을까? - 실패</h3><p>아이디어는 다운스크롤 할 때 현재 View port 내 h2 태그(마크다운에서 ##은 h2 tag로 렌더링 됨)가 있다면 이동하는 것이다</p><ol><li>현재 Viewport 내의 h2 tag를 검색</li><li>top이 0에 가장 가까운 tag 검색(0은 제외)</li></ol><h4 id="실패-원인"><a href="#실패-원인" class="headerlink" title="실패 원인"></a>실패 원인</h4><p>h2 tag의 top이 최소인 걸 골라 이동했더니, 최소였던 값의 위치가 바뀌고 새로운 최솟값이 생기면 또 거기로 이동하고 무한 반복을 해버린다.</p><h4 id="function-설명"><a href="#function-설명" class="headerlink" title="function 설명"></a>function 설명</h4><h5 id="downScroll"><a href="#downScroll" class="headerlink" title="downScroll()"></a>downScroll()</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">downScroll</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (beforePosition &lt; afterPosition) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;Down Scrolling&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;Up scrolling&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>스크롤 위치 값을 비교해서 다운 스크롤 할 때만 true를 반환하는 함수이다</p><h5 id="findMinTag"><a href="#findMinTag" class="headerlink" title="findMinTag()"></a>findMinTag()</h5><p>findMinTag 함수는 0 이 아닌 최솟값을 골라주는 함수이다<br>(top이 0 이면 뷰포트의 최상단에 위치하기 때문이다. 난 태그를 top = 0 에 위치시키고 싶다)</p><p>처음 생각엔 h2 태그들을 노드리스트로 받아오고, 노드 안에는 해당 요소의 여러 정보들이 들어있으니 top 추출하는 과정에서 바로 최솟 값을 골라내면 되지 않을까 생각했다</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> minTag = <span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">for</span> (count = <span class="number">0</span>; count &lt; h2Locations.length; count++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (minTag &gt; h2Locations[count].getBoundingClientRect().top) &#123;</span><br><span class="line">    minTag = h2Locations[count].getBoundingClientRect().top;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;태그의 최솟값 : &quot;</span> + minTag);</span><br><span class="line"><span class="keyword">return</span> minTag;</span><br></pre></td></tr></table></figure><p>위의 코드는 실패했다 값이 음수가 되는 걸 막으려고 넣었던 값이 함수가 호출될 때 마다 초기화 된다. 그래서 차라리 값들을 배열로 빼고 정렬 시켜서 가져가면 되지 않을까해서 다시 작성해보았다</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span> (count = <span class="number">0</span>; count &lt; h2Locations.length; count++) &#123;</span><br><span class="line">  arr[count] = h2Locations[count].getBoundingClientRect().top;</span><br><span class="line">  <span class="keyword">if</span> (arr[count] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    arr[count] = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> minValue = <span class="built_in">Math</span>.min.apply(<span class="literal">null</span>, arr);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;최소 값 : &quot;</span> + minValue);</span><br><span class="line"><span class="keyword">return</span> minValue;</span><br></pre></td></tr></table></figure><p>역시나 방법은 달랐지만 최솟 값을 음수로 받을 때 같은 문제가 발생했다</p><p><strong>알고리즘을 공부해야하는 필요를 느끼고 있다.. 이래서 공부하는구나..</strong></p><p>차라리 음수인 값들을 받지 않게 하고, 모든 태그들이 음수라 값이 없을 때 즉 null이면 실행을 안시키면 되지 않을까 싶었더니, 성공했다</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMinTag</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> minTop = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> tag <span class="keyword">of</span> h2Tags) &#123;</span><br><span class="line">    <span class="keyword">var</span> top = tag.getBoundingClientRect().top;</span><br><span class="line">    <span class="built_in">console</span>.log(top);</span><br><span class="line">    <span class="keyword">if</span> (top &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (minTop == <span class="number">0</span> || minTop &gt; top) &#123;</span><br><span class="line">        minTop = top;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;minTop : &quot;</span> + minTop);</span><br><span class="line">  <span class="keyword">return</span> minTop;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>리눅스 쉘 스크립트 익히기 -2</title>
       <link href="/2021/09/18/shellscript-2/"/>
       <url>/2021/09/18/shellscript-2/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>1<br>1<br>1<br>1</p><p>1<br>1<br>1</p><p>1<br>1<br>1<br>1</p><p>1<br>1</p><p>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1</p><p>1<br>1<br>1<br>1</p><p>1<br>1</p><p>1<br>1<br>1<br>1</p><p>1<br>1</p><p>1</p><p>1</p><p>1<br>1</p><p>1<br>1<br>1</p><p>11<br>1<br>1<br>1<br>1</p><p>1<br>1<br>1</p><p>1<br>1</p><p>1<br>1<br>1<br>1<br>1</p><h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p>1<br>1<br>1<br>1<br>1<br>1<br>1</p><p>11</p><p>1<br>1<br>1<br>1<br>1<br>1</p><p>11</p><p>1<br>1</p><p>11</p><p>1<br>1<br>1<br>1<br>1<br>1</p><p>1<br>1<br>1<br>1<br>1<br>1<br>1</p><p>1<br>1<br>1<br>1<br>1<br>1<br>1</p><p>1<br>1<br>1<br>1</p><p>1<br>1</p><p>1<br>1<br>1<br>1</p><p>1<br>1<br>1<br>1<br>1</p><p>1<br>1<br>1<br>1</p><p>1<br>1</p><p>1<br>1<br>1</p><h2 id="1234"><a href="#1234" class="headerlink" title="1234"></a>1234</h2>]]></content>
       
       
       <categories>
