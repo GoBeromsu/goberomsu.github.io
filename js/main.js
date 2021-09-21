@@ -81,6 +81,33 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   };
 
+  // snap scroll - 범수
+  // h2 태그들의 절대 위치를 다 계산한다 offset top
+  // 현재 뷰 포트 내에 h2 태그가 있다면 이동한다
+  // 태그가 2개 이상일 경우 첫 번째 태그로 이동한다
+  // 뷰포트 내에 h2 태그가 없다면 사용하지 않는다
+  // h2 태그의 상대위치가 뷰포트 1/4 올 경우 발동한다
+  // h2 태그의 상대위치가 100(임의로 잡은 거임)이하일 경우 발동하지 않는다
+  const h2Tags = document.querySelectorAll("h2");
+
+  const bPosition = document.documentElement.scrollTop;
+  const checkDown = function () {
+    const aPosition = document.documentElement.scrollTop;
+    if (bPosition < aPosition) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const snapScroll = function () {
+    if (checkDown) {
+      console.log("Is DownScrolling? : " + checkDown());
+    }
+  };
+
+  window.addEventListener("scroll", snapScroll);
+
   /**
    * 代碼
    * 只適用於Hexo默認的代碼渲染
@@ -1009,25 +1036,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   refreshFn();
   unRefreshFn();
-});
-
-var h2Tags = document.querySelectorAll("h2");
-var bPosition = document.documentElement.scrollTop;
-
-
-window.addEventListener("scroll", function () {
-  var aPosition = document.documentElement.scrollTop;
-
-  function downScroll() {
-    if (bPosition < aPosition) {
-      // console.log("Down Scrolling");
-      return true;
-    } else {
-      // console.log("Up scrolling");
-      return false;
-    }
-  }
-
-  if (downScroll()) {
-  }
 });
