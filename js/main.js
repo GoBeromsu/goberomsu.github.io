@@ -88,9 +88,25 @@ document.addEventListener("DOMContentLoaded", function () {
   // 뷰포트 내에 h2 태그가 없다면 사용하지 않는다
   // h2 태그의 상대위치가 뷰포트 1/4 올 경우 발동한다
   // h2 태그의 상대위치가 100(임의로 잡은 거임)이하일 경우 발동하지 않는다
+  // 포스트일 때만 함수가 실행되게 하자
   const h2Tags = document.querySelectorAll("h2");
-
+  const vh = Math.max(
+    document.documentElement.clientHeight || 0,
+    window.innerHeight || 0
+  );
   const bPosition = document.documentElement.scrollTop;
+  const h2Height = 42;
+
+  const setTagsStorage = function () {
+    let count = 0;
+    for (tag of h2Tags) {
+      count++;
+      sessionStorage.setItem(count, tag.offsetTop - h2Height);
+      console.log(
+        "tag" + count + " : " + sessionStorage.getItem("tag" + count)
+      );
+    }
+  };
   const checkDown = function () {
     const aPosition = document.documentElement.scrollTop;
     if (bPosition < aPosition) {
@@ -99,10 +115,28 @@ document.addEventListener("DOMContentLoaded", function () {
       return false;
     }
   };
+  setTagsStorage();
+
+  const getTag = function (tagNum) {
+    return parseInt(sessionStorage.getItem(tagNum));
+  };
+
+  const scrollAnimation = function (tag) {
+    // 현재 뷰포트의 탑 == 목표 h2 tag 위치
+    let scrollInterval = setInterval(function () {
+      if (window.pageYOffset == tag) {
+        window.scrollBy(0, -50);
+      } else {
+        clearInterval(scrollInterval);
+      }
+    }, 2000);
+  };
 
   const snapScroll = function () {
     if (checkDown) {
       console.log("Is DownScrolling? : " + checkDown());
+      
+      scrollAnimation(getTag(1));
     }
   };
 
