@@ -5,7 +5,7 @@ AfterBlog=D:/goberomsu.github.io/content
 
 for post in $BeforeBlog/*
 do
-    # sed -i '/categories:/,+4 d' $post
+    sed -i '/categories:/d' $post
     # sed -i '/tags:/,+1 d' $post
     # sed -i '/date/d' $post
     # sed -e "2 i\\emoji: 🏃" -i $post
