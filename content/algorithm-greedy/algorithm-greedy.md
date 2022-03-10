@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: algorithm
 title: 알고리즘 그리디 && 구현
 author: 범수
 date: '2022-03-10 18:00:00'

@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: write
 title: 좋은 글을 쓰는 방법 feat 기술 블로그
 author: 범수
 date: '2022-03-10 18:00:00'

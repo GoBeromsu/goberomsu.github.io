@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: algorithm
 title: 백준 2004 조합 0의 개수
 author: 범수
 date: '2022-03-10 18:00:00'

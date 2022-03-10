@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: etc
 title: Hexo Blog 초기 설정하는 방법
 author: 범수
 date: '2022-03-10 18:00:00'

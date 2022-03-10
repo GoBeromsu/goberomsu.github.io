@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: language
 title: python_MakesolvedAcBot
 author: 범수
 date: '2022-03-10 18:00:00'

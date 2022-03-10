@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: sql
 title: 없어진 기록 찾기 - 프로그래머스 SQL 고득점 KIT
 author: 범수
 date: '2022-03-10 18:00:00'

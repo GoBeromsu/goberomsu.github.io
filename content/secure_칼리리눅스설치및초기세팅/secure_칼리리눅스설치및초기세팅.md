@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: secure
 title: "칼리 리눅스 설치 및 초기 세팅"
 author: 범수
 date: '2022-03-10 18:00:00'

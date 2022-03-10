@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: language
 title: 바닐라 자바스크립트로 Snap scroll 구현
 author: 범수
 date: '2022-03-10 18:00:00'

@@ -1,6 +1,6 @@
 ---
 title: 백준 1316 - 그룹 단어 체커
-categories: 블로그
+categories: algorithm
 emoji: 🏃
 author: 범수
 date: '2022-03-10 18:00:00'

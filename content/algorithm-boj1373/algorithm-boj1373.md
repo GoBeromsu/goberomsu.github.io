@@ -1,8 +1,8 @@
 ---
 
+categories: algorithm
 emoji: 🏃
 title: 백준 1373 2진수 8진수
-categories: 블로그
 
 author: 범수
 date: '2022-03-10 18:00:00'

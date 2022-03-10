@@ -16,12 +16,12 @@ do
     # sed -e "5 i\\date: '2022-03-10 18:00:00'" -i $post
     # sed -e "5 i\\author: 범수" -i $post
     postName=${post:31}
-    name='til'
+    name='블로그'
     # echo $postName
     if [[ "${postName}" == *${name}* ]];then
         cd $postName
-        # sed -i '/categories:/d' ${postName}.md
-        sed -e "3 i\\categories: $name" -i ${postName}.md
+        sed -i '/categories:/d' ${postName}.md
+        sed -e "3 i\\categories: etc" -i ${postName}.md
         cd ..
     fi
     # cd $AfterBlog

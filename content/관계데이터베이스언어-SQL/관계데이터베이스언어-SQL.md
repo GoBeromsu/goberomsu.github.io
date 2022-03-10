@@ -1,6 +1,6 @@
 ---
 emoji: 🏃
-categories: 블로그
+categories: etc
 title: 관계 데이터베이스 언어(SQL)(실기)
 author: 범수
 date: '2022-03-10 18:00:00'
