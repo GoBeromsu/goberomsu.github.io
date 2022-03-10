@@ -1,5 +1,4 @@
 ---
-emoji: 🏃
 categories: algorithm
 title: 백준 15654 N과 M (5)
 author: 범수

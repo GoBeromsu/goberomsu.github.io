@@ -1,5 +1,5 @@
 ---
-emoji: 🏃
+
 categories: algorithm
 emoji: 🏃
 author: 범수

@@ -15,7 +15,7 @@ module.exports = {
     bio: {
       role: `엔지니어`,
       description: ['꿈틀거리는', '책임의 의미를 아는'],
-      thumbnail: 'sample.png', // Path to the image in the 'asset' folder
+      thumbnail: 'avatar.JPG', // Path to the image in the 'asset' folder
     },
     social: {
       github: `https://github.com/GoBeromsu`, // `https://github.com/zoomKoding`,
