@@ -1,7 +1,8 @@
 ---
+title: 백준 11047 동전 0
 categories: algorithm
 emoji: 🏃
-author: 범수
+author: 범수D
 date: '2022-03-10 18:00:00'
 tags: 블로그
 ---

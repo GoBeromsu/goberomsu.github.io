@@ -1,7 +1,7 @@
 ---
+title: 백준 1260 DFS와 BFS
 emoji: 🏃
 categories: algorithm
-title: 백준 1260 DFS와 BFS
 author: 범수
 date: '2022-03-10 18:00:00'
 tags: 블로그

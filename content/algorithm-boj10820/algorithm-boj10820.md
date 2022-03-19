@@ -1,16 +1,19 @@
 ---
+title: 백준 10820 문자열 분석
 categories: algorithm
 emoji: 🏃
 author: 범수
 date: '2022-03-10 18:00:00'
 tags: 블로그
 ---
-<!-- 
-튜토리얼, 하우 투 가이드, 설명 ,레퍼런스 
+
+<!--
+튜토리얼, 하우 투 가이드, 설명 ,레퍼런스
 https://documentation.divio.com/tutorials/
 -->
 
 # 백준 10820 문자열 분석
+
 ## 문제
 
 문자열 N개가 주어진다. 이때, 문자열에 포함되어 있는 소문자, 대문자, 숫자, 공백의 개수를 구하는 프로그램을 작성하시오.
@@ -38,7 +41,7 @@ https://documentation.divio.com/tutorials/
 
 ### 핵심 아이디어
 
-* EOF 처리를 어떻게 할 것인가?
+- EOF 처리를 어떻게 할 것인가?
 
 문자열이 얼마나 들어올지 알려주지 않기 때문에 try 문을 이용해 EOF 예외 처리를 했다.
 
@@ -63,7 +66,7 @@ if not s:
 ```python
 
 def fun(s):
-    
+
     small,big,number,space=0,0,0,0
 
     for val in s:

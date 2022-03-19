@@ -1,4 +1,5 @@
 ---
+title: 백준 11724 연결 요소 개수
 categories: algorithm
 emoji: 🏃
 author: 범수

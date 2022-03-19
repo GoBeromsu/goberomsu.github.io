@@ -1,4 +1,5 @@
 ---
+title: 백준 11286 절댓값 힙
 categories: algorithm
 emoji: 🏃
 author: 범수

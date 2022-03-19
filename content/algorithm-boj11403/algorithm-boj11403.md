@@ -1,4 +1,5 @@
 ---
+title: 백준 11403 경로 찾기
 categories: algorithm
 emoji: 🏃
 author: 범수
