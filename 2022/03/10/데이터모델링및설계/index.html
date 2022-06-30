@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>데이터 모델링 및 설계 | Hexo</title><meta name="keywords" content="블로그"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="데이터 모델의 개념데이터 모델의 정의 현실 세계의 정보를 단순화, 추상화 하여 체계적으로 표현한 개념적 모형 데이터, 데이터의 관계, 데이터의 의미 및 일관성, 제약조건 등을 기술하기 위한 개념적 도구들의 모임 Shema 를 논리적으로 묘사하기 위해 사용되는 지능적 도구 DB 설계과정 에서 데이터 구조를 논리적으로 표현하기 위해 사용되는 도구  데이터 모델">
+<meta property="og:type" content="article">
+<meta property="og:title" content="데이터 모델링 및 설계">
+<meta property="og:url" content="https://goberomsu.github.io/2022/03/10/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81%EB%B0%8F%EC%84%A4%EA%B3%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="데이터 모델의 개념데이터 모델의 정의 현실 세계의 정보를 단순화, 추상화 하여 체계적으로 표현한 개념적 모형 데이터, 데이터의 관계, 데이터의 의미 및 일관성, 제약조건 등을 기술하기 위한 개념적 도구들의 모임 Shema 를 논리적으로 묘사하기 위해 사용되는 지능적 도구 DB 설계과정 에서 데이터 구조를 논리적으로 표현하기 위해 사용되는 도구  데이터 모델">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-10T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-30T05:37:48.567Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="블로그">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/avatar.JPG"><link rel="canonical" href="https://goberomsu.github.io/2022/03/10/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81%EB%B0%8F%EC%84%A4%EA%B3%84/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-162786459-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162786459-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '데이터 모델링 및 설계',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-30 14:37:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">데이터 모델링 및 설계</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-30T05:37:48.567Z" title="Updated 2022-06-30 14:37:48">2022-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/etc/">etc</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="데이터 모델링 및 설계"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="데이터-모델의-개념"><a href="#데이터-모델의-개념" class="headerlink" title="데이터 모델의 개념"></a>데이터 모델의 개념</h1><h2 id="데이터-모델의-정의"><a href="#데이터-모델의-정의" class="headerlink" title="데이터 모델의 정의"></a>데이터 모델의 정의</h2><ul>
+<li>현실 세계의 정보를 단순화, 추상화 하여 체계적으로 표현한 개념적 모형</li>
+<li>데이터, 데이터의 관계, 데이터의 의미 및 일관성, 제약조건 등을 기술하기 위한 개념적 도구들의 모임</li>
+<li><strong>Shema</strong> 를 논리적으로 묘사하기 위해 사용되는 지능적 도구</li>
+<li><strong>DB 설계과정</strong> 에서 데이터 구조를 논리적으로 표현하기 위해 사용되는 도구</li>
+</ul>
+<h2 id="데이터-모델의-종류"><a href="#데이터-모델의-종류" class="headerlink" title="데이터 모델의 종류"></a>데이터 모델의 종류</h2><h3 id="개념적-데이터-모델"><a href="#개념적-데이터-모델" class="headerlink" title="개념적 데이터 모델"></a>개념적 데이터 모델</h3><ul>
+<li>현실 세계의 것을 추상적 개념으로 표현하는 과정</li>
+<li><strong>속성</strong> 들로 기술된 개체 타입과 개체 타입들 간의 관계[^1]를 이용하여 현실 세계를 표현</li>
+</ul>
+<p>[^1]: E-R 모델이 그 예시</p>
+<ul>
+<li>정보 모델이라고 하기도 함(인간의 이해를 돕기 위함)</li>
+</ul>
+<h3 id="논리적-데이터-모델"><a href="#논리적-데이터-모델" class="headerlink" title="논리적 데이터 모델"></a>논리적 데이터 모델</h3><ul>
+<li>개념적 구조(개념적 모델링 과정에서 얻음)를 컴퓨터 처리할 수 있도록 변환하는 과정</li>
+<li>특정 DBMS는 특정 논리적 데이터 모델 하나만 선정하여 사용한다.</li>
+<li>단순 데이터 모델하면 논리적 데이터 모델을 의미한다.</li>
+<li><strong>필드</strong> 로 기술된 데이터 타입과 이 데이터 타입들 간의 관계를 이용해 현실세계 표현</li>
+</ul>
+<h2 id="데이터-모델에-표시할-요소-lt-구-연-제-gt"><a href="#데이터-모델에-표시할-요소-lt-구-연-제-gt" class="headerlink" title="데이터 모델에 표시할 요소 &lt;구 연 제!&gt;"></a>데이터 모델에 표시할 요소 &lt;구 연 제!&gt;</h2><h3 id="구조-STRUCTURE"><a href="#구조-STRUCTURE" class="headerlink" title="구조(STRUCTURE)"></a>구조(STRUCTURE)</h3><ul>
+<li>논리적으로 표현된 개체 타입들 간의 관계로 데이터 구조 및 정적 성질 표현</li>
+</ul>
+<h3 id="연산-OPERATION"><a href="#연산-OPERATION" class="headerlink" title="연산(OPERATION)"></a>연산(OPERATION)</h3><ul>
+<li>DB에 저장된 실제 데이터를 처리하는 작업에 대한 명세, DB를 조작하는 기본 도구</li>
+</ul>
+<h3 id="연산조건-CONSTRAINT"><a href="#연산조건-CONSTRAINT" class="headerlink" title="연산조건(CONSTRAINT)"></a>연산조건(CONSTRAINT)</h3><ul>
+<li>DB에 저장될 수 있는 실제 데이터의 논리적인 제약 조건</li>
+</ul>
+<h2 id="데이터-모델의-구성요소"><a href="#데이터-모델의-구성요소" class="headerlink" title="데이터 모델의 구성요소"></a>데이터 모델의 구성요소</h2><h3 id="개체-Entity"><a href="#개체-Entity" class="headerlink" title="개체(Entity)"></a>개체(Entity)</h3><ul>
+<li>DB에 표현하려는 것, 대상체</li>
+<li>속성으로 구성되어 있다</li>
+<li>File system의 레코드에 대응하는 것, 정보 제공하는 역할 수행</li>
+<li>독립적으로 존재하거나 그 자체로 구별 가능</li>
+</ul>
+<h3 id="속성-Attribute"><a href="#속성-Attribute" class="headerlink" title="속성(Attribute)"></a>속성(Attribute)</h3><ul>
+<li>데이터의 가장 작은 논리적 단위</li>
+<li>파일 구조상의 데이터 항목 또는 데이터 필드에 해당</li>
+<li>개체를 구성</li>
+</ul>
+<h3 id="관계-Relationship"><a href="#관계-Relationship" class="headerlink" title="관계(Relationship)"></a>관계(Relationship)</h3><ul>
+<li>개체 간의 관계, 속성 간의 관계</li>
+</ul>
+<h1 id="개체-관계-모델"><a href="#개체-관계-모델" class="headerlink" title="개체 - 관계 모델"></a>개체 - 관계 모델</h1><h2 id="개체-관계-모델의-개요-feat-E-R모델"><a href="#개체-관계-모델의-개요-feat-E-R모델" class="headerlink" title="개체 - 관계 모델의 개요 feat E-R모델"></a>개체 - 관계 모델의 개요 feat E-R모델</h2><ul>
+<li>E-R 모델<ul>
+<li>개념적 데이터 모델의 가장 대표적인 것</li>
+<li>1976년 피터 첸에 의해 제안됨</li>
+</ul>
+</li>
+<li>개체와 개체 간의 관계를 기본 요소로 이용<ul>
+<li>현실 세계의 무질서한 데이터 —&gt; 개념적인 논리 데이터</li>
+</ul>
+</li>
+<li>개체 타입(Entity TYPE)과 이들 간의 관계 타입(Relation TYPE)을 이용해 현실 세계를 개념적으로 표현</li>
+<li>객체 관계 속성으로 묘사</li>
+<li>특정 DBMS를 고려한 것은 아님</li>
+</ul>
+<h1 id="망-네트워크-형-데이터-모델"><a href="#망-네트워크-형-데이터-모델" class="headerlink" title="망(네트워크)형 데이터 모델"></a>망(네트워크)형 데이터 모델</h1><h2 id="망형-데이터-모델-Network-Data-Model-개요"><a href="#망형-데이터-모델-Network-Data-Model-개요" class="headerlink" title="망형 데이터 모델(Network Data Model) 개요"></a>망형 데이터 모델(Network Data Model) 개요</h2><ul>
+<li>CODASYL이 제안</li>
+<li>그래프를 이용해 데이터 논리구조 표현</li>
+<li>상위(Owner)과 하위(member) 레코드 사이에서 다 대 다 대응 관계를 만족하는 구조</li>
+<li><strong>대표적 DBMS</strong> : DBTG, EDBS,TOTAL</li>
+</ul>
+<h2 id="망형-데이터-모델의-표현"><a href="#망형-데이터-모델의-표현" class="headerlink" title="망형 데이터 모델의 표현"></a>망형 데이터 모델의 표현</h2><ul>
+<li>Entity : 동종의 Entity 그룹</li>
+<li>Entity SET : 주종 관계에 있는 Entity군들의 그룹</li>
+<li>SET Membership Type : 일 대 다(1:N) 관계에 연관된 레코드<ul>
+<li>OWNER : 트리 구조의 PARENT</li>
+<li>MEMEBER : 트리 구조의 Children</li>
+</ul>
+</li>
+</ul>
+<h2 id="망형-데이터-모델의-특징"><a href="#망형-데이터-모델의-특징" class="headerlink" title="망형 데이터 모델의 특징"></a>망형 데이터 모델의 특징</h2><ul>
+<li>레코드 타입과 링크들의 집합으로 구성</li>
+<li>레코드 타입의 집합</li>
+<li>레코드 타입들을 연결하는 링크 집합이 존재</li>
+<li>상위 하나의 레코드에 대하여 하위 레코드가 복수 대응 ,그 역도 마찬가지</li>
+<li>링크들로 표현한 관계성에는 제한이 없다</li>
+<li>한 레코드 타입에서 자기 자신으로 가는 링크 없다(재귀 X)</li>
+<li>모든 링크는 함수적이다.</li>
+<li>세트의 이름은 링크로 표현된다.</li>
+<li>owner와 membebr 레코드 타입은 서로 동일한 형태가 불가능</li>
+</ul>
+<h1 id="데이터베이스-설계"><a href="#데이터베이스-설계" class="headerlink" title="데이터베이스 설계"></a>데이터베이스 설계</h1><h2 id="데이터베이스의-설계의-개념-및-고려사항"><a href="#데이터베이스의-설계의-개념-및-고려사항" class="headerlink" title="데이터베이스의 설계의 개념 및 고려사항"></a>데이터베이스의 설계의 개념 및 고려사항</h2><ul>
+<li><p>사용자의 요구 분석 - DB구조에 맞게 변형 - DBMS 통해 DB 구현 느낌임</p>
+</li>
+<li><p>DB 설계순서</p>
+<ul>
+<li>요구 분석 - 개념적 설계 - 논리적 설계 - 물리적 설계 - 구현</li>
+</ul>
+</li>
+<li><p><strong>데이터 베이스 설계시 고려사항</strong></p>
+<ul>
+<li>무결성 : 연산 후에도 저장된 데이터가 제약 조건 항상 만족</li>
+<li>일관성 : 데이터 간, 특정 질의에 대한 응답이 일정</li>
+<li>회복 : 시스템 장애 발생이 ROLL BACK가능</li>
+<li>보안 : 불법적인 데이터 노출,변경,손실로부터 보호가능</li>
+<li>효율성 : 응답시간의 단축, 시스템의 생산성, 저장 공간의 최적화 가능</li>
+<li>데이터베이스 확장 : DB운영에 영향을 주지 않으면서 지속적으로 데이터 추가 가능 해야함</li>
+</ul>
+</li>
+</ul>
+<h2 id="요구-조건-분석"><a href="#요구-조건-분석" class="headerlink" title="요구 조건 분석"></a>요구 조건 분석</h2><ul>
+<li>DB 사용자에 따른 수행 업무와 필요한 데이터의 종류,용도,처리 형태,흐름, 제약 조건 등을 수집한다.</li>
+<li>수집한 정보로 요구 조건 명세 작성</li>
+</ul>
+<h2 id="개념적-설계-정보-모델링-개념화"><a href="#개념적-설계-정보-모델링-개념화" class="headerlink" title="개념적 설계(정보 모델링, 개념화)"></a>개념적 설계(정보 모델링, 개념화)</h2><p>현실 세계에 대한 인식을 추상적 개념으로 표현하는 과정</p>
+<ul>
+<li><strong>개념 스키마 모델링</strong>, <strong>트랜젝션 모델링</strong> 병행</li>
+<li>요구 조건 명세로 DBMS에 E-R 다이어 그램 작성</li>
+<li>DBMS에 독립적인 개념 스키마 설계</li>
+</ul>
+<h2 id="논리적-설계-데이터-모델링"><a href="#논리적-설계-데이터-모델링" class="headerlink" title="논리적 설계(데이터 모델링)"></a>논리적 설계(데이터 모델링)</h2><ul>
+<li>필드로 기술된 데이터 타입과 이 데이터 타입들 간의 관계로 표현되는 논리적 구조의 데이터로 모델화</li>
+<li>개념 스키마 평가 및 정재, DBMS에 따라 서로 다른 논리적 스키마 설계</li>
+<li>트랜잭션의 인터페이스 설계</li>
+<li>관계형 DB라면 테이블을 설계</li>
+</ul>
+<h2 id="물리적-설계-데이터-구조화"><a href="#물리적-설계-데이터-구조화" class="headerlink" title="물리적 설계(데이터 구조화)"></a>물리적 설계(데이터 구조화)</h2><ul>
+<li>데이터 베이스 파일의 저장 구조 및 액세스 경로를 결정한다.</li>
+<li>저장 레코드의 형식, 순서, 접근 경로와 같은 정보를 사용하여 데이터가 컴퓨터에 저장되는 방법 묘사</li>
+<li>필수적 요소 : 저장 레코드의 양식 설계, 레코드 집중의 분석 및 설계, 접근 경로 설계</li>
+<li>기본적인 데이터 단위 &#x3D; 저장 레코드</li>
+<li>저장 레코드의 집합</li>
+<li>DB 시스템 성능에 중대한 영향을 미침</li>
+</ul>
+<h3 id="물리적-설계-옵션-선택시-고려사항"><a href="#물리적-설계-옵션-선택시-고려사항" class="headerlink" title="물리적 설계 옵션 선택시 고려사항"></a>물리적 설계 옵션 선택시 고려사항</h3><ul>
+<li><strong>반응 시간</strong><ul>
+<li>트랜잭션을 수행을 요구한 시점부터 처리 결과를 얻을 때 까지의 경과 시간</li>
+</ul>
+</li>
+<li><strong>공간 활용도</strong><ul>
+<li>데이터베이스 파일과 액세스 경로 구조에 의해 사용되는 저장 공간의 양</li>
+</ul>
+</li>
+<li><strong>트랜잭션 처리량</strong><ul>
+<li>단위 시간 동안 데이터베이스 시스템에의해 처리될 수 있는 트랜잭션의 평균개수</li>
+</ul>
+</li>
+</ul>
+<h2 id="데이터-베이스-구현"><a href="#데이터-베이스-구현" class="headerlink" title="데이터 베이스 구현"></a>데이터 베이스 구현</h2><ul>
+<li>논리적 설계단계와 물리적 설계 단계에서 도출된 데이터베이스 스키마를 파일로 생성하는 단계</li>
+<li>사용하려는 DBMS의 DDL이용하여 Schema 기술 후 컴파일 하여 빈 DB파일 생성</li>
+<li>생성된 DB파일에 데이터 입력</li>
+<li>응용프로그램을 위한 트랜잭션 작성</li>
+<li>데이터베이스 접근을 위한 응용 프로그램 작성</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io/2022/03/10/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81%EB%B0%8F%EC%84%A4%EA%B3%84/">https://goberomsu.github.io/2022/03/10/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81%EB%B0%8F%EC%84%A4%EA%B3%84/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/">블로그</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/10/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%8B%A4%EA%B8%B0/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">데이터베이스(실기)</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/10/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_%ED%95%84%EA%B8%B0/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">DataBase</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">이분 탐색</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1003 피보나치 함수</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1012 유기농 배추</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1074/" title="백준 1074 Z"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1074 Z</div></div></a></div><div><a href="/2022/03/10/algorithm-boj10820/" title="백준 10820 문자열 분석"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 10820 문자열 분석</div></div></a></div><div><a href="/2022/03/10/algorithm-boj11047/" title="백준 11047 동전 0"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 11047 동전 0</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EC%9D%98-%EA%B0%9C%EB%85%90"><span class="toc-number">1.</span> <span class="toc-text">데이터 모델의 개념</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EC%9D%98-%EC%A0%95%EC%9D%98"><span class="toc-number">1.1.</span> <span class="toc-text">데이터 모델의 정의</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EC%9D%98-%EC%A2%85%EB%A5%98"><span class="toc-number">1.2.</span> <span class="toc-text">데이터 모델의 종류</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9C%EB%85%90%EC%A0%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8"><span class="toc-number">1.2.1.</span> <span class="toc-text">개념적 데이터 모델</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%85%BC%EB%A6%AC%EC%A0%81-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8"><span class="toc-number">1.2.2.</span> <span class="toc-text">논리적 데이터 모델</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EC%97%90-%ED%91%9C%EC%8B%9C%ED%95%A0-%EC%9A%94%EC%86%8C-lt-%EA%B5%AC-%EC%97%B0-%EC%A0%9C-gt"><span class="toc-number">1.3.</span> <span class="toc-text">데이터 모델에 표시할 요소 &lt;구 연 제!&gt;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B5%AC%EC%A1%B0-STRUCTURE"><span class="toc-number">1.3.1.</span> <span class="toc-text">구조(STRUCTURE)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B0%EC%82%B0-OPERATION"><span class="toc-number">1.3.2.</span> <span class="toc-text">연산(OPERATION)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B0%EC%82%B0%EC%A1%B0%EA%B1%B4-CONSTRAINT"><span class="toc-number">1.3.3.</span> <span class="toc-text">연산조건(CONSTRAINT)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EC%9D%98-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C"><span class="toc-number">1.4.</span> <span class="toc-text">데이터 모델의 구성요소</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9C%EC%B2%B4-Entity"><span class="toc-number">1.4.1.</span> <span class="toc-text">개체(Entity)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%86%8D%EC%84%B1-Attribute"><span class="toc-number">1.4.2.</span> <span class="toc-text">속성(Attribute)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B4%80%EA%B3%84-Relationship"><span class="toc-number">1.4.3.</span> <span class="toc-text">관계(Relationship)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B0%9C%EC%B2%B4-%EA%B4%80%EA%B3%84-%EB%AA%A8%EB%8D%B8"><span class="toc-number">2.</span> <span class="toc-text">개체 - 관계 모델</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%9C%EC%B2%B4-%EA%B4%80%EA%B3%84-%EB%AA%A8%EB%8D%B8%EC%9D%98-%EA%B0%9C%EC%9A%94-feat-E-R%EB%AA%A8%EB%8D%B8"><span class="toc-number">2.1.</span> <span class="toc-text">개체 - 관계 모델의 개요 feat E-R모델</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%A7%9D-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8"><span class="toc-number">3.</span> <span class="toc-text">망(네트워크)형 데이터 모델</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%A7%9D%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8-Network-Data-Model-%EA%B0%9C%EC%9A%94"><span class="toc-number">3.1.</span> <span class="toc-text">망형 데이터 모델(Network Data Model) 개요</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%A7%9D%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EC%9D%98-%ED%91%9C%ED%98%84"><span class="toc-number">3.2.</span> <span class="toc-text">망형 데이터 모델의 표현</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%A7%9D%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EC%9D%98-%ED%8A%B9%EC%A7%95"><span class="toc-number">3.3.</span> <span class="toc-text">망형 데이터 모델의 특징</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%84%A4%EA%B3%84"><span class="toc-number">4.</span> <span class="toc-text">데이터베이스 설계</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%9D%98-%EC%84%A4%EA%B3%84%EC%9D%98-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD"><span class="toc-number">4.1.</span> <span class="toc-text">데이터베이스의 설계의 개념 및 고려사항</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9A%94%EA%B5%AC-%EC%A1%B0%EA%B1%B4-%EB%B6%84%EC%84%9D"><span class="toc-number">4.2.</span> <span class="toc-text">요구 조건 분석</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%9C%EB%85%90%EC%A0%81-%EC%84%A4%EA%B3%84-%EC%A0%95%EB%B3%B4-%EB%AA%A8%EB%8D%B8%EB%A7%81-%EA%B0%9C%EB%85%90%ED%99%94"><span class="toc-number">4.3.</span> <span class="toc-text">개념적 설계(정보 모델링, 개념화)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%85%BC%EB%A6%AC%EC%A0%81-%EC%84%A4%EA%B3%84-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%AA%A8%EB%8D%B8%EB%A7%81"><span class="toc-number">4.4.</span> <span class="toc-text">논리적 설계(데이터 모델링)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%AC%BC%EB%A6%AC%EC%A0%81-%EC%84%A4%EA%B3%84-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B5%AC%EC%A1%B0%ED%99%94"><span class="toc-number">4.5.</span> <span class="toc-text">물리적 설계(데이터 구조화)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AC%BC%EB%A6%AC%EC%A0%81-%EC%84%A4%EA%B3%84-%EC%98%B5%EC%85%98-%EC%84%A0%ED%83%9D%EC%8B%9C-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD"><span class="toc-number">4.5.1.</span> <span class="toc-text">물리적 설계 옵션 선택시 고려사항</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EA%B5%AC%ED%98%84"><span class="toc-number">4.6.</span> <span class="toc-text">데이터 베이스 구현</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/algorithm-boj9375/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/06/30/algorithm-boj9375/" title="No title">No title</a><time datetime="2022-06-30T06:12:38.049Z" title="Created 2022-06-30 15:12:38">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/hello-world/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/06/30/hello-world/" title="Hello World">Hello World</a><time datetime="2022-06-30T06:00:55.045Z" title="Created 2022-06-30 15:00:55">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="이분 탐색"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색">이분 탐색</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1003 피보나치 함수"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수">백준 1003 피보나치 함수</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1012 유기농 배추"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추">백준 1012 유기농 배추</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

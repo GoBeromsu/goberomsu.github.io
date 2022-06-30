@@ -1,0 +1,684 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>리눅스 마스터 2급 (활용) | Hexo</title><meta name="keywords" content="블로그"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="x-windows 개념 및 사용법X-window의 특징과 구성 요소개념과 특징 리눅스 환경의 각종 애플리케이션과 유틸리티에 대해 그래픽 사용자 인터페이스를 제공한다 플랫폼과 독립적으로 작동하는 그래픽 시스템 x-윈도우sms x11,X, X Windows System이라 한다 네트워크 기반의 그래픽 환경을 지원한다 이기종 시스템 사이에서도 사용 가능하다 스크">
+<meta property="og:type" content="article">
+<meta property="og:title" content="리눅스 마스터 2급 (활용)">
+<meta property="og:url" content="https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%ED%99%9C%EC%9A%A9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="x-windows 개념 및 사용법X-window의 특징과 구성 요소개념과 특징 리눅스 환경의 각종 애플리케이션과 유틸리티에 대해 그래픽 사용자 인터페이스를 제공한다 플랫폼과 독립적으로 작동하는 그래픽 시스템 x-윈도우sms x11,X, X Windows System이라 한다 네트워크 기반의 그래픽 환경을 지원한다 이기종 시스템 사이에서도 사용 가능하다 스크">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-10T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-30T05:37:48.570Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="블로그">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/avatar.JPG"><link rel="canonical" href="https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%ED%99%9C%EC%9A%A9/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-162786459-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162786459-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '리눅스 마스터 2급 (활용)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-30 14:37:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">리눅스 마스터 2급 (활용)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-30T05:37:48.570Z" title="Updated 2022-06-30 14:37:48">2022-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/etc/">etc</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="리눅스 마스터 2급 (활용)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="x-windows-개념-및-사용법"><a href="#x-windows-개념-및-사용법" class="headerlink" title="x-windows 개념 및 사용법"></a>x-windows 개념 및 사용법</h2><h3 id="X-window의-특징과-구성-요소"><a href="#X-window의-특징과-구성-요소" class="headerlink" title="X-window의 특징과 구성 요소"></a>X-window의 특징과 구성 요소</h3><h4 id="개념과-특징"><a href="#개념과-특징" class="headerlink" title="개념과 특징"></a>개념과 특징</h4><ul>
+<li>리눅스 환경의 각종 애플리케이션과 유틸리티에 대해 그래픽 사용자 인터페이스를 제공한다</li>
+<li>플랫폼과 독립적으로 작동하는 그래픽 시스템</li>
+<li>x-윈도우sms x11,X, X Windows System이라 한다</li>
+<li>네트워크 기반의 그래픽 환경을 지원한다</li>
+<li>이기종 시스템 사이에서도 사용 가능하다</li>
+<li>스크롤바, 아이콘, 색상 등 그래픽 환경 자원들이 특정 형태로 정의되어 있지 않다</li>
+<li>디스플레이 장치에 의존적이지 않으며 원하는 인터페이스를 만들 수 윘다.</li>
+<li>x-윈도우는 네트워크 프로토콜 기반의 클라이언트&#x2F;서버 시스템이다</li>
+<li>서버 프로그램과 클라이언트 프로그램으로 나누어 작동한다</li>
+<li>서버는 클라이언트들의 디스플레이에 관한 저근 허용, 클라이언트 간의 자원 공유, 네트워크 메시지 전달, 클라이언트와 입출력 기기와의 중계를 담당</li>
+<li>클라이언트는 애플리케이션으로 X 서버가 제공하는 기능들을 이용한다</li>
+<li>오픈 데스크톱 환경으로 KDE, GNMOE, XFCE 등이 있다</li>
+</ul>
+<h4 id="구성-요소의-종류"><a href="#구성-요소의-종류" class="headerlink" title="구성 요소의 종류"></a>구성 요소의 종류</h4><ul>
+<li>Xprotocol</li>
+<li>Xlib</li>
+<li>XCB</li>
+<li>Xtoolkit</li>
+<li>XFree86</li>
+<li>XF86Config</li>
+</ul>
+<h3 id="x-윈도우-설정과-실행"><a href="#x-윈도우-설정과-실행" class="headerlink" title="x-윈도우 설정과 실행"></a>x-윈도우 설정과 실행</h3><ul>
+<li>파일 &#x2F;etc&#x2F;inittab<ul>
+<li>init 프로세스가 읽는 파일로, init 프로세스가 무엇을 해야 할 것인가를 결정한다</li>
+<li>리눅스 사용 환경을 초기화한다</li>
+</ul>
+</li>
+<li>x-window 실행<ul>
+<li>그래픽 환경이 아닌 터미널 윈도우로 로그인한 경우에는 몇 개의 프로그램을 실행해야한다</li>
+<li>터미널 윈도우의 명령어 프롬프트 상에서 다음 명령어를 실행시켜야한다</li>
+<li>startx는 X-윈도우를 실행하는 스크립트로 시스템 환경을 초기화하고 xinit을 호출한다</li>
+<li>startx 실행 시 인자값을 xinit에 전달하는 옵션은 ‘–’ 이다.</li>
+</ul>
+</li>
+<li>환경 변수 DISPLAY<ul>
+<li>환경 변수는 프로세스가 컴퓨터에 동작하는 방식에 영향을 주는 동적인 값이다</li>
+<li>쉘에서 정의 되고 실행하는 동안 프로그램에 필요한 변수이다</li>
+<li>환경 변수 DISAPLY는 현재 X-윈도우 Display 위치를 지정할 수 있다.</li>
+<li>형식 : export DISPLAY&#x3D;IP 주소: 디스플레이 번호. 스크린 번호</li>
+</ul>
+</li>
+</ul>
+<h3 id="윈도우-매니저와-데스크톱-환경"><a href="#윈도우-매니저와-데스크톱-환경" class="headerlink" title="윈도우 매니저와 데스크톱 환경"></a>윈도우 매니저와 데스크톱 환경</h3><h4 id="윈도우-매니저"><a href="#윈도우-매니저" class="headerlink" title="윈도우 매니저"></a>윈도우 매니저</h4><ul>
+<li>윈도우 매니저는 X-windows 상에서 창의 배치와 표현을 담당하는 시스템 프로그램이다</li>
+<li>창 열기와 닫기, 창의 생성 위치, 창 크기 조정, 창의 외양과 테두리를 변화시킬 수 있다.</li>
+<li>라이브러리는 Xlib와 XCB를 사용한다</li>
+<li>윈도우 매니저의 대표적인 종류로는 fvwm, twm, mw, windowsMaker, AfterStep 등이 있다.</li>
+</ul>
+<h4 id="데스크톱-환경"><a href="#데스크톱-환경" class="headerlink" title="데스크톱 환경"></a>데스크톱 환경</h4><ul>
+<li>gui 사용자에게 제공하는 인터페이스 스타일로 데스크톱 관리자라고도 한다</li>
+<li>윈도우 매니저, 파일 관리자, 도움말 제어판 등 다양한 도구를 제고앟는 패키지 형태의 프로그램이다</li>
+<li>아이콘, 창, 도구모음, 폴더, 배경화면, 데스크톱 위젯도 제공한다</li>
+<li>드로그 앤 드롭과 프로세스 간의 통보 기능을 지원한다</li>
+<li>대표적인 데스크톱 환경에는 KDE, GNOME, LXDE, Xfce 등이 있다.</li>
+</ul>
+<h4 id="디스플레이-매니저"><a href="#디스플레이-매니저" class="headerlink" title="디스플레이 매니저"></a>디스플레이 매니저</h4><ul>
+<li>X window system 상에서 작동하는 프로그램이다</li>
+<li>디스플레이 매니저 종류들로는 XDM, GDM, KDM 등이 있다.</li>
+<li>로컬 또는 리모트 컴퓨터의 X server의 접속과 세션 시작을 담당한다</li>
+<li>사용자에게 그래픽 로그인 화면을 띄워주고 아이디와 패스워드를 입력받아 인증을 진행하고 인증이 정상적으로 완료되면 세션을 시작한다</li>
+</ul>
+<h2 id="X-윈도우-활용"><a href="#X-윈도우-활용" class="headerlink" title="X-윈도우 활용"></a>X-윈도우 활용</h2><h3 id="원격지에서-X-클라이언트-이용"><a href="#원격지에서-X-클라이언트-이용" class="headerlink" title="원격지에서 X 클라이언트 이용"></a>원격지에서 X 클라이언트 이용</h3><ul>
+<li>xhost<ul>
+<li>명령어 xhost는 X 서버에 접속 할 수 있는 클라이언트를 지정하거나 해제</li>
+<li>X 서버에게 디스플레이를 요청 시 해당 요청에 대해 허용 여부를 호스트 단위로 제어한다</li>
+<li>xhost [+ - ][ip | 도메인 명]</li>
+<li>환경 변수 DISPLAY로 X 서버 프로그램이 실행될 때 표시되는 클라이언트 주소를 지정한다</li>
+</ul>
+</li>
+<li>xauth<ul>
+<li>.Xauthority 파일의 쿠키 내용을 추가, 삭제, 리스트를 출력하는 유틸리티</li>
+<li>xhost가 호스트 기반 인증 방식을 사용하기 위해 필요한 유틸리티라면 xauth는 MMC 방식의 인증 방식을 사용하기 위한 필수 유틸리티이다</li>
+<li>원격지에서 저속하는 X클라이언트를 허가할 때 IP 주소나 호스트명이 아닌 X-윈도우 실행 시에 생성되는 키 값으로 인증할 때 사용한다</li>
+<li>사용자 인증 기반을 지원하기 위해 각 사용자에게 네트워크화 된 홈 디렉터리에 파일 $HOME&#x2F;.Xauthority에 대해 읽기 및 쓰기 권한이 있어야한다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="X-윈도우-응용-프로그램"><a href="#X-윈도우-응용-프로그램" class="headerlink" title="X-윈도우 응용 프로그램"></a>X-윈도우 응용 프로그램</h3><h4 id="오피스"><a href="#오피스" class="headerlink" title="오피스"></a>오피스</h4><ul>
+<li>libreoffice<ul>
+<li>오피스 프로그램 패키지</li>
+</ul>
+</li>
+<li>gedit<ul>
+<li>텍스트 편집 프로그램</li>
+</ul>
+</li>
+<li>kwrite<ul>
+<li>KDE 기반의 텍스트 편집기</li>
+</ul>
+</li>
+</ul>
+<h4 id="그래픽"><a href="#그래픽" class="headerlink" title="그래픽"></a>그래픽</h4><ul>
+<li>GIMP<ul>
+<li>이미지 편집 프로그램</li>
+</ul>
+</li>
+<li>ImageMagick<ul>
+<li>이미지 생성 및 편집을 지원하는 프로그램</li>
+</ul>
+</li>
+<li>eog<ul>
+<li>GNOM의 이미지 뷰어 프로그램</li>
+</ul>
+</li>
+<li>kolourpaint<ul>
+<li>ubuntu 이미지 편집 프로그램</li>
+</ul>
+</li>
+<li>gThumb<ul>
+<li>GNOME 데스크톱 이미지 뷰어 프로그램</li>
+</ul>
+</li>
+<li>gwenview<ul>
+<li>KDE의 기본 이미지 뷰어</li>
+</ul>
+</li>
+</ul>
+<h4 id="멀티미디어"><a href="#멀티미디어" class="headerlink" title="멀티미디어"></a>멀티미디어</h4><ul>
+<li>Totem<ul>
+<li>GNOM 기반의 사운드 및 비디오 재생 프로그램</li>
+</ul>
+</li>
+<li>RYTHMBOX<ul>
+<li>통합형 음악 관리 프로그램</li>
+</ul>
+</li>
+<li>CHEESE<ul>
+<li>GNOME 기반의 카메라 동영상 프로그램</li>
+</ul>
+</li>
+</ul>
+<h4 id="개발"><a href="#개발" class="headerlink" title="개발"></a>개발</h4><ul>
+<li>Eclipse<ul>
+<li>통합 개발환경으로 자바를 비롯한 다양한 언어를 지원</li>
+</ul>
+</li>
+</ul>
+<h4 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h4><ul>
+<li>Dolphine<ul>
+<li>KDE용 파일 관리자</li>
+</ul>
+</li>
+<li>KSnapshot<ul>
+<li>스크린샷 프로그램</li>
+</ul>
+</li>
+</ul>
+<h2 id="인터넷-활용"><a href="#인터넷-활용" class="headerlink" title="인터넷 활용"></a>인터넷 활용</h2><h3 id="네트워크-분류"><a href="#네트워크-분류" class="headerlink" title="네트워크 분류"></a>네트워크 분류</h3><ul>
+<li>lan(local area network)<ul>
+<li>근거리 통신망을 연결하는 네트워크</li>
+<li>학교나 회사 등 가까운 지역을 묶는 소규모 네트워크</li>
+</ul>
+</li>
+<li>man(metropolice area network)<ul>
+<li>도시권 통신망을 연결하는 네트워크</li>
+<li>LAN과 WAN의 중간크기이다</li>
+</ul>
+</li>
+<li>wan(wide area network)<ul>
+<li>국가, 대륙 등과 같이 넓은 지역을 연결하는 프로그램</li>
+<li>거리의 제한은 없으나 다양한 경로를 경유해 도달하므로 속도가 느리고 전송 에러율도 높다</li>
+</ul>
+</li>
+<li>san(storage area network)<ul>
+<li>스토리지를 위해 고안된 스토리지 전용 고속 네트워크</li>
+<li>파이버 채널을 이용하여 구성되는 저장장치 네트워크</li>
+<li>호스트 컴퓨터의 종류에 구애받지 않고 별도의 연결된 저장장치 사이에 대용량의 데이터를 전송시킬 수 있는 고속 네트워크</li>
+<li>서버가 클라이언트로부터 받은 파일 I&#x2F;O 요청을 직접 블록 I&#x2F;O로 전환하여 SAN에 연결된 스토리지로 저장한다</li>
+</ul>
+</li>
+</ul>
+<h3 id="네트워크의-개요"><a href="#네트워크의-개요" class="headerlink" title="네트워크의 개요"></a>네트워크의 개요</h3><ul>
+<li><p>LAN 토폴로지</p>
+<ul>
+<li>토폴로지는 호스트 및 장비들의 물리적인 배치 형태이다</li>
+<li>토폴로지는 성형 망형 버스형 링형 트리형 등이 있다</li>
+</ul>
+</li>
+<li><p>성형</p>
+<ul>
+<li>중앙 컴퓨터에 여러 대의 컴퓨터가 허브 또는 스위치와 같은 장비로 연결</li>
+<li>중앙 집중식 형태로 네트워크 확장에 용이</li>
+<li>고속의 대규모 네트워크에 적합</li>
+<li>관리하는 중앙 컴퓨터 고장시 전체 네트워크 사용 불가능</li>
+</ul>
+</li>
+<li><p>망형</p>
+<ul>
+<li>모든 노드가 서로 일대일로 연결된 형태</li>
+<li>대량의 데이터를 송수신할 경우 적합</li>
+<li>장애 발생 시 다른 시스템에 영향이 적고 우회할 수 있는 경로가 존재하여 가장 신뢰성이 높은 방식</li>
+<li>회선 구축 비용이 많이 듬</li>
+</ul>
+</li>
+<li><p>버스형</p>
+<ul>
+<li>하나의 통신회선에 여러 컴퓨터를 연결해서 전송</li>
+<li>연결된 컴퓨터 수에 따라 네트워크 성능이 변동</li>
+<li>단말기 추가 및 제거가 용이하며 설치 비용이 저렴</li>
+<li>노드 수 증가시 트래픽 증가로 병목현상 발생, 네트워크 성능 저하 초래</li>
+<li>문제가 발생한 노드의 위치를 파악하기 어려움</li>
+</ul>
+</li>
+<li><p>링형</p>
+<ul>
+<li>각 노드가 좌우의 인접한 노드와 연결되어 원형을 이룬 형태</li>
+<li>앞의 컴퓨터로부터 수신한 내용을 다음 컴퓨터로 재전송하는 방법</li>
+<li>토큰 패싱이라는 방법을 통해 데이터 전송</li>
+<li>고속 네트워크로 자주 네트워크 환경이 바뀌지 안하느 ㄴ경우 구성</li>
+<li>분산제어와 검사 및 회복이 가능</li>
+<li>네트워크 전송상의 충돌이 없고 노드 숫자가 증가하더라도 망 성능의 저하가 저음</li>
+<li>논리적인 순환형 토폴로지로 하나의 노드 장애가 전체 토폴로지에 여향</li>
+<li>노드의 추가 및 삭제가 용이하지 않음</li>
+</ul>
+</li>
+<li><p>트리형</p>
+<ul>
+<li>버스형과 성형 토폴로지의 확장 형태</li>
+<li>백본과 같은 공통 배선에 적절한 분기장치를 사용하여 링크를 덧붙여 나갈 수 있는 구조</li>
+<li>트래픽 양 증가 시 병목 현상의 가능성 증대</li>
+</ul>
+</li>
+<li><p>매체 접근 제어 방식</p>
+<ul>
+<li>CSMA&#x2F;CD<ul>
+<li>단말기가 전송로의 신호 유무를 조사하고 다른 단말기가 신호를 송출하는지 확인</li>
+</ul>
+</li>
+<li>토큰 패싱<ul>
+<li>토큰의 흐름에 의해 전송 순서가 결정된다</li>
+<li>토큰 패싱은 free token과 busy token을 이용하여 매체 접근을 제어한다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="네트워크-장비"><a href="#네트워크-장비" class="headerlink" title="네트워크 장비"></a>네트워크 장비</h2><ul>
+<li>케이블<ul>
+<li>보호 외피나 외장 안에 두 개 이상의 전선이나 광섬유로 묶여 있는 것</li>
+<li>TP 케이블, 동축 케이블, 광섬유 케이블 등을 사용할 수 있다.</li>
+</ul>
+</li>
+<li>리피터<ul>
+<li>신호의 재생 및 증폭기능을 수행하여 물리적인 거리를 확장 시킴</li>
+</ul>
+</li>
+<li>허브<ul>
+<li>신호를 노드에 전달해주는 장비이다</li>
+<li>네트워크 확장, 다른 허브와의 상호 연결, 신호의 증폭 등의 기능을 제공한다</li>
+</ul>
+</li>
+<li>LAN 카드<ul>
+<li>네트워크에 접속할 수 있도록 컴퓨터 내에 설치되는 확장 카드이다</li>
+<li>전기신호로부터 데이터를 송신하고 변환하며, 데이터를 전기신호로 변환하여 송신한다</li>
+<li>MAC 주소를 이용하여 데이터의 수신 여부를 판별한다</li>
+</ul>
+</li>
+<li>브릿지<ul>
+<li>모든 수신 프레임을 일단 버퍼에 저장하고, 주소에 따라 목적지 포트로 프레임을 전달하는 장비이다</li>
+<li>큰 네트워크를 단일 네트워크 상의 트래픽 감소 등과 같은 작고 관리하기 쉬운 Segment로 나눌 필요가 있을 때 사용한다</li>
+<li>전기적으로 신호의 재생 및 패킷의 송수신 어드레스를 분석하여 패킷의 통과 여부를 판정하는 필터링을 작용한다</li>
+</ul>
+</li>
+<li>스위치<ul>
+<li>브릿지와 비슷한 기능을 갖는 장비이다</li>
+<li>소프트웨엉 기반인 처리 방식으로 브릿지보다 빠르게 데이터를 전송한다</li>
+<li>맥 주소 테이블을 기반으로 프레임 전송</li>
+</ul>
+</li>
+<li>라우터<ul>
+<li>OSI 모델의 물리 계층, 데이터 링크 계층, 네트워크 계층의 기능을 지원하는 장치이다</li>
+<li>서로 다른 통신망과 프로토콜을 사용하는 네트워크 간의 통신을 가능하게 한다</li>
+<li>LAN을 연결시켜주는 망 연동 장치로서 통신망에서 정보를 전송하기 위해 경로를 설정하는 역할을 제공하는 핵심적인 통신장비이다</li>
+<li>목적지로 향하는 최적의 경로 설정 데이터를 목적지까지 전달하는 기능을 수행한다</li>
+</ul>
+</li>
+<li>게이트 웨이<ul>
+<li>서로 다른 형태의 네트워크를 상호 접속하는 장치이다</li>
+<li>서로 다른 통신망이나 프로토콜을 사용하는 네트워크 간의 통신을 가능하게 하는 장비를 통칭한다</li>
+<li>데이터 포맷 등 두 개의 시스템 사이에서 중계자 역할을 수행한다</li>
+</ul>
+</li>
+<li>UTP 케이블링<ul>
+<li>다이렉트 케이블</li>
+<li>크로스오버 케이블</li>
+</ul>
+</li>
+</ul>
+<h2 id="프로토콜-개요와-기능"><a href="#프로토콜-개요와-기능" class="headerlink" title="프로토콜 개요와 기능"></a>프로토콜 개요와 기능</h2><h3 id="OSI7-모델과-TCP-x2F-IP-모델"><a href="#OSI7-모델과-TCP-x2F-IP-모델" class="headerlink" title="OSI7 모델과 TCP&#x2F;IP 모델"></a>OSI7 모델과 TCP&#x2F;IP 모델</h3><table>
+<thead>
+<tr>
+<th>OSI7 모델</th>
+<th>기능</th>
+<th>TCP&#x2F;IP 모델</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7. 응용 계층</td>
+<td>사용자에게 다양한ㅇ 네트워크 서비스를 제공하기 위해 User Interface를 제공, UI로 데이터를 생성</td>
+<td>응용계층</td>
+</tr>
+<tr>
+<td>6. 표현 계층</td>
+<td>부호화, 압축, 암호화 기능</td>
+<td>응용계층</td>
+</tr>
+<tr>
+<td>5. 세션 계층</td>
+<td>종단 간 애플리케이션들의 연결 설정, 유지, 해제</td>
+<td>응용계층</td>
+</tr>
+<tr>
+<td>4. 전송 계층</td>
+<td>종단 간 연결, 응용 계층 사이에 논리적인 통로 제공</td>
+<td>전송 계층</td>
+</tr>
+<tr>
+<td>3. 네트워크 계층</td>
+<td>논리적인 주소를 사용, 경로 관리, 최적 경로 설정</td>
+<td>인터넷층</td>
+</tr>
+<tr>
+<td>2. 데이터 링크 계층</td>
+<td>데이터 전송을 위한 형식 결정, 데이터 전송을 위하여 Media에 접근하는 방법 제공, 오류 검출 기능 제공</td>
+<td>네트워크 인터페이스 층</td>
+</tr>
+<tr>
+<td>1. 물리 계층</td>
+<td>물리적인 연결, 전기적, 기계적, 기능적 절차적인 수단제공</td>
+<td>네트워크 인터페이스 층</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="계층-별-프로토콜"><a href="#계층-별-프로토콜" class="headerlink" title="계층 별 프로토콜"></a>계층 별 프로토콜</h3><ul>
+<li>프로토콜은 특정 통신 기능을 수행하기 위한 규약이다<ul>
+<li>이것은 두 노드 사이의 정보 교환시 발생하는 통신상의 에러를 피하기 위하여 합리적인 통제를 한다</li>
+</ul>
+</li>
+<li>프로토콜 구성요소는 형식, 의미, 순서이다<ul>
+<li>형식 : 데이터 포맷, 부호화 및 신호 레벨 등</li>
+<li>의미 : 특정 패턴을 어떻게 해석하고, 어떤 동작을 할 것인가 결정</li>
+<li>순서 : 속도 일치 및 순서 제어등</li>
+</ul>
+</li>
+<li>인터넷&#x2F;네트워크 계층 프로토콜<ul>
+<li>IP,ICMP,IGMP,ARPRARP</li>
+</ul>
+</li>
+<li>전송 계층 프로토콜<ul>
+<li>TCP,UDP</li>
+</ul>
+</li>
+<li>응용 계층 프로토콜<ul>
+<li>SMTP, POP , Telnet, SSH, FTP,HTTP, SNMP, TFTP, DHCP</li>
+</ul>
+</li>
+</ul>
+<h3 id="IP-주소와-도메인"><a href="#IP-주소와-도메인" class="headerlink" title="IP 주소와 도메인"></a>IP 주소와 도메인</h3><ul>
+<li>IPv4 주소 체계<ul>
+<li>4 개의 옥텟으로 구성된다</li>
+<li>각 옥탯은 8비트이므로 IPv4는 총 32비트이다</li>
+<li>클래스 E는 240~255 사이의 대역에 있으며 IP 주소 부족을 위해 예약해 놓은 것이다</li>
+<li>IP 주소는 네트워크 ID와 호스트 ID로 구성되어 있다.</li>
+<li>서브넷 마스크는 네트워크 부분과 호스트 부분을 구분해주는 값이다<ul>
+<li>이것은 효율적인 네트워크 분리를 가능하게 한다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>서브넷팅<ul>
+<li>서브넷은 특정 네트워크를 여러 개의 네트워크, 브로드캐스트 도메인을 나누는 것이다</li>
+<li>IP주소의 부족 현상을 해소하기 위한 방안이다</li>
+<li>서브넷팅은 디폴트 서브넷 마스크를 기준으로 해서 네트워크 ID 비트 수를 늘리고 호스트 ID 비트 수를 줄이는 것이다. 이 때 기준에서 늘어난 네트워크 ID 비트는 서브넷 ID라 부른다</li>
+</ul>
+</li>
+<li>IPv6<br><img src="https://user-images.githubusercontent.com/37897508/81026050-c2fef380-8eb3-11ea-9f0a-1903c6ea8d60.png" alt="IPv6"></li>
+</ul>
+<h2 id="인터넷-서비스의-종류"><a href="#인터넷-서비스의-종류" class="headerlink" title="인터넷 서비스의 종류"></a>인터넷 서비스의 종류</h2><h3 id="WWW-서비스"><a href="#WWW-서비스" class="headerlink" title="WWW 서비스"></a>WWW 서비스</h3><ul>
+<li>프로토콜 HTTP를 기반으로 한 멀티미디어와 하이퍼텍스트를 통한한 정보 검색 시스템이다</li>
+<li>다양한 그래픽 유저 인터페이스를 사용하는 것이 가능하다</li>
+<li>WWW 서비스는 분산 클라이언트 - 서버 모델을 기반으로 한다</li>
+<li>표준 웹 프로토콜(HTTP,XML,SOAP,WSDL,UDDI)를 기본으로 하여 서로 다른 개발 환경과 운영 체제에서도 상호 통신이 가능하다</li>
+</ul>
+<h3 id="메일-서비스"><a href="#메일-서비스" class="headerlink" title="메일 서비스"></a>메일 서비스</h3><ul>
+<li>전자 메일 시스템은 컴퓨터 사용자끼리 편지를 주고받는 서비스이며 MTA,MUA,MDA로 구성된다</li>
+<li>메일 클라이언트에 송신은 SMTP, 수신은 POP3 또는 IMAP4를 이용한다</li>
+<li>메일을 보내거나 메일 서버 간의 메시지 교환은 SMTP 프로토콜을 사용하고, 메일 서버에 도착한 메일을 컴퓨터에서 확인할 때에는 POP3와 IMAP을 사용한다</li>
+<li>MIME은 멀티미디어 전자우편을 위한 표준으로 멀티미디어 데이터를 ASCII 형식으로 변환할 필요 없이 인터넷 전자 우편으로 송신하기 위한 SMTP의 확장 규격이다</li>
+</ul>
+<h3 id="FTP-서비스"><a href="#FTP-서비스" class="headerlink" title="FTP 서비스"></a>FTP 서비스</h3><ul>
+<li>FTP(File Transafer Protocal)은 TCP&#x2F;IP에 의해 제공되는 호스트 간의 파일 복사를 위한 프로토콜이다</li>
+<li>FTP의 통신 모드는 패시브 모드와 액티브 모드로 구분한다</li>
+<li>FTP는 20번(일반 데이터 전송용)과 21번(제어 데이터 전송용) 포트 번호를 사용한다</li>
+</ul>
+<h3 id="DNS-Domain-Name-System-tjqltm"><a href="#DNS-Domain-Name-System-tjqltm" class="headerlink" title="DNS(Domain Name System) tjqltm"></a>DNS(Domain Name System) tjqltm</h3><ul>
+<li>호스트 이름을 기반으로 IP 주소를 변환하거나 IP주소를 기반으로 호스트 이름을 변환시켜 주는 프로토콜이다</li>
+<li>DNS에서는 도메인 명을 분산된 트리 형태의 계층적 구조로 관리한다</li>
+</ul>
+<h3 id="Telnet과-SSH-서비스"><a href="#Telnet과-SSH-서비스" class="headerlink" title="Telnet과 SSH 서비스"></a>Telnet과 SSH 서비스</h3><ul>
+<li>네트워크 상에 있는 다른 컴퓨터에 로그인하거나 원격 시스템에서 명령 실행 파일 복사 등을 제공하는 서비스이다</li>
+<li>Telnet과 ssh는 사용자가 서버에 접속하여 서버 관리, 파일 편집 등을 text 모드 환경에서 시스템 명령을 실행하고 결과를 화면을 통해 볼 수 있다.</li>
+<li>Telnet은 서버와 주고받는 정보를 byte 스트림 형식으로 전송하고 , ssh는 DES, RSA 등의 암호화 기법을 사용해서 전송한다 따라서 Telnet 보다 ssh가 안전한 데이터 전송을 보장한다</li>
+<li>ssh는 암호화 뿐만 아니라 압축 기술도 제공한다. 암호화를 통해서 늘어난 데이터의 크기를 압축하여 사용자와 서버가송수신하는 것을 가능하게 한다</li>
+</ul>
+<h3 id="NFS-Network-File-System"><a href="#NFS-Network-File-System" class="headerlink" title="NFS(Network File System)"></a>NFS(Network File System)</h3><ul>
+<li>네트워크 기반에 다른 시스템과 파일 시스템을 공유하기 위한 클라이언트&#x2F; 서버 프로그램이다</li>
+<li>1984년 썬 마이크로 시스템즈 사에서 개발하였다.</li>
+<li>원격지에 있는 리눅스 서버의 특정 디렉터리를 로컬 시스템의 하위 디렉터리처럼 사용할 수 있다.</li>
+<li>NFS는 portmap이 먼저 수행되어 있어야만 NFS 서비스가 실행된다.<ul>
+<li>portmap은 NIS,NFS 등 RPC(remote procedure call) 연결에 관여하는 데몬이다</li>
+</ul>
+</li>
+<li>NFS서비스는 nfsd,rpc.mounted.rpc,statd,rpc.rockd,rpc.rquotad 데몬들이 구동된다</li>
+</ul>
+<h3 id="RPC-Remote-Procedure-Call"><a href="#RPC-Remote-Procedure-Call" class="headerlink" title="RPC(Remote Procedure Call)"></a>RPC(Remote Procedure Call)</h3><ul>
+<li>동적으로 서비스와 포트를 연결할 때 사용하는 방법이다</li>
+<li>기본적으로 포트와 서비스가 정적으로 구성 될 때는 &#x2F;etc&#x2F;services 파일을 참조하지만 동적으로 할당받아 사용할 때는 RPC인 rpcbind를 이용한다</li>
+</ul>
+<h2 id="인터넷-서비스-설정"><a href="#인터넷-서비스-설정" class="headerlink" title="인터넷 서비스 설정"></a>인터넷 서비스 설정</h2><h3 id="네트워크-인터페이스-설정"><a href="#네트워크-인터페이스-설정" class="headerlink" title="네트워크 인터페이스 설정"></a>네트워크 인터페이스 설정</h3><ul>
+<li>리눅스는 다양한 네트워크를 지원한다</li>
+<li>일반적으로 네트워크 인터페이스는 자동으로 인식되지만 자동으로 인식되지 않을 경우 수동으로 설정해야 한다</li>
+<li>네트워크 인터페이스 수동 설정 방법은 컴파일된 인터페이스 모듈을 커널에 적재하는 것이다</li>
+</ul>
+<h3 id="네트워크-설정-파일들"><a href="#네트워크-설정-파일들" class="headerlink" title="네트워크 설정 파일들"></a>네트워크 설정 파일들</h3><ul>
+<li>&#x2F;etc&#x2F;sysconfig&#x2F;network : 네트워크의 기본 정보가 설정되어 있는 파일</li>
+<li>&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ethX : 지정된 네트워크 인터페이스의 네트워크 환경 설정 정보가 저장된다</li>
+<li>&#x2F;etc&#x2F;resolv.conf : 기본적으로 사용할 도메인 명과 네임 서버를 설정한다</li>
+<li>&#x2F;etc&#x2F;hosts : IP 주소와 도메인 주소를 1:1로 등록하여 도메인에 대한 IP 주소를 조회하도록 한다</li>
+<li>&#x2F;etc&#x2F;host.conf : DNS 서비스를 제공할 때 먼저 이 파일을 검사하여 파일의 설정에 따라 서비스 한다</li>
+</ul>
+<h3 id="네트워크-설정"><a href="#네트워크-설정" class="headerlink" title="네트워크 설정"></a>네트워크 설정</h3><ul>
+<li>IP 주소 설정<ul>
+<li>네트워크 설정 파일로 주소 설정<ul>
+<li>&#x2F;etc&#x2F;sysconfig&#x2F;network 또는 &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ethX로 IP 주소를 설정한다</li>
+</ul>
+</li>
+<li>명령어를 이용한 주소 설정<ul>
+<li>ifconfig를 이용하여 IP 주소를 할당한다</li>
+</ul>
+</li>
+<li>유틸리티를 이용한 주소 설정<ul>
+<li>netconfig, system-config-network, redhat-config-network 등의 다양한 유틸리티를 이용하여 주소를 설정</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>라우팅 테이블 설정 및 관리<ul>
+<li>라우팅이란 송신 패킷이 목적지까지 전송할 수 있도록 경로를 설정하는 작업이다</li>
+<li>송신 패킷은 라우팅 테이블에 목적지 경로 정보가 있다면 해당 경로로 패킷을 전송한다</li>
+<li>명령어 route는 라우팅 테이블을 설정하거나 확인한다</li>
+<li>목적지 경로가 라우팅 테이블에 없다면 디폴트 게이트웨이로 트래픽을 전송할 수 있게 라우팅 테이블을 설정할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="네트워크-관련-명령어"><a href="#네트워크-관련-명령어" class="headerlink" title="네트워크 관련 명령어"></a>네트워크 관련 명령어</h3><ul>
+<li>TCP&#x2F;IP 주소 설정 정보 확인 : ifconfig, nslookup</li>
+<li>네트워크 경로 상태 확인 : ping, traceroute</li>
+<li>네트워크 연결 상태 확인 : netstat</li>
+<li>라우팅 테이블 확인 : route</li>
+<li>NIC 상태 확인 : ethtool, mii-tool, arp</li>
+</ul>
+<h2 id="기술-동향"><a href="#기술-동향" class="headerlink" title="기술 동향"></a>기술 동향</h2><h3 id="리눅스-동향"><a href="#리눅스-동향" class="headerlink" title="리눅스 동향"></a>리눅스 동향</h3><p>초기 리눅스는 주로 서버로 이용되었지만 현재는 크게 서버, 데스크톱 및 개발, 임베디드 분야로 나눌 수 있다.</p>
+<h3 id="리눅스-관련-기술"><a href="#리눅스-관련-기술" class="headerlink" title="리눅스 관련 기술"></a>리눅스 관련 기술</h3><ul>
+<li>클러스터링<ul>
+<li>여러 개의 시스템이 하나의 거대한 시스템으로 보이게 만드는 기술이다</li>
+<li>여러 개의 컴퓨터를 네트워크를 통해 연결하여 하나의 컴퓨터처럼 동작하도록 제작한 시스템</li>
+<li>클러스터 노드와 클러스터 관리자로 구성된다</li>
+<li>고계산용 클러스터, 부하분산 클러스터, 고가용성 클러스터 등이 있다.</li>
+</ul>
+</li>
+<li>임베디드 시스템<ul>
+<li>컴퓨터의 하드웨어 제어인 프로세스, 메모리 입출력장치와 하드웨어를 제어하는 소프트웨어가 조합되어 특정한 목적을 수행하는 시스템</li>
+<li>미리 정해진 특정한 기능을 수행하도록 프로그램이 내장되어 있는 시스템이다</li>
+<li>하드웨어와 소프트웨어를 포함하는 특정한 응용시스템이다</li>
+<li>개인 휴대 정보 단말, 지리 정보 시스템, 정보 가전, 게임 기기 등의 시스템을 통칭한다</li>
+<li>하드웨어로는 프로세서&#x2F;컨트롤러, 메모리, I&#x2F;O 장치, 네트워크 장치, 센서 등이다</li>
+<li>소프트웨어로는 운영체제, 시스템 S&#x2F;W, 응용 S&#x2F;W 이다</li>
+<li>실시간 처리를 지원한다</li>
+<li>소형 경량 및 저전력을 지원한다</li>
+</ul>
+</li>
+</ul>
+<h2 id="활용-기술"><a href="#활용-기술" class="headerlink" title="활용 기술"></a>활용 기술</h2><h3 id="리눅스-서버-분야"><a href="#리눅스-서버-분야" class="headerlink" title="리눅스 서버 분야"></a>리눅스 서버 분야</h3><ul>
+<li><p>서버 가상화</p>
+<ul>
+<li>서버를 구성하는 모든 자원의 가상화를 의미</li>
+<li>하나의 물리적 서버 호스트에서 여러 개의 서버 운영체제를 게스트로 실행 할 수 있게 해주는 소프트웨어 아키텍처이다</li>
+<li>서버들을 하나의 서버로 통합하여 가상환경을 구동시킴으로써 물리서버 및 공간을 절감한다</li>
+<li>서버 자원 통합 운영으로 하드웨어 가용성을 증가시킨다</li>
+<li>손쉬운 이중화 구성과 유연한 자원 할당으로 시스템 가용성과 안정성을 확보한다</li>
+<li>통합 구축, 공동 활용, 유지 관리, 전력 및 관리 비용 등 중복 투자 방비 및 예산을 절감</li>
+</ul>
+</li>
+<li><p>클라우드 컴퓨팅</p>
+<ul>
+<li>공유 구성이 가능한 컴퓨팅 리소스의 통합으로 어디서나 간편하게 요청에 따라 네트워크를 통해 접근하는 것을 가능하게 한다</li>
+<li>사업자와 직접 상호 작용하지 않고 사용자의 개별 관리 화면을 통해 서비스를 이용할 수 있다.</li>
+<li>사업자의 커퓨팅 리소스를 여러 사용자가 공유하는 형태로 이용한다</li>
+<li>필요에 따라 필요한 만큼의 스케일 업과 스케일 다운이 가능하다<ul>
+<li>Iaas(infrastructure as a service) : 서버나 스토리지 같은 하드웨어 자원 만을 임대해 주는 클라우드 서비스</li>
+<li>Paas(Platform as a Service) : 소프트웨어 서비스를 개발하기 위한 플랫폼을 제공하는 클라우드 서비스</li>
+</ul>
+</li>
+<li>사설 클라우드, 공유 클라우드, 하이브리드 클라우드 모델이 있다.</li>
+<li>빅데이터<ul>
+<li>기존 데이터베이스 관리 도구의 데이터 수집, 저장, 관리, 분석 역량을 넘어서는 데이터이다</li>
+<li>다양한 종류의 대규모 데이터로부터 저렴한 비용으로 가치를 추출하고 데이터의 빠른 수집 발굴 분석을 지원할 수 있도록 고안된 차세대 기술 및 아키텍쳐이다</li>
+<li>볼륨 속도 다양성의 3대 요소가 있다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="임베디드-시스템"><a href="#임베디드-시스템" class="headerlink" title="임베디드 시스템"></a>임베디드 시스템</h3><ul>
+<li>모바일<ul>
+<li>스마트폰의 os란 스마트폰을 구성하고 있는 하드웨어 부품을 효율적으로 관리 및 구동하게 하며, 사용자와의 편리한 의사소통을 위해 만들어진 다양한 프로그램들이 구동 될 수 있도록 하는 소프트웨어 플랫폼이다</li>
+<li>대표적으로 ios와 안드로이드가 있다.</li>
+<li>리눅스 기반의 공개형 운영체제로 마에모, 모블린, 미고, 리모 , 타이벤, ios가 있다</li>
+</ul>
+</li>
+<li>스마트 tv<ul>
+<li>텔레비전에 인터넷 접속 기능이 결합되어, 각종 애플리케이션을 설치하여 tv방송 시청이외의 다양한 기능을 활용할 수 있는 다기능 tv이다</li>
+<li>인터넷 tv 또는 커넥티드 tv라고도 불린다</li>
+</ul>
+</li>
+<li>IVI(In Vehicle Infotainment)<ul>
+<li>인포테인먼트란 정보와 오락의 합성어로 정보전달에 오라성을 가미한 시스템이다</li>
+<li>내비게이션이나 계기판, AV 시스템, DMB, MP3, 오디오 및 외부 기기와의 연결까지 가능한 통합적인 차량 내부 시스템을 포함한다</li>
+<li>GENIVI 표준 플랫폼 기반의 인포테인먼트 시스템이다</li>
+<li>운전자 편의성 및 안정성을 증대시킨다</li>
+<li>GENVI(GENEVA In Vehicle Infortainment)는 오픈 소스 기반 플랫폼 얼라이언스로 차량 멀티미디어 플랫폼 표준화 활동이다</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%ED%99%9C%EC%9A%A9/">https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%ED%99%9C%EC%9A%A9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/">블로그</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%EC%9D%BC%EB%B0%98/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">리눅스 마스터 일반</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/10/%EB%A7%A4%ED%81%AC%EB%A1%9C%EC%99%80%EB%A7%A4%ED%81%AC%EB%A1%9C%ED%94%84%EB%A1%9C%EC%84%B8%EC%84%9C/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">매크로와 매크로프로세서</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">이분 탐색</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1003 피보나치 함수</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1012 유기농 배추</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1074/" title="백준 1074 Z"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1074 Z</div></div></a></div><div><a href="/2022/03/10/algorithm-boj10820/" title="백준 10820 문자열 분석"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 10820 문자열 분석</div></div></a></div><div><a href="/2022/03/10/algorithm-boj11047/" title="백준 11047 동전 0"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 11047 동전 0</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#x-windows-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%82%AC%EC%9A%A9%EB%B2%95"><span class="toc-number">1.</span> <span class="toc-text">x-windows 개념 및 사용법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#X-window%EC%9D%98-%ED%8A%B9%EC%A7%95%EA%B3%BC-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C"><span class="toc-number">1.1.</span> <span class="toc-text">X-window의 특징과 구성 요소</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B0%9C%EB%85%90%EA%B3%BC-%ED%8A%B9%EC%A7%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">개념과 특징</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C%EC%9D%98-%EC%A2%85%EB%A5%98"><span class="toc-number">1.1.2.</span> <span class="toc-text">구성 요소의 종류</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%84%A4%EC%A0%95%EA%B3%BC-%EC%8B%A4%ED%96%89"><span class="toc-number">1.2.</span> <span class="toc-text">x-윈도우 설정과 실행</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9C%88%EB%8F%84%EC%9A%B0-%EB%A7%A4%EB%8B%88%EC%A0%80%EC%99%80-%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%86%B1-%ED%99%98%EA%B2%BD"><span class="toc-number">1.3.</span> <span class="toc-text">윈도우 매니저와 데스크톱 환경</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%9C%88%EB%8F%84%EC%9A%B0-%EB%A7%A4%EB%8B%88%EC%A0%80"><span class="toc-number">1.3.1.</span> <span class="toc-text">윈도우 매니저</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%8D%B0%EC%8A%A4%ED%81%AC%ED%86%B1-%ED%99%98%EA%B2%BD"><span class="toc-number">1.3.2.</span> <span class="toc-text">데스크톱 환경</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%94%94%EC%8A%A4%ED%94%8C%EB%A0%88%EC%9D%B4-%EB%A7%A4%EB%8B%88%EC%A0%80"><span class="toc-number">1.3.3.</span> <span class="toc-text">디스플레이 매니저</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X-%EC%9C%88%EB%8F%84%EC%9A%B0-%ED%99%9C%EC%9A%A9"><span class="toc-number">2.</span> <span class="toc-text">X-윈도우 활용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9B%90%EA%B2%A9%EC%A7%80%EC%97%90%EC%84%9C-X-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%EC%9D%B4%EC%9A%A9"><span class="toc-number">2.1.</span> <span class="toc-text">원격지에서 X 클라이언트 이용</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#X-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%9D%91%EC%9A%A9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8"><span class="toc-number">2.2.</span> <span class="toc-text">X-윈도우 응용 프로그램</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%98%A4%ED%94%BC%EC%8A%A4"><span class="toc-number">2.2.1.</span> <span class="toc-text">오피스</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B7%B8%EB%9E%98%ED%94%BD"><span class="toc-number">2.2.2.</span> <span class="toc-text">그래픽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%A9%80%ED%8B%B0%EB%AF%B8%EB%94%94%EC%96%B4"><span class="toc-number">2.2.3.</span> <span class="toc-text">멀티미디어</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B0%9C%EB%B0%9C"><span class="toc-number">2.2.4.</span> <span class="toc-text">개발</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B8%B0%ED%83%80"><span class="toc-number">2.2.5.</span> <span class="toc-text">기타</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%B8%ED%84%B0%EB%84%B7-%ED%99%9C%EC%9A%A9"><span class="toc-number">3.</span> <span class="toc-text">인터넷 활용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EB%B6%84%EB%A5%98"><span class="toc-number">3.1.</span> <span class="toc-text">네트워크 분류</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%EC%9D%98-%EA%B0%9C%EC%9A%94"><span class="toc-number">3.2.</span> <span class="toc-text">네트워크의 개요</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%9E%A5%EB%B9%84"><span class="toc-number">4.</span> <span class="toc-text">네트워크 장비</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EA%B0%9C%EC%9A%94%EC%99%80-%EA%B8%B0%EB%8A%A5"><span class="toc-number">5.</span> <span class="toc-text">프로토콜 개요와 기능</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OSI7-%EB%AA%A8%EB%8D%B8%EA%B3%BC-TCP-x2F-IP-%EB%AA%A8%EB%8D%B8"><span class="toc-number">5.1.</span> <span class="toc-text">OSI7 모델과 TCP&#x2F;IP 모델</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B3%84%EC%B8%B5-%EB%B3%84-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C"><span class="toc-number">5.2.</span> <span class="toc-text">계층 별 프로토콜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP-%EC%A3%BC%EC%86%8C%EC%99%80-%EB%8F%84%EB%A9%94%EC%9D%B8"><span class="toc-number">5.3.</span> <span class="toc-text">IP 주소와 도메인</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%B8%ED%84%B0%EB%84%B7-%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9D%98-%EC%A2%85%EB%A5%98"><span class="toc-number">6.</span> <span class="toc-text">인터넷 서비스의 종류</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WWW-%EC%84%9C%EB%B9%84%EC%8A%A4"><span class="toc-number">6.1.</span> <span class="toc-text">WWW 서비스</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A9%94%EC%9D%BC-%EC%84%9C%EB%B9%84%EC%8A%A4"><span class="toc-number">6.2.</span> <span class="toc-text">메일 서비스</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FTP-%EC%84%9C%EB%B9%84%EC%8A%A4"><span class="toc-number">6.3.</span> <span class="toc-text">FTP 서비스</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS-Domain-Name-System-tjqltm"><span class="toc-number">6.4.</span> <span class="toc-text">DNS(Domain Name System) tjqltm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Telnet%EA%B3%BC-SSH-%EC%84%9C%EB%B9%84%EC%8A%A4"><span class="toc-number">6.5.</span> <span class="toc-text">Telnet과 SSH 서비스</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NFS-Network-File-System"><span class="toc-number">6.6.</span> <span class="toc-text">NFS(Network File System)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC-Remote-Procedure-Call"><span class="toc-number">6.7.</span> <span class="toc-text">RPC(Remote Procedure Call)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%B8%ED%84%B0%EB%84%B7-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%84%A4%EC%A0%95"><span class="toc-number">7.</span> <span class="toc-text">인터넷 서비스 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-%EC%84%A4%EC%A0%95"><span class="toc-number">7.1.</span> <span class="toc-text">네트워크 인터페이스 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC%EB%93%A4"><span class="toc-number">7.2.</span> <span class="toc-text">네트워크 설정 파일들</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EC%A0%95"><span class="toc-number">7.3.</span> <span class="toc-text">네트워크 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="toc-number">7.4.</span> <span class="toc-text">네트워크 관련 명령어</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B8%B0%EC%88%A0-%EB%8F%99%ED%96%A5"><span class="toc-number">8.</span> <span class="toc-text">기술 동향</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A6%AC%EB%88%85%EC%8A%A4-%EB%8F%99%ED%96%A5"><span class="toc-number">8.1.</span> <span class="toc-text">리눅스 동향</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A6%AC%EB%88%85%EC%8A%A4-%EA%B4%80%EB%A0%A8-%EA%B8%B0%EC%88%A0"><span class="toc-number">8.2.</span> <span class="toc-text">리눅스 관련 기술</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%99%9C%EC%9A%A9-%EA%B8%B0%EC%88%A0"><span class="toc-number">9.</span> <span class="toc-text">활용 기술</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%84%9C%EB%B2%84-%EB%B6%84%EC%95%BC"><span class="toc-number">9.1.</span> <span class="toc-text">리눅스 서버 분야</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="toc-number">9.2.</span> <span class="toc-text">임베디드 시스템</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/algorithm-boj9375/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/06/30/algorithm-boj9375/" title="No title">No title</a><time datetime="2022-06-30T06:12:38.049Z" title="Created 2022-06-30 15:12:38">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/hello-world/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/06/30/hello-world/" title="Hello World">Hello World</a><time datetime="2022-06-30T06:00:55.045Z" title="Created 2022-06-30 15:00:55">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="이분 탐색"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색">이분 탐색</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1003 피보나치 함수"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수">백준 1003 피보나치 함수</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1012 유기농 배추"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추">백준 1012 유기농 배추</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

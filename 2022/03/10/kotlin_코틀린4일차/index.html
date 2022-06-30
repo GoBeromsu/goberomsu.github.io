@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>코틀린4일차 | Hexo</title><meta name="keywords" content="블로그"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Time Picker 추가 깔끔하게 시간을 설정하기 위해 time Picker을 이용하기로 했다. second까지 표현 가능하는 것을 원해서 gradle로 모듈을 추가로 받았다    1implementation &amp;#x27;com.kovachcode:timePickerWithSeconds:1.0.1&amp;#x27;  12345678910111213141516171">
+<meta property="og:type" content="article">
+<meta property="og:title" content="코틀린4일차">
+<meta property="og:url" content="https://goberomsu.github.io/2022/03/10/kotlin_%EC%BD%94%ED%8B%80%EB%A6%B04%EC%9D%BC%EC%B0%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Time Picker 추가 깔끔하게 시간을 설정하기 위해 time Picker을 이용하기로 했다. second까지 표현 가능하는 것을 원해서 gradle로 모듈을 추가로 받았다    1implementation &amp;#x27;com.kovachcode:timePickerWithSeconds:1.0.1&amp;#x27;  12345678910111213141516171">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-10T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-30T05:37:48.557Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="블로그">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/avatar.JPG"><link rel="canonical" href="https://goberomsu.github.io/2022/03/10/kotlin_%EC%BD%94%ED%8B%80%EB%A6%B04%EC%9D%BC%EC%B0%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-162786459-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162786459-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '코틀린4일차',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-30 14:37:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">코틀린4일차</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-30T05:37:48.557Z" title="Updated 2022-06-30 14:37:48">2022-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/language/">language</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="코틀린4일차"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Time-Picker-추가"><a href="#Time-Picker-추가" class="headerlink" title="Time Picker 추가"></a>Time Picker 추가</h2><ul>
+<li>깔끔하게 시간을 설정하기 위해 time Picker을 이용하기로 했다.<ul>
+<li>second까지 표현 가능하는 것을 원해서 gradle로 모듈을 추가로 받았다</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;com.kovachcode:timePickerWithSeconds:1.0.1&#x27;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">val</span> timePicker = MyTimePickerDialog(</span><br><span class="line">        <span class="keyword">this</span>,</span><br><span class="line">        MyTimePickerDialog.OnTimeSetListener() &#123; timePicker: TimePicker, hoursOfDay: <span class="built_in">Int</span>, minute: <span class="built_in">Int</span>, seconds: <span class="built_in">Int</span> -&gt;</span><br><span class="line"></span><br><span class="line">            timeText.setText(</span><br><span class="line">                 String.format(<span class="string">&quot;%02d&quot;</span>, hoursOfDay) +</span><br><span class="line">                        <span class="string">&quot;:&quot;</span> + String.format(<span class="string">&quot;%02d&quot;</span>, minute) +</span><br><span class="line">                        <span class="string">&quot;:&quot;</span> + String.format(<span class="string">&quot;%02d&quot;</span>, seconds)</span><br><span class="line">            );</span><br><span class="line">        &#125;,</span><br><span class="line">        Calendar.HOUR_OF_DAY,</span><br><span class="line">        Calendar.MINUTE,</span><br><span class="line">        Calendar.SECOND,</span><br><span class="line">        <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    timePicker.show()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>일단은 실행하면 메인 화면에서 설정된 시간을 출력시키게 설정해 놓았다.</li>
+<li>패키지를 받긴 했는데 오래되기도 하고 자바 코드라 코틀린으로 바꿔서 넣었다.</li>
+</ul>
+<h2 id="Setting된-시간-Count하기"><a href="#Setting된-시간-Count하기" class="headerlink" title="Setting된 시간 Count하기"></a>Setting된 시간 Count하기</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> timePicker = MyTimePickerDialog(</span><br><span class="line">            <span class="keyword">this</span>,</span><br><span class="line">            MyTimePickerDialog.OnTimeSetListener() &#123; timePicker: TimePicker, hoursOfDay: <span class="built_in">Int</span>, minute: <span class="built_in">Int</span>, seconds: <span class="built_in">Int</span> -&gt;</span><br><span class="line">                sumOfTime = hoursOfDay * <span class="number">60</span> * <span class="number">60</span> + minute * <span class="number">60</span> + seconds</span><br><span class="line">                <span class="keyword">var</span> Timer = <span class="keyword">object</span> : CountDownTimer(sumOfTime!!.toLong(), <span class="number">100</span>) &#123;</span><br><span class="line">                    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onTick</span><span class="params">(millisUntilFinished: <span class="type">Long</span>)</span></span> &#123;</span><br><span class="line">                        timeText.setText(<span class="string">&quot;<span class="subst">$&#123;millisUntilFinished&#125;</span> 남았습니다&quot;</span>)</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFinish</span><span class="params">()</span></span> &#123;</span><br><span class="line">                        Toast.makeText(<span class="keyword">this</span><span class="symbol">@MainActivity</span>, <span class="string">&quot;CountDown Finished.&quot;</span>, Toast.LENGTH_SHORT)</span><br><span class="line">                            .show()</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                Timer.start()</span><br><span class="line">            &#125;,</span><br><span class="line">            Calendar.HOUR_OF_DAY,</span><br><span class="line">            Calendar.MINUTE,</span><br><span class="line">            Calendar.SECOND,</span><br><span class="line">            <span class="literal">true</span></span><br><span class="line">        )</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>sumOfTime으로 시,분,초를 초로 환산해서 카운트 다운 하도록 했다.<ul>
+<li>왜냐면 일단 계획이 Graphic으로 초를 퍼센트로 구현할 생각이라 일부러 합쳤다.</li>
+</ul>
+</li>
+<li>CounDownTimer를 이용했다<ul>
+<li>onTick은 틱당 할 행동</li>
+<li>onFinish는 타이머 끝났을 때 할 행동이다</li>
+</ul>
+</li>
+</ul>
+<h2 id="functijon-분할"><a href="#functijon-분할" class="headerlink" title="functijon 분할"></a>functijon 분할</h2><ul>
+<li>역시 자바나 코틀린이나 객체 지향이 최고 아닌가<ul>
+<li>디버깅 할 때 귀찮기도 하고 function을 나눴다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="SetTimer"><a href="#SetTimer" class="headerlink" title="SetTimer"></a>SetTimer</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">setTimer</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> timePicker = MyTimePickerDialog(</span><br><span class="line">        <span class="keyword">this</span>,</span><br><span class="line">        MyTimePickerDialog.OnTimeSetListener() &#123; timePicker: TimePicker, hoursOfDay: <span class="built_in">Int</span>, minute: <span class="built_in">Int</span>, seconds: <span class="built_in">Int</span> -&gt;</span><br><span class="line">            sumOfTime = hoursOfDay * <span class="number">60</span> * <span class="number">60</span> + minute * <span class="number">60</span> + seconds</span><br><span class="line">            storeTime(sumOfTime)</span><br><span class="line">            startTimer()</span><br><span class="line">        &#125;,</span><br><span class="line">        Calendar.HOUR_OF_DAY,</span><br><span class="line">        Calendar.MINUTE,</span><br><span class="line">        Calendar.SECOND,</span><br><span class="line">        <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">    timePicker.show()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>timePicker를 이용했고 시간 설정 관련 기능을 모아두었다.</li>
+</ul>
+<h3 id="startTimer"><a href="#startTimer" class="headerlink" title="startTimer"></a>startTimer</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">startTimer</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> countDownTime = sumOfTime</span><br><span class="line">    timerTask = timer(period = <span class="number">1000</span>) &#123;</span><br><span class="line"></span><br><span class="line">        countDownTime--</span><br><span class="line"></span><br><span class="line">        runOnUiThread &#123; timeText.setText(<span class="string">&quot;<span class="variable">$countDownTime</span>&quot;</span>) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>1초씩 COUNTDOWN하는 함수이다.</li>
+<li>kotlin에서 지원하는 timer를 이용했다.</li>
+</ul>
+<h3 id="storeTime"><a href="#storeTime" class="headerlink" title="storeTime"></a>storeTime</h3><ul>
+<li>sumOfTime라는 전역 변수에 시간을 저장해뒀다.<ul>
+<li>나중에 DB까지 쓸 단계가 온다면 바꿀 생각이다</li>
+</ul>
+</li>
+<li>확실히 깔꼼하군</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">storeTime</span><span class="params">(Time: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">    sumOfTime = Time</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span><span class="symbol">@MainActivity</span>, <span class="string">&quot;<span class="subst">$&#123;sumOfTime&#125;</span>은 storeTime에서 호출됨&quot;</span>, Toast.LENGTH_SHORT)</span><br><span class="line">        .show()</span><br><span class="line">    <span class="keyword">return</span> sumOfTime</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="추가해야할-기능"><a href="#추가해야할-기능" class="headerlink" title="추가해야할 기능"></a>추가해야할 기능</h2><ul>
+<li>Timer 기능 완성<ul>
+<li>stop</li>
+<li>initailize</li>
+<li>카운트가 음수가 되지 않도록 설정</li>
+</ul>
+</li>
+<li>그래픽 기능 설정</li>
+</ul>
+<h2 id="훔-오늘의-후기"><a href="#훔-오늘의-후기" class="headerlink" title="훔 오늘의 후기"></a>훔 오늘의 후기</h2><ul>
+<li>생각보다 구현 속도가 빠르다</li>
+<li>DB까지 추가해 볼까?</li>
+<li>언눙 만들고 다른 것도 만들어보자</li>
+<li>하다보니 점점 속도가 붙네</li>
+<li>하루에 2시간 정도 괜찮다 취미는 역시 코딩인가</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io/2022/03/10/kotlin_%EC%BD%94%ED%8B%80%EB%A6%B04%EC%9D%BC%EC%B0%A8/">https://goberomsu.github.io/2022/03/10/kotlin_%EC%BD%94%ED%8B%80%EB%A6%B04%EC%9D%BC%EC%B0%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/">블로그</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/10/kotlin_%EB%82%98%EB%A7%8C%EC%9D%98%EC%95%B1%EB%A7%8C%EB%93%A4%EA%B8%B0/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">나만의 앱만들기</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/10/python_gapWithRangeEnum/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">range() 와 enumerate() 차이</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">이분 탐색</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1003 피보나치 함수</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1012 유기농 배추</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1074/" title="백준 1074 Z"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1074 Z</div></div></a></div><div><a href="/2022/03/10/algorithm-boj10820/" title="백준 10820 문자열 분석"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 10820 문자열 분석</div></div></a></div><div><a href="/2022/03/10/algorithm-boj11047/" title="백준 11047 동전 0"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 11047 동전 0</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Time-Picker-%EC%B6%94%EA%B0%80"><span class="toc-number">1.</span> <span class="toc-text">Time Picker 추가</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setting%EB%90%9C-%EC%8B%9C%EA%B0%84-Count%ED%95%98%EA%B8%B0"><span class="toc-number">2.</span> <span class="toc-text">Setting된 시간 Count하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functijon-%EB%B6%84%ED%95%A0"><span class="toc-number">3.</span> <span class="toc-text">functijon 분할</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SetTimer"><span class="toc-number">3.1.</span> <span class="toc-text">SetTimer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#startTimer"><span class="toc-number">3.2.</span> <span class="toc-text">startTimer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#storeTime"><span class="toc-number">3.3.</span> <span class="toc-text">storeTime</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%B6%94%EA%B0%80%ED%95%B4%EC%95%BC%ED%95%A0-%EA%B8%B0%EB%8A%A5"><span class="toc-number">4.</span> <span class="toc-text">추가해야할 기능</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%9B%94-%EC%98%A4%EB%8A%98%EC%9D%98-%ED%9B%84%EA%B8%B0"><span class="toc-number">5.</span> <span class="toc-text">훔 오늘의 후기</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/algorithm-boj9375/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/06/30/algorithm-boj9375/" title="No title">No title</a><time datetime="2022-06-30T06:12:38.049Z" title="Created 2022-06-30 15:12:38">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/hello-world/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/06/30/hello-world/" title="Hello World">Hello World</a><time datetime="2022-06-30T06:00:55.045Z" title="Created 2022-06-30 15:00:55">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="이분 탐색"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색">이분 탐색</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1003 피보나치 함수"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수">백준 1003 피보나치 함수</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1012 유기농 배추"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추">백준 1012 유기농 배추</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

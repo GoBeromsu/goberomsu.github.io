@@ -1,0 +1,769 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>리눅스 마스터 2급(리눅스 운영 및 관리) | Hexo</title><meta name="keywords" content="블로그"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="권한 및 그룹 설정 리눅스 시스템은 모든 파일과 디렉터리에 접근권한과 소유권이 부여됨 ls -l 명령어로 파일 속성을 볼 수 있음  소유권 관련 명령어 chown 파일과 디렉터리의 사용자 소유권과 그룹 소유권을 변경한다   chgrp 파일이나 디렉터리의 그룹 소유권을 변경한다    허가권 관련 명령어 ls -l 명령어로 파일 유형과 허가권을 알 수 있음">
+<meta property="og:type" content="article">
+<meta property="og:title" content="리눅스 마스터 2급(리눅스 운영 및 관리)">
+<meta property="og:url" content="https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%EB%A6%AC%EB%88%85%EC%8A%A4%EC%9A%B4%EC%98%81%EB%B0%8F%EA%B4%80%EB%A6%AC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="권한 및 그룹 설정 리눅스 시스템은 모든 파일과 디렉터리에 접근권한과 소유권이 부여됨 ls -l 명령어로 파일 속성을 볼 수 있음  소유권 관련 명령어 chown 파일과 디렉터리의 사용자 소유권과 그룹 소유권을 변경한다   chgrp 파일이나 디렉터리의 그룹 소유권을 변경한다    허가권 관련 명령어 ls -l 명령어로 파일 유형과 허가권을 알 수 있음">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-10T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-30T05:37:48.569Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="블로그">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/avatar.JPG"><link rel="canonical" href="https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%EB%A6%AC%EB%88%85%EC%8A%A4%EC%9A%B4%EC%98%81%EB%B0%8F%EA%B4%80%EB%A6%AC/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-162786459-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162786459-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '리눅스 마스터 2급(리눅스 운영 및 관리)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-30 14:37:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">리눅스 마스터 2급(리눅스 운영 및 관리)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-30T05:37:48.569Z" title="Updated 2022-06-30 14:37:48">2022-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/etc/">etc</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="리눅스 마스터 2급(리눅스 운영 및 관리)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="권한-및-그룹-설정"><a href="#권한-및-그룹-설정" class="headerlink" title="권한 및 그룹 설정"></a>권한 및 그룹 설정</h2><ul>
+<li>리눅스 시스템은 모든 파일과 디렉터리에 접근권한과 소유권이 부여됨</li>
+<li>ls -l 명령어로 파일 속성을 볼 수 있음</li>
+</ul>
+<h3 id="소유권-관련-명령어"><a href="#소유권-관련-명령어" class="headerlink" title="소유권 관련 명령어"></a>소유권 관련 명령어</h3><ul>
+<li>chown<ul>
+<li>파일과 디렉터리의 사용자 소유권과 그룹 소유권을 변경한다</li>
+</ul>
+</li>
+<li>chgrp<ul>
+<li>파일이나 디렉터리의 그룹 소유권을 변경한다</li>
+</ul>
+</li>
+</ul>
+<h3 id="허가권-관련-명령어"><a href="#허가권-관련-명령어" class="headerlink" title="허가권 관련 명령어"></a>허가권 관련 명령어</h3><ul>
+<li><p>ls -l 명령어로 파일 유형과 허가권을 알 수 있음</p>
+</li>
+<li><p>파일 허가권의 첫 번째 자리는 파일 유형을 기호로 정의 한다</p>
+</li>
+<li><p>파일은 일반 파일 디렉터리 파일 특수 파일로 나뉜다</p>
+</li>
+<li><p>파일 권한에는 읽기,쓰기,실행이 있다.</p>
+</li>
+<li><p>읽기,쓰기,실행의 접근 제한 표시는 하이픈(-)으로 나타낸다.</p>
+</li>
+<li><p>chmod</p>
+<ul>
+<li>파일이나 디렉터리의 접근 허가권을 변경하는 명령어</li>
+</ul>
+</li>
+<li><p>umask</p>
+<ul>
+<li>새로 생성되는 파일이나 디렉터리의 <strong>기본 허가권</strong> 값을 지정한다</li>
+<li>파일의 기본 권한은 666, 디렉터리의 기본 권한은 777이다.</li>
+<li>디폴트 권한 값에서 umask를 뺀 값을 기본 허가권으로 설정</li>
+</ul>
+</li>
+</ul>
+<h3 id="특수-권한"><a href="#특수-권한" class="headerlink" title="특수 권한"></a>특수 권한</h3><ul>
+<li>SetUID, SetGID<ul>
+<li>프로세스가 실행되는 동안 해당 프로세스의 root 권한을 임시로 가져오는 기능</li>
+<li>프로세스가 사용자보다 높은 수준의 접근을 요구할 때 파일 접근 제한 때문에 원할한 기능을 제공할 수 없기 때문에 이러한 문제점을 해결하기 위한 방법</li>
+<li>사용자가 사용할 때 SetUID는 사용자 권한으로, SetGID의 경우 그룹권한으로 파일을 실행시킨다</li>
+</ul>
+</li>
+<li>Sticky bit<ul>
+<li>일반적으로 공용 디렉터리를 사용할 때 sticky bit를 설정하여 사용한다.</li>
+<li>사용자 권한을 지정하기 어려운 프로그램들이 일시적으로 특정 디렉터리에 파일을 생성하고 삭제하도록 이용된다</li>
+<li>설정된 디렉터리에는 누구든 접근 가능하고 파일을 생성할 수 있다.</li>
+<li>sticky bit가 설정되어 있는 디렉터리 안의 내용은 해당 파일의 소유자나 root만이 변경 가능하다</li>
+</ul>
+</li>
+</ul>
+<h3 id="디스크-쿼터"><a href="#디스크-쿼터" class="headerlink" title="디스크 쿼터"></a>디스크 쿼터</h3><ul>
+<li>파일 시스템마다 사용자나 그룹이 생성할 수 있는 파일의 용량 및 개수를 제한하는 것이다.<ul>
+<li>보통 블록 단위의 용량 제한과 inode[^1]의 개수를 제한한다</li>
+</ul>
+</li>
+</ul>
+<p>[^1]: inode란 파일에 대한 정보를 가지고 있는 메타 데이터이다</p>
+<ul>
+<li>쿼터는 사용자별, 파일 시스템별로 동작된다</li>
+<li>그룹 단위로도 용량을 제한할 수 있으며 웹호스팅 서비스를 하는 경우에 유용하다</li>
+</ul>
+<h4 id="디스크-쿼터-지정단계"><a href="#디스크-쿼터-지정단계" class="headerlink" title="디스크 쿼터 지정단계"></a>디스크 쿼터 지정단계</h4><ol>
+<li>파일 &#x2F;etc&#x2F;fstab에 디스크 쿼터 관련 설정</li>
+<li>재마운팅 실행 후 확인</li>
+<li>마운트 된 커터를 끄고 생성된 쿼터 파일 삭제</li>
+<li>쿼터 데이터베이스 생성</li>
+<li>사용자별 쿼터 지정</li>
+<li>쿼터 현재 상태 점검</li>
+</ol>
+<h4 id="디스크-쿼터-관련-명령어"><a href="#디스크-쿼터-관련-명령어" class="headerlink" title="디스크 쿼터 관련 명령어"></a>디스크 쿼터 관련 명령어</h4><ul>
+<li>quotaoff<ul>
+<li>쿼터 서비스 비활성화</li>
+</ul>
+</li>
+<li>quotacheck<ul>
+<li>파일 시스템의 디스크 사용 상태를 검색</li>
+</ul>
+</li>
+<li>edquota<ul>
+<li>편집기를 이용하여 사용자나 그룹에 디스크 사용량을 할당하는 명령어</li>
+</ul>
+</li>
+<li>setquota<ul>
+<li>편집기가 기반이 아닌 명령행에서 직접 사용자나 그룹에 디스크 사용량을 할당하는 명령어</li>
+</ul>
+</li>
+</ul>
+<h2 id="파일-시스템의-관리"><a href="#파일-시스템의-관리" class="headerlink" title="파일 시스템의 관리"></a>파일 시스템의 관리</h2><h3 id="파일-시스템의-개요와-종류"><a href="#파일-시스템의-개요와-종류" class="headerlink" title="파일 시스템의 개요와 종류"></a>파일 시스템의 개요와 종류</h3><h4 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h4><ul>
+<li>운영체제가 파일을 시스템의 디스크상에 구성하는 방식</li>
+<li>컴퓨터에서 파일이나 자료를 쉽게 발견 및 접근할 수 있도록 보관 또는 조직하는 체제이다</li>
+<li>하드디스크나 cd-rom 과 같은 물리적 저장소를 관리한다</li>
+<li>파일 서버상의 자료로의 접근을 제공하는 방식과 가상의 형태로서 접근 수단만이 존재하는 방식도 파일 시스템의 범위에 포함된다</li>
+</ul>
+<h4 id="종류"><a href="#종류" class="headerlink" title="종류"></a>종류</h4><h4 id="리눅스-전용-디스크-기반-파일-시스템"><a href="#리눅스-전용-디스크-기반-파일-시스템" class="headerlink" title="리눅스 전용 디스크 기반 파일 시스템"></a>리눅스 전용 디스크 기반 파일 시스템</h4><ul>
+<li><p>Extended File System</p>
+</li>
+<li><p>ext</p>
+<ul>
+<li>리눅스 초기에 사용되던 파일 시스템이며 호환성이 없음</li>
+<li>ext2의 원형</li>
+<li>2GByte의 데이터와 파일명을 255자까지 지정가능</li>
+</ul>
+</li>
+<li><p>ext2</p>
+<ul>
+<li>고용량 디스크 사용을 염두하고 설계된 파일 시스템</li>
+<li>쉽게 호환되며 업그레이드도 쉽게 설계되어 있음</li>
+</ul>
+</li>
+<li><p>ext3</p>
+<ul>
+<li>리눅스의 대표적인 저널링을 지원하도록 확장된 파일 시스템</li>
+<li>ACL(Access control list)를 통한 접근 제어 지원</li>
+</ul>
+</li>
+<li><p>ext4</p>
+<ul>
+<li>파일에 디스크 할당시 물리적으로 연속적인 블록을 할당</li>
+<li>64비트 기억 공간 제한을 없앰</li>
+<li>16 TeraByte 파일을 지원</li>
+</ul>
+</li>
+</ul>
+<h4 id="저널링-파일-시스템"><a href="#저널링-파일-시스템" class="headerlink" title="저널링 파일 시스템"></a>저널링 파일 시스템</h4><ul>
+<li>jfs<ul>
+<li>journaling file system의 약자</li>
+<li>IBM 사의 독자적인 저널링 파일 시스템</li>
+<li>GPL로 공개하여 련재 리눅스용으로 개발</li>
+</ul>
+</li>
+<li>XFS<ul>
+<li>고성능 저널링 시스템</li>
+<li>64비트 주소를 지원하며 확장성 있는 자료 구조와 알고리즘 사용</li>
+<li>데이터 읽기&#x2F;쓰기 트랜잭션으로 성능 저하를 최소화</li>
+<li>64비트 파일 시스템으로 큰 용량의 파일도 다룰 수 있음</li>
+</ul>
+</li>
+<li>ReiserFS<ul>
+<li>독일의 한스 라이저가 개발한 파일 시스템</li>
+<li>모든 파일 객체들을 b트리에 저장</li>
+<li>간결한 색인화된 디렉터리 지원</li>
+</ul>
+</li>
+</ul>
+<h4 id="네트워크-파일-시스템"><a href="#네트워크-파일-시스템" class="headerlink" title="네트워크 파일 시스템"></a>네트워크 파일 시스템</h4><ul>
+<li><p>SMB</p>
+<ul>
+<li>server message block</li>
+<li>삼바 파일 시스템[^2]을 마운트 지정</li>
+<li>윈도우 계열 OS 환경에서 사용되는 파일&#x2F;프린터 공유 프로토콜</li>
+<li>리눅스, 유닉스 계정 OS와 윈도우 OS와의 자료 및 하드웨어 공유</li>
+</ul>
+</li>
+<li><p>CIFS</p>
+<ul>
+<li>Common Internet file system</li>
+<li>SMB를 확장한 파일 시스템</li>
+<li>SMB를 기초로 응용하여 라우터를 뛰어 넘어 연결할 수 있는 프로토콜</li>
+<li></li>
+</ul>
+<p>[^2]: SMB 네트워크 프로토콜을 재구성한 자유 소프트웨어</p>
+</li>
+<li><p>NFS</p>
+<ul>
+<li>Network File System</li>
+<li>씬마이크로파일시스템이 개발한 네트워크 공유 프로토콜</li>
+<li>파일 공유 및 파일 서버로 사용됨</li>
+<li>공유된 영역을 마운트할 때 지정</li>
+<li>하드웨어, 운영체제 또는 네트워크 구조가 달라도 공유 가능</li>
+<li>NFS 서버의 특정 디렉터리를 마운트하여 사용할 수 있음</li>
+</ul>
+</li>
+</ul>
+<h4 id="기타-지원-가능한-파일-시스템"><a href="#기타-지원-가능한-파일-시스템" class="headerlink" title="기타 지원 가능한 파일 시스템"></a>기타 지원 가능한 파일 시스템</h4><ul>
+<li>FAT<ul>
+<li>windows NT가 지원하는 파일 시스템 중 가장 간단한 시스템</li>
+<li>FAT으로 포맷된 디스크는 클러스터 단위로 할당</li>
+<li>클러스터 크기는 볼륨 크기에 따라 결정</li>
+<li>읽기 전용, 숨김, 시스템 및 보관 파일 특성만 지우너</li>
+<li>삼바 파일 시스템을 마운트 지정</li>
+</ul>
+</li>
+<li>VFAT<ul>
+<li>Virtual FAT</li>
+<li>FAT 파일 시스템이 확장된 것으로 FAT보다 제한이 적음</li>
+<li>파일 이름도 최고 255자까지 만들 수 있음</li>
+<li>공백이나 여러 개의 구두점도 포함</li>
+</ul>
+</li>
+<li>FAT32<ul>
+<li>SMB를 확장한 파일 시스템</li>
+<li>32GB보다 큰 파티션을 만들 수 없고 파티션에 4GB를 초과하는 파일을 저장할 수 없음</li>
+</ul>
+</li>
+<li>NTFS<ul>
+<li>윈도우에서 사용하는 파일 시스템</li>
+<li>안정성이 뛰어나고 대용량 파일도 저장</li>
+<li>파일 크기 및 볼륨은 이론상으로 최대 16EB이나 실질적으로는 2TB</li>
+</ul>
+</li>
+<li>ISO 9660<ul>
+<li>CD-ROM의 표준 파일 시스템</li>
+<li>1988년에 재정된 푲ㄴ</li>
+</ul>
+</li>
+<li>UDF<ul>
+<li>universal disk format의 약자로 최신 파일 시스템 형식</li>
+<li>광학 매체용 파일 시스템 표준</li>
+<li>dvd에 사용, iso 9660 대체를 위해 만들어짐</li>
+</ul>
+</li>
+<li>HPFS<ul>
+<li>OS&#x2F;2의 운영체제를 위해 만들어진 파일 시스템</li>
+</ul>
+</li>
+</ul>
+<h4 id="관련-명령어"><a href="#관련-명령어" class="headerlink" title="관련 명령어"></a>관련 명령어</h4><ul>
+<li>mount&#x2F;unmount<ul>
+<li>마운트는 특정 디바이스를 특정 디렉터리처럼 사용하기 위해 장치와 디렉터리를 연결하는 것</li>
+<li>리눅스는 PNP 기능을 지원하지만 지원하는 하드웨어가 많지 않으므로 시스템 부팅 후에 수동으로 마운트해서 사용을 하고 사용이 끝난 후에는 언마운트를 시킨다</li>
+<li>파일 &#x2F;etc&#x2F;mtab은 현재 마운트된 블록 시스템 정보를 표시한다</li>
+</ul>
+</li>
+<li>eject<ul>
+<li>이동식 보조기억장치 등과 같은 미디어를 해제하고 장치를 제거하는 명령어</li>
+</ul>
+</li>
+<li>fdisk<ul>
+<li>새로운 파티션 생성, 기존 파티션의 삭제, 파티션의 타입 결정 등의 작업을 수행 할 수 있다</li>
+<li>한 번에 한 디스크에 대해서만 작업을 수행 할 수 있다</li>
+</ul>
+</li>
+<li>mkfs<ul>
+<li>리눅스 파일 시스템을 생성한다</li>
+<li>fdisk로 하드디스크 파티션을 나눈 후 해당 파티션에 맞는 파일 시스템을 생성</li>
+</ul>
+</li>
+<li>mke2fs<ul>
+<li>ext2,ext3,ex4 타입의 리눅스 파일 시스템을 생성하는 명령어이다</li>
+</ul>
+</li>
+<li>fsck<ul>
+<li>파일 시스템의 무결성을 점검하고 대화식으로 복구하는 명령어</li>
+<li>디렉터리 &#x2F;lost+found는 fsck에서 사용하는 디렉터리</li>
+</ul>
+</li>
+<li>e2fsck<ul>
+<li>ext2 ext3 ext4 타입의 리눅스 파일 시스템을 복구하는 명령어</li>
+</ul>
+</li>
+<li>du<ul>
+<li>disk usage의 약자</li>
+<li>디렉터리별로 디스크 사용량을 확인 할 수 있다.</li>
+</ul>
+</li>
+<li>df<ul>
+<li>시스템에 마운트된 하드 디스크의 남은 용량을 확인할 때 사용하는 명령어</li>
+<li>기본적으로 1024byte 블록 단위로 출력</li>
+</ul>
+</li>
+</ul>
+<h2 id="셸-개념-및-종류"><a href="#셸-개념-및-종류" class="headerlink" title="셸 개념 및 종류"></a>셸 개념 및 종류</h2><h3 id="개념"><a href="#개념" class="headerlink" title="개념"></a>개념</h3><ul>
+<li>명령어 해석기</li>
+<li>로그인 할 때 실행되어 사용자 별로 사용 환경 설정을 가능하게 함</li>
+<li>강력한 스크립트 언어</li>
+<li>입출력 방향 재지정과 파이프 기능 제공</li>
+<li>포어&#x2F;백그라운드 프로세스를 실행한다</li>
+</ul>
+<h3 id="종류-1"><a href="#종류-1" class="headerlink" title="종류"></a>종류</h3><ul>
+<li>본 셸계열과 C셸 계열로 나뉜다</li>
+<li>사용자 프롬프트가 $ 이면 본 셸 계열, % 이면 C 셸 계열을 사용하고 있다는 것이다</li>
+<li>대부분의 셸은 본 셸 계열의 기능을 포함하여 확대 발전한 형태이다</li>
+<li>C셸은 본 셸의 모든 기능과 명령어 히스토리 별명 작업 제어 기능을 추가로 가지고 있다.</li>
+</ul>
+<h3 id="셸-확인-및-변경"><a href="#셸-확인-및-변경" class="headerlink" title="셸 확인 및 변경"></a>셸 확인 및 변경</h3><h4 id="로그인-쉘-확인"><a href="#로그인-쉘-확인" class="headerlink" title="로그인 쉘 확인"></a>로그인 쉘 확인</h4><ul>
+<li>파일 &#x2F;etc&#x2F;shell 에서 사용할 수 있는 셸들을 확인할 수 있다.</li>
+<li>파일 &#x2F;etc&#x2F;passwd 파일에서 계쩡마다 할당된 셸을 확인 할 수 있다.</li>
+<li>명령어 echo $SHELL은 현재 로그인한 사용자가 사용하고 있는 쉘을 확인할 수 있다.</li>
+</ul>
+<h4 id="쉘-변경"><a href="#쉘-변경" class="headerlink" title="쉘 변경"></a>쉘 변경</h4><ul>
+<li>로그인 쉘 변경은 반영구적인 쉘 변경 방법으로 관리자가 쉘 변경 후 다음 변경을 하기전까지 지정된 쉘을 사용한다</li>
+<li>명령어 chsh: 일반 사용자 환경에서 쉘 변경시 사용한다</li>
+<li>명령어 usermod: 관리자 환경에서 지정된 계정자의 정보를 변경할 때 사용하는 명령어이다</li>
+</ul>
+<h2 id="쉘-환경-설정"><a href="#쉘-환경-설정" class="headerlink" title="쉘 환경 설정"></a>쉘 환경 설정</h2><h3 id="환경-변수와-쉘-변수"><a href="#환경-변수와-쉘-변수" class="headerlink" title="환경 변수와 쉘 변수"></a>환경 변수와 쉘 변수</h3><ul>
+<li>근데 이거 구분이 당연한게 지연변수와 전역변수 뜻을 알면 그냥 그렇군 정도</li>
+</ul>
+<h4 id="환경-변수"><a href="#환경-변수" class="headerlink" title="환경 변수"></a>환경 변수</h4><ul>
+<li>전체 쉘에서 사용 가능한 전역 변수</li>
+<li>서브 쉘에 기능 상속 가능</li>
+<li>환경 변수 확인 명령 env</li>
+</ul>
+<h4 id="쉘-변수-지역-변수"><a href="#쉘-변수-지역-변수" class="headerlink" title="쉘 변수(지역 변수)"></a>쉘 변수(지역 변수)</h4><ul>
+<li>현재 로그인한 쉘에서만 사용 가능한 지역 변수</li>
+<li>서브 쉘에 기능 상속 불가능</li>
+<li>쉘 변수 확인 명령어 set</li>
+</ul>
+<h4 id="환경-설정-파일"><a href="#환경-설정-파일" class="headerlink" title="환경 설정 파일"></a>환경 설정 파일</h4><ul>
+<li>쉘 시작 시 자동으로 실행되는 고유의 시작 파일이 있다.<ul>
+<li>이 파일은 사용자 운영환경을 설정한다</li>
+</ul>
+</li>
+<li>배쉬셀의 시작 파일은 &#x2F;etc&#x2F;profile, &#x2F;etc&#x2F;bashrc, <del>&#x2F;.bash_profile,</del>&#x2F;.bashrc 이다.</li>
+<li>쉘 파일은 전역적 파일과 지역적 파일로 나뉜다</li>
+<li>파일 &#x2F;etc&#x2F;profile.d는 몇몇 응용 프로그램들이 시작시 자동 실행할 스크립트 파일 경로를 넣어둔다.</li>
+</ul>
+<h3 id="bash-shell의-주요-기능"><a href="#bash-shell의-주요-기능" class="headerlink" title="bash shell의 주요 기능"></a>bash shell의 주요 기능</h3><h4 id="history-기능"><a href="#history-기능" class="headerlink" title="history 기능"></a>history 기능</h4><ul>
+<li>일정 개수 이상 사용했던 명령어를 .bash_history에 저장해 두고 다시 불러서 사용할 수 있게 하는 기능이다.</li>
+<li>대부분의 쉘은 이전에 입력했던 명령어를 반복하거 약간 변형하여 다시 사용할 수 있도록 하는 기능이다</li>
+</ul>
+<h4 id="alias-기능"><a href="#alias-기능" class="headerlink" title="alias 기능"></a>alias 기능</h4><ul>
+<li>자주 사용하는 명령어를 특정 문자로 입력해 두고 간편하게 사용할 수 있게 하는 기능이다.</li>
+</ul>
+<h2 id="프로세스-개념-및-유형"><a href="#프로세스-개념-및-유형" class="headerlink" title="프로세스 개념 및 유형"></a>프로세스 개념 및 유형</h2><h3 id="개념-1"><a href="#개념-1" class="headerlink" title="개념"></a>개념</h3><ul>
+<li>프로세스는 cpu와 메모리를 할당받아 실행 중인 프로그램이다</li>
+<li>프로세스들마다 고유의 프로세스 ID를 할당받는다</li>
+</ul>
+<h3 id="프로세스-유형"><a href="#프로세스-유형" class="headerlink" title="프로세스 유형"></a>프로세스 유형</h3><h4 id="포어그라운드-프로세스"><a href="#포어그라운드-프로세스" class="headerlink" title="포어그라운드 프로세스"></a>포어그라운드 프로세스</h4><ul>
+<li>사용자와 상호작용하는 프로세스</li>
+<li>터미널에 직접 연결되어 입출력을 주고 받는 프로세스</li>
+<li>명령 입력 후 수행 종료까지 기다려야 하는 프로세스</li>
+<li>화면에서 실행되는 것이 보이는 프로세스</li>
+<li>응용프로그램이나 명령어 등</li>
+</ul>
+<h4 id="백그라운드-프로세스"><a href="#백그라운드-프로세스" class="headerlink" title="백그라운드 프로세스"></a>백그라운드 프로세스</h4><ul>
+<li>사용자와 직접적인 대화를 하지 않고 뒤에서 실행되는 프로세스</li>
+<li>사용자의 입력에 관계없이 실행되는 프로세스</li>
+<li>실행은 되지만 화면에 나타나지 않고 실행되는 프로세스</li>
+<li>시스템 프로그램, 데몬 등</li>
+</ul>
+<h4 id="fork"><a href="#fork" class="headerlink" title="fork"></a>fork</h4><ul>
+<li>새로운 프로세스를 만들 때 기존 픞로세스를 복제하는 방식을 사용</li>
+<li>새로운 프로세스를 위한 메모리르 할당한다</li>
+<li>새로 생성된 프로세스는 원래의 프로세스와 똑같은 코드를 가지고 있다.</li>
+<li>원본 프로세스를 부모 프로세스라 부르고 새로 복제된 프로세스를 자식 프로세스라고 부른다</li>
+</ul>
+<h4 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h4><ul>
+<li>호출하는 프로세스가 새로운 프로세스로 변경되는 방식</li>
+<li>새로운 프로세스를 위한 메모리를 할당하지 않는다</li>
+<li>호출한 프로세스의 메모리에 새로운 프로세스 코드를 덮어씌워버린다</li>
+</ul>
+<h4 id="데몬"><a href="#데몬" class="headerlink" title="데몬"></a>데몬</h4><ul>
+<li>리눅스 시스템이 부팅 시 자동으로 실행되는 백그라운드 프로세스</li>
+<li>메모리에 상주하면서 사용자의 특정 요청이 오면 즉시 실행되는 대기 중이 서버프로세스이다</li>
+<li>주기적으로 지속적인 서비스 요청을 처리하기 위해 사용된다</li>
+<li>사용자들은 이 프로세스들을 볼 수 있는 권한이 없다.</li>
+</ul>
+<h2 id="프로세스-유틸리티"><a href="#프로세스-유틸리티" class="headerlink" title="프로세스 유틸리티"></a>프로세스 유틸리티</h2><h3 id="프로세스-관련-명령어"><a href="#프로세스-관련-명령어" class="headerlink" title="프로세스 관련 명령어"></a>프로세스 관련 명령어</h3><ul>
+<li>ps<ul>
+<li>현재 실행중인 프로세스의 상태를 보여주는 명령어이다.</li>
+<li>cpu사용도가 낮은 순서로 출력된다</li>
+</ul>
+</li>
+<li>pstree<ul>
+<li>실행 중인 프로세스들을 트리구조로 나타낸다</li>
+</ul>
+</li>
+<li>jobs<ul>
+<li>작업이 중지된 상태, 백그라운드로 진행 중인 상태, 변경되었지만 보고되지 않은 상태 등을 표시한다</li>
+<li>백그라운드로 실행중인 프로세스를 확인한다.<ul>
+<li>[숫자]는 작업 번호이다</li>
+<li>출력된 목록에서 +는 현재 작업 실행, -는 앞으로 실행될 작업을 나타낸다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>kill<ul>
+<li>프로세스를 종료 시킨다</li>
+</ul>
+</li>
+<li>killall<ul>
+<li>같은 데몬의 여러 프로세서를 한 번에 종료 시킬 때 사용한다</li>
+<li>프로세스 명으로 연관된 프로세스들을 종료시킨다</li>
+</ul>
+</li>
+<li>nice<ul>
+<li>프로세스 사이의 우선순위를 확인하고 우선순위를 변경할 수 있는 명령어이다</li>
+<li>조정할 수 있는 NI 값의 범위는 -20 ~19(우선 순위 높음 -&gt; 낮음)이다</li>
+<li>우선순위 0의 값을 가지며 값이 작을수록 우선순위가 높다</li>
+<li>옵션 -n을 사용하지 않으면 디폴트는 10을 사용한다</li>
+<li>조정수치가 생략되면 명령의 우선권은 10 만큼 증가한다</li>
+<li>명령어 ‘nice -10 bash’는 bash 프로세스 NI 값을 10만큼 증가시키는 것이다<ul>
+<li>값이 증가한다는 것은 우선순위를 낮추는 것이다</li>
+</ul>
+</li>
+<li>nice [옵션] 프로세스명</li>
+</ul>
+</li>
+<li>renice<ul>
+<li>이미 실행중인 프로세스의 우선순위를 변경한다</li>
+<li>nice는 기존 NI값을 증감하지만 명령어 renice는 지정한 NI값을 설정한다</li>
+<li>nice는 NI 값에 -(대쉬 바)를 쓰지 않는다</li>
+<li>renice [옵션] NI갑 PID</li>
+</ul>
+</li>
+<li>top<ul>
+<li>리눅스 시스템의 운영 상태를 실시간으로 모니터링하거나 프로세스 상태를 확인 할 수 있다.</li>
+</ul>
+</li>
+<li>nohup<ul>
+<li>프로세스가 중단되지 않고 백그라운드로 작업을 수행할 수 있게 한다.</li>
+<li>사용자가 로그아웃하거나 작업 중인 터미널 창이 닫혀도 실행 중인 프로세스를 백그라운드 프로세스로 계속 작업할 수 있도록 한다</li>
+<li>용량이 큰 데이터 압축 해제와 같이 실행시간이 오래 걸리는 프로세드들에 대해 nohup으로 처리하여 작업하면 작업 중단 없이 해당 업무를 완료할 수 있다.</li>
+<li>백그라운드로 실행 될 수 있도록 명령행 뒤에 &amp;를 명시한다</li>
+</ul>
+</li>
+</ul>
+<h3 id="스케줄링과-cron"><a href="#스케줄링과-cron" class="headerlink" title="스케줄링과 cron"></a>스케줄링과 cron</h3><ul>
+<li>주기적으로 반복되는 일은 자동적으로 실행 될 수 있도록 설정한다&#x2F;</li>
+<li>스케줄링 데몬은 cround이며 관련 파일은 &#x2F;etc&#x2F;crontab이다</li>
+<li>파일 &#x2F;etc&#x2F;crontab&#x2F;은 7개의 필드로 구성되어 있다.</li>
+<li>명령어 crontab은 사용자가 주기적인 작업을 등록할 수 있게 한다</li>
+</ul>
+<h2 id="에디터-종류"><a href="#에디터-종류" class="headerlink" title="에디터 종류"></a>에디터 종류</h2><h3 id="개요-1"><a href="#개요-1" class="headerlink" title="개요"></a>개요</h3><ul>
+<li>리눅스에서 지원하는 편집기로는 vi, emacs, pico, gedit, xedit 등이 있다.</li>
+<li>리눅스 편집기는 편집기를 통해 파일을 수정한다.</li>
+</ul>
+<h3 id="종류-2"><a href="#종류-2" class="headerlink" title="종류"></a>종류</h3><ul>
+<li>pico<ul>
+<li>워싱턴 대학의 Aboil Kasar가 개발한 유닉스 기반의 텍스트 에디터이다.</li>
+<li>메뉴 선택 방식의 텍스트 편집기로 기본 인터페이스가 윈도우의 메모장과 유사하여 간단하다</li>
+<li>자유 소프트웨어 라이선스가 아니기 때문에 소스 수정이 불가능</li>
+<li>다른 편집기에 비해 사용하기 쉽고 사용하기 편리하지만 기능이 부족하고 업데이트가 잘되지 않는다.</li>
+<li>GNU 프로젝트에서는 pico의 복제 버전 에디터인 nano를 개발하였다.</li>
+<li>vi 편집기처럼 입력모드와 명령모드가 존재하지 않고 바로 텍스트 입력이 가능하다</li>
+</ul>
+</li>
+<li>emacs<ul>
+<li>리차드 스톨만이 매크로 기능이 있는 텍스트 교정 및 편집기로 개발하였다</li>
+<li>최초의 개발자는 리차드 스톨만이며, 이후 제임스 고슬링이 LSP 언러를 기반하여 emacs에 다양한 기능을 개발하여 추가하였다.</li>
+<li>LISP에 기반을 둔 환경 설정 언어를 가지고 있다.</li>
+</ul>
+</li>
+<li>vi<ul>
+<li>1976년 빌 조이가 초기 BSD 릴리즈에 포함될 편집기로 만들었다.</li>
+<li>리눅스 배포판과 유닉스에 기본적으로 포함되어 있다.</li>
+<li>다른 편집기들과 다르게 모드형 편집기이다.</li>
+<li>명령모드, 입력모드, 편집 모드로 구성되어 있다.</li>
+</ul>
+</li>
+<li>vim<ul>
+<li>브람 무레나르가 만든 편집기앋.</li>
+<li>vi 편집기와 호환되면서 독자적으로 다양한 기능을 추가하여 만든 편집기이다</li>
+<li>편집 시 다양한 색상을 이용하여 가시성을 높일 수 있다.</li>
+<li>패턴 검색시 하이라이트 기능을 제공하여 빠른 검색을 가능하게 해준다</li>
+<li>ex모드에서 히스토리 기능을 제공한다</li>
+<li>확장된 정규 표현식 문법과 강력한 문법 강조 기능을 갖는다</li>
+</ul>
+</li>
+<li>gedit<ul>
+<li>gnom 데스크톱 환경으로 개발된 자유 소프트웨어 텍스트 편집기이다</li>
+<li>마이크로소프트, 윈도, 맥OS X에서도 사용할 수 있다.</li>
+<li>UTF-8과 호환하며 텍스트 문서를 편집하는 용도에 중점을 두었다.</li>
+<li>X-윈도우 시스템에 맞춰 개발되었다..</li>
+<li>GTK+와 그놈 라이브러리를 이용하여 개발되었다.</li>
+<li>텔넷 접속 시나 텍스트 기반 콘솔 창에서는 사용할 수 없다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="소프트웨어-프로그램-설치"><a href="#소프트웨어-프로그램-설치" class="headerlink" title="소프트웨어 프로그램 설치"></a>소프트웨어 프로그램 설치</h2><h3 id="계열"><a href="#계열" class="headerlink" title="계열"></a>계열</h3><ul>
+<li>데미안 계열<ul>
+<li>배포 업체 : debian, ubunto, xandors,lispire</li>
+<li>패키지 툴 : dpkg, apt-get, optitude</li>
+</ul>
+</li>
+<li>레드햇 계열<ul>
+<li>배포 업체 : fedora, centos,RHEL,openSUSE, mandirva</li>
+<li>패키지 툴 : rpm, yum</li>
+</ul>
+</li>
+</ul>
+<h3 id="특징"><a href="#특징" class="headerlink" title="특징"></a>특징</h3><ul>
+<li>rpm<ul>
+<li>레드햇 사에서 만들어낸 패키지 관리 툴</li>
+<li>새로운 패키지를 설치하거나 업그레이드, 삭제 시 사용한다</li>
+<li>windows의 setup.exe와 유사하게 만든 프로그램이다</li>
+<li>레드햇 계열의 패키지 파일 확장명은 *.rpm이다</li>
+</ul>
+</li>
+<li>yum<ul>
+<li>네트워크를 통해 기존 rpm 패키지 파일의 업데이트 자동 수행, 새로운 패키지 설치 밎 제거를 수행한다</li>
+<li>RPM의 의존성 문제를 해결하기 위한 유틸리티이다.</li>
+<li>인터넷을 기반으로 설치하므로 네트워크가 정상적으로 연결된 상태여야만 한다.</li>
+<li>YUM은 페도라 22버전 이후부터 YUM의 문제점을 보안한 DNF로 전환되고 있다.</li>
+</ul>
+</li>
+<li>dpkg<ul>
+<li>데비안의 저레벨 패키지 관리 툴이다</li>
+<li>deb 패키지의 설치, 삭제, 정보 제공을 위해 사용된다</li>
+<li>확장자 deb 파일은 데비안 패키지 파일이다.</li>
+<li>패키지 설치 및 제거 시 RPM과 같은 의존성 문제를 일으킨다</li>
+<li>dpkg -s 패키지는 지정된 패키지에 대한 자세한 정보를 나타낸다</li>
+</ul>
+</li>
+<li>apt-get<ul>
+<li>데미안 리눅스에서 소프트웨어 설치와 제거를 위한 패키지 관리 유틸리티</li>
+<li>패키지 관련 정보를 확인하거나 패키지 설치 시 발생할 수 있는 의존성과 충돌 문제를 해결하기 위해 &#x2F;etc&#x2F;apt&#x2F;source.list 파일을 참조한다</li>
+</ul>
+</li>
+</ul>
+<h2 id="소스-파일-설치"><a href="#소스-파일-설치" class="headerlink" title="소스 파일 설치"></a>소스 파일 설치</h2><h3 id="파일-아카이브와-압축"><a href="#파일-아카이브와-압축" class="headerlink" title="파일 아카이브와 압축"></a>파일 아카이브와 압축</h3><h4 id="파일-아카이브"><a href="#파일-아카이브" class="headerlink" title="파일 아카이브"></a>파일 아카이브</h4><ul>
+<li>아카이브는 다수 개의 파일이나 디렉터리를 하나의 파일로 묶는 것이다</li>
+<li>아카이브 파일은 다른 시스템으로 다수 개의 파일을 한 번에 전송하거나 파일 백업용으로 사용한다</li>
+</ul>
+<h4 id="파일-압축과-해제"><a href="#파일-압축과-해제" class="headerlink" title="파일 압축과 해제"></a>파일 압축과 해제</h4><ul>
+<li>대표적인 파일 압축 명은 compress, gzip, bzip2, xz가 있다.</li>
+<li>일반적으로 많이 사용되는 압축 명령어는 gzip과 bzip2이다</li>
+<li>압축률이 가장 낮은 것은 명령어 compress이며, 압축률이 가장 높은 것은 명령어 xz이다</li>
+</ul>
+<h3 id="소스-코드-설치"><a href="#소스-코드-설치" class="headerlink" title="소스 코드 설치"></a>소스 코드 설치</h3><ul>
+<li>소스 코드를 압축 해제 후 컴파일 순서에 따라 프로그램을 설치한다</li>
+<li>컴파일 순서는 설치 파일의 환경설정, 컴파일, 파일 설치이다</li>
+</ul>
+<ol>
+<li>환경설정 : .&#x2F;configure 프로그램 설치 과정에서 필요로 하는 환경파일 makefile 생성</li>
+<li>컴파일 : make makefile을 기반으로 소스 파일을 컴파일</li>
+<li>파일 설치 : make install 컴파일 된 실행 파일을 지정된 속성으로 지정된 디렉터리에 설치</li>
+</ol>
+<h2 id="주변-장치-연결-및-설정"><a href="#주변-장치-연결-및-설정" class="headerlink" title="주변 장치 연결 및 설정"></a>주변 장치 연결 및 설정</h2><h3 id="프린터-인쇄-시스템-설치-및-설정"><a href="#프린터-인쇄-시스템-설치-및-설정" class="headerlink" title="프린터 인쇄 시스템 설치 및 설정"></a>프린터 인쇄 시스템 설치 및 설정</h3><ul>
+<li>LPRng<ul>
+<li>리눅스 초기에 사용되었던 인쇄 시스템</li>
+<li>버클리 프린링 시스템으로 BSD 계열 유닉스에서 사용하기 위해 계발 되었다.</li>
+<li>라인 프린터 데몬 프로토콜을 사용하여 프린터 스폴링과 네트워크 프린터 서버를 지원한다</li>
+<li>LPRng 설정 파일은 &#x2F;etc&#x2F;printcap 이다.</li>
+</ul>
+</li>
+<li>CPUS<ul>
+<li>애플이 개발한 오픈 소스 프린팅 시스템이다</li>
+<li>유닉스 계열 운영체제의 시스템을 프린터 서버로 사용가능하게 해준다</li>
+<li>맼킨토시나 윈도우 등 시중에 시판되는 대부분의 프린트를 지원한다</li>
+<li>HTTP 기반의 IPP(Internet Printing Protocol)를 사용하여 프린터를 웹 기반으로 제어한다</li>
+<li>CPUS 설정 파일은 &#x2F;etc&#x2F;cpus이다.</li>
+<li>사용자 및 호스트 기반의 인증을 제공한다</li>
+<li>CPUS 관련 파일은 cpusd.conf, printer.conf, classes.conf, cpused 등이 있다.</li>
+</ul>
+</li>
+<li>프린터 설정<ul>
+<li>일반적으로 x-windows 상에서 프린터 설정 도구로 프린터를 설치한다.</li>
+<li>로컬 접속으로 프린터를 직접 연결할 수 있다.</li>
+<li>네트워크 프린터를 설정할 경우 5 가지 방법을 제공하고 있다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="사운드-카드-설치-및-설정"><a href="#사운드-카드-설치-및-설정" class="headerlink" title="사운드 카드 설치 및 설정"></a>사운드 카드 설치 및 설정</h3><h4 id="OSS-open-sound-system"><a href="#OSS-open-sound-system" class="headerlink" title="OSS(open sound system)"></a>OSS(open sound system)</h4><ul>
+<li>리눅스 및 유닉스 계열 운영체제에서 사운드를 만들고 캡쳐하는 인터페이스이다</li>
+<li>표준 유닉스 장치 시스템 콜에 기반을 둔 것이다</li>
+<li>현재 리눅스 커뮤니티에서는 ALSA로 대체 되었다.</li>
+</ul>
+<h4 id="ALSA-Advanced-Linux-Sound-Architecture"><a href="#ALSA-Advanced-Linux-Sound-Architecture" class="headerlink" title="ALSA(Advanced Linux Sound Architecture)"></a>ALSA(Advanced Linux Sound Architecture)</h4><ul>
+<li>사운드 카드용 장치 드라이버를 제공하기 위한 리눅스 커널 요소</li>
+<li>GPL 및 LGPL 라이선스 기반으로 배포 되고 있다.</li>
+<li>사운드 카드를 자동으로 구성하고 시스템에 여러 개의 사운드 장치를 관리하는 것이 목적이다</li>
+<li>OSS의 지원을 받아서 하드웨어 기반 미디합성, 다중 채널 하드웨어 믹싱, 전이중 통신, 다중 프로세서와의 조화, 스레드 안정장치 드라이브 등의 기능을 지원한다</li>
+<li>연결 설정 파일은 &#x2F;etc&#x2F;asound.state이다</li>
+</ul>
+<h3 id="스캐너-설치-및-설정"><a href="#스캐너-설치-및-설정" class="headerlink" title="스캐너 설치 및 설정"></a>스캐너 설치 및 설정</h3><h4 id="SANE-Scanner-Access-Now-Easy"><a href="#SANE-Scanner-Access-Now-Easy" class="headerlink" title="SANE(Scanner Access Now Easy)"></a>SANE(Scanner Access Now Easy)</h4><ul>
+<li>평판 스캐너, 핸드 스캐너, 비디오 캠 등 이미지 관련 하드웨어를 제어하는 api이다.</li>
+<li>GPL 라이선스 리눅스 및 유닉스 계열, OS2, windows 지원한다</li>
+</ul>
+<h4 id="XSANE-X-based-interface-for-the-SANE"><a href="#XSANE-X-based-interface-for-the-SANE" class="headerlink" title="XSANE(X based interface for the SANE)"></a>XSANE(X based interface for the SANE)</h4><ul>
+<li>SANE 스캐너 인터페이스를 이용하여 X-windows 기반의 스캐너 프로그램이다</li>
+<li>스캐너, 디지털 카메라, 디지털 캠 등 다양한 장치에서 사용이 가능하다</li>
+<li>스캔 작업뿐만 아니라 캡쳐한 이미지에 수정 작업을 할 수 있다.</li>
+<li>GPL 라이선스, 리눅스 및 유닉스 계열, OS2, Windows도 지원한다</li>
+</ul>
+<h2 id="주변-장치-활용"><a href="#주변-장치-활용" class="headerlink" title="주변 장치 활용"></a>주변 장치 활용</h2><h3 id="프린터-설치-및-설정"><a href="#프린터-설치-및-설정" class="headerlink" title="프린터 설치 및 설정"></a>프린터 설치 및 설정</h3><ul>
+<li>BSD 계열 프린터 명령어들<ul>
+<li>lpr<ul>
+<li>프린터 작업을 요청한다</li>
+</ul>
+</li>
+<li>lpq<ul>
+<li>프린터 큐에 있는 작업 목록을 출력한다</li>
+</ul>
+</li>
+<li>lprm<ul>
+<li>프린터 큐에 대기 중인 작업을 삭제한다</li>
+<li>취소할 프린트 작업 번호를 입력한다</li>
+</ul>
+</li>
+<li>lpc<ul>
+<li>라인 프린터 컨트롤 프로그램</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>System V 계열 프린터 명령어들<ul>
+<li>lp<ul>
+<li>프린터 작업 요청(명령어 lpr과 유사한 기능)을 한다.</li>
+</ul>
+</li>
+<li>lpstat<ul>
+<li>프린터 큐의 상태를 확인한다</li>
+</ul>
+</li>
+<li>cancel<ul>
+<li>프린트 작업을 취소한다</li>
+<li>취소할 요청 ID를 lpstat으로 확인 후 삭제한다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="사운드-카드-관련-명령어"><a href="#사운드-카드-관련-명령어" class="headerlink" title="사운드 카드 관련 명령어"></a>사운드 카드 관련 명령어</h2><ul>
+<li>alsactl<ul>
+<li>사운드 카드를 제어한다</li>
+</ul>
+</li>
+<li>alsamixer<ul>
+<li>커서 라이브러리 기반의 오디오 프로그램이다</li>
+</ul>
+</li>
+<li>cdparanoia<ul>
+<li>오디오 cd로부터 음악 파일을 추출시 사용가능하다</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%EB%A6%AC%EB%88%85%EC%8A%A4%EC%9A%B4%EC%98%81%EB%B0%8F%EA%B4%80%EB%A6%AC/">https://goberomsu.github.io/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%EB%A6%AC%EB%88%85%EC%8A%A4%EC%9A%B4%EC%98%81%EB%B0%8F%EA%B4%80%EB%A6%AC/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/">블로그</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/10/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%9D%98%EA%B0%9C%EB%85%90/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">데이터베이스의 개념</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/10/%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A7%88%EC%8A%A4%ED%84%B0_%EC%9D%BC%EB%B0%98/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">리눅스 마스터 일반</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">이분 탐색</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1003 피보나치 함수</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1012 유기농 배추</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1074/" title="백준 1074 Z"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1074 Z</div></div></a></div><div><a href="/2022/03/10/algorithm-boj10820/" title="백준 10820 문자열 분석"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 10820 문자열 분석</div></div></a></div><div><a href="/2022/03/10/algorithm-boj11047/" title="백준 11047 동전 0"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 11047 동전 0</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B6%8C%ED%95%9C-%EB%B0%8F-%EA%B7%B8%EB%A3%B9-%EC%84%A4%EC%A0%95"><span class="toc-number">1.</span> <span class="toc-text">권한 및 그룹 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%86%8C%EC%9C%A0%EA%B6%8C-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="toc-number">1.1.</span> <span class="toc-text">소유권 관련 명령어</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%97%88%EA%B0%80%EA%B6%8C-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="toc-number">1.2.</span> <span class="toc-text">허가권 관련 명령어</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8A%B9%EC%88%98-%EA%B6%8C%ED%95%9C"><span class="toc-number">1.3.</span> <span class="toc-text">특수 권한</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BF%BC%ED%84%B0"><span class="toc-number">1.4.</span> <span class="toc-text">디스크 쿼터</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BF%BC%ED%84%B0-%EC%A7%80%EC%A0%95%EB%8B%A8%EA%B3%84"><span class="toc-number">1.4.1.</span> <span class="toc-text">디스크 쿼터 지정단계</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%94%94%EC%8A%A4%ED%81%AC-%EC%BF%BC%ED%84%B0-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="toc-number">1.4.2.</span> <span class="toc-text">디스크 쿼터 관련 명령어</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98-%EA%B4%80%EB%A6%AC"><span class="toc-number">2.</span> <span class="toc-text">파일 시스템의 관리</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98-%EA%B0%9C%EC%9A%94%EC%99%80-%EC%A2%85%EB%A5%98"><span class="toc-number">2.1.</span> <span class="toc-text">파일 시스템의 개요와 종류</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B0%9C%EC%9A%94"><span class="toc-number">2.1.1.</span> <span class="toc-text">개요</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%A2%85%EB%A5%98"><span class="toc-number">2.1.2.</span> <span class="toc-text">종류</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%A0%84%EC%9A%A9-%EB%94%94%EC%8A%A4%ED%81%AC-%EA%B8%B0%EB%B0%98-%ED%8C%8C%EC%9D%BC-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="toc-number">2.1.3.</span> <span class="toc-text">리눅스 전용 디스크 기반 파일 시스템</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%A0%80%EB%84%90%EB%A7%81-%ED%8C%8C%EC%9D%BC-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="toc-number">2.1.4.</span> <span class="toc-text">저널링 파일 시스템</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%ED%8C%8C%EC%9D%BC-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="toc-number">2.1.5.</span> <span class="toc-text">네트워크 파일 시스템</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B8%B0%ED%83%80-%EC%A7%80%EC%9B%90-%EA%B0%80%EB%8A%A5%ED%95%9C-%ED%8C%8C%EC%9D%BC-%EC%8B%9C%EC%8A%A4%ED%85%9C"><span class="toc-number">2.1.6.</span> <span class="toc-text">기타 지원 가능한 파일 시스템</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="toc-number">2.1.7.</span> <span class="toc-text">관련 명령어</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%85%B8-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%A2%85%EB%A5%98"><span class="toc-number">3.</span> <span class="toc-text">셸 개념 및 종류</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9C%EB%85%90"><span class="toc-number">3.1.</span> <span class="toc-text">개념</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A2%85%EB%A5%98-1"><span class="toc-number">3.2.</span> <span class="toc-text">종류</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%85%B8-%ED%99%95%EC%9D%B8-%EB%B0%8F-%EB%B3%80%EA%B2%BD"><span class="toc-number">3.3.</span> <span class="toc-text">셸 확인 및 변경</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%89%98-%ED%99%95%EC%9D%B8"><span class="toc-number">3.3.1.</span> <span class="toc-text">로그인 쉘 확인</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%89%98-%EB%B3%80%EA%B2%BD"><span class="toc-number">3.3.2.</span> <span class="toc-text">쉘 변경</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%89%98-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95"><span class="toc-number">4.</span> <span class="toc-text">쉘 환경 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98%EC%99%80-%EC%89%98-%EB%B3%80%EC%88%98"><span class="toc-number">4.1.</span> <span class="toc-text">환경 변수와 쉘 변수</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98"><span class="toc-number">4.1.1.</span> <span class="toc-text">환경 변수</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%89%98-%EB%B3%80%EC%88%98-%EC%A7%80%EC%97%AD-%EB%B3%80%EC%88%98"><span class="toc-number">4.1.2.</span> <span class="toc-text">쉘 변수(지역 변수)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC"><span class="toc-number">4.1.3.</span> <span class="toc-text">환경 설정 파일</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bash-shell%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5"><span class="toc-number">4.2.</span> <span class="toc-text">bash shell의 주요 기능</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#history-%EA%B8%B0%EB%8A%A5"><span class="toc-number">4.2.1.</span> <span class="toc-text">history 기능</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#alias-%EA%B8%B0%EB%8A%A5"><span class="toc-number">4.2.2.</span> <span class="toc-text">alias 기능</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%9C%A0%ED%98%95"><span class="toc-number">5.</span> <span class="toc-text">프로세스 개념 및 유형</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9C%EB%85%90-1"><span class="toc-number">5.1.</span> <span class="toc-text">개념</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%9C%A0%ED%98%95"><span class="toc-number">5.2.</span> <span class="toc-text">프로세스 유형</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%8F%AC%EC%96%B4%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4"><span class="toc-number">5.2.1.</span> <span class="toc-text">포어그라운드 프로세스</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%B0%B1%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4"><span class="toc-number">5.2.2.</span> <span class="toc-text">백그라운드 프로세스</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fork"><span class="toc-number">5.2.3.</span> <span class="toc-text">fork</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#exec"><span class="toc-number">5.2.4.</span> <span class="toc-text">exec</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%8D%B0%EB%AA%AC"><span class="toc-number">5.2.5.</span> <span class="toc-text">데몬</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EC%9C%A0%ED%8B%B8%EB%A6%AC%ED%8B%B0"><span class="toc-number">6.</span> <span class="toc-text">프로세스 유틸리티</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="toc-number">6.1.</span> <span class="toc-text">프로세스 관련 명령어</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%8A%A4%EC%BC%80%EC%A4%84%EB%A7%81%EA%B3%BC-cron"><span class="toc-number">6.2.</span> <span class="toc-text">스케줄링과 cron</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%90%EB%94%94%ED%84%B0-%EC%A2%85%EB%A5%98"><span class="toc-number">7.</span> <span class="toc-text">에디터 종류</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9C%EC%9A%94-1"><span class="toc-number">7.1.</span> <span class="toc-text">개요</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A2%85%EB%A5%98-2"><span class="toc-number">7.2.</span> <span class="toc-text">종류</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%84%A4%EC%B9%98"><span class="toc-number">8.</span> <span class="toc-text">소프트웨어 프로그램 설치</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B3%84%EC%97%B4"><span class="toc-number">8.1.</span> <span class="toc-text">계열</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8A%B9%EC%A7%95"><span class="toc-number">8.2.</span> <span class="toc-text">특징</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%86%8C%EC%8A%A4-%ED%8C%8C%EC%9D%BC-%EC%84%A4%EC%B9%98"><span class="toc-number">9.</span> <span class="toc-text">소스 파일 설치</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC-%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C%EC%99%80-%EC%95%95%EC%B6%95"><span class="toc-number">9.1.</span> <span class="toc-text">파일 아카이브와 압축</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC-%EC%95%84%EC%B9%B4%EC%9D%B4%EB%B8%8C"><span class="toc-number">9.1.1.</span> <span class="toc-text">파일 아카이브</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC-%EC%95%95%EC%B6%95%EA%B3%BC-%ED%95%B4%EC%A0%9C"><span class="toc-number">9.1.2.</span> <span class="toc-text">파일 압축과 해제</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%86%8C%EC%8A%A4-%EC%BD%94%EB%93%9C-%EC%84%A4%EC%B9%98"><span class="toc-number">9.2.</span> <span class="toc-text">소스 코드 설치</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A3%BC%EB%B3%80-%EC%9E%A5%EC%B9%98-%EC%97%B0%EA%B2%B0-%EB%B0%8F-%EC%84%A4%EC%A0%95"><span class="toc-number">10.</span> <span class="toc-text">주변 장치 연결 및 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%84%EB%A6%B0%ED%84%B0-%EC%9D%B8%EC%87%84-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95"><span class="toc-number">10.1.</span> <span class="toc-text">프린터 인쇄 시스템 설치 및 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%82%AC%EC%9A%B4%EB%93%9C-%EC%B9%B4%EB%93%9C-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95"><span class="toc-number">10.2.</span> <span class="toc-text">사운드 카드 설치 및 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#OSS-open-sound-system"><span class="toc-number">10.2.1.</span> <span class="toc-text">OSS(open sound system)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ALSA-Advanced-Linux-Sound-Architecture"><span class="toc-number">10.2.2.</span> <span class="toc-text">ALSA(Advanced Linux Sound Architecture)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%8A%A4%EC%BA%90%EB%84%88-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95"><span class="toc-number">10.3.</span> <span class="toc-text">스캐너 설치 및 설정</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SANE-Scanner-Access-Now-Easy"><span class="toc-number">10.3.1.</span> <span class="toc-text">SANE(Scanner Access Now Easy)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XSANE-X-based-interface-for-the-SANE"><span class="toc-number">10.3.2.</span> <span class="toc-text">XSANE(X based interface for the SANE)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A3%BC%EB%B3%80-%EC%9E%A5%EC%B9%98-%ED%99%9C%EC%9A%A9"><span class="toc-number">11.</span> <span class="toc-text">주변 장치 활용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%84%EB%A6%B0%ED%84%B0-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95"><span class="toc-number">11.1.</span> <span class="toc-text">프린터 설치 및 설정</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%82%AC%EC%9A%B4%EB%93%9C-%EC%B9%B4%EB%93%9C-%EA%B4%80%EB%A0%A8-%EB%AA%85%EB%A0%B9%EC%96%B4"><span class="toc-number">12.</span> <span class="toc-text">사운드 카드 관련 명령어</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/algorithm-boj9375/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/06/30/algorithm-boj9375/" title="No title">No title</a><time datetime="2022-06-30T06:12:38.049Z" title="Created 2022-06-30 15:12:38">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/hello-world/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/06/30/hello-world/" title="Hello World">Hello World</a><time datetime="2022-06-30T06:00:55.045Z" title="Created 2022-06-30 15:00:55">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="이분 탐색"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색">이분 탐색</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1003 피보나치 함수"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수">백준 1003 피보나치 함수</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1012 유기농 배추"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추">백준 1012 유기농 배추</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

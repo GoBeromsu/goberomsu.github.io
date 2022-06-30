@@ -1,0 +1,569 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>자료구조 | Hexo</title><meta name="keywords" content="블로그"><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="자료 구조의 개념자료 구조의 정의 자료의 표현과 그것과 고나련된 연산 일련의 자료들을 조직하고 구조화 어떠한 자료 구조에서도 필요한 모든 연산들을 처리하는 것이 가능 자료 구조에 따라 프로그램 실행시간이 달라진다.  자료 구조의 이용 정렬 : 기억 장치 내의 자료를 일정한 순서에 의해 나열하는 것 검색 : 기억장치 내의 자료를 찾는 것 파일 편성 : 자료를">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자료구조">
+<meta property="og:url" content="https://goberomsu.github.io/2022/03/10/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="자료 구조의 개념자료 구조의 정의 자료의 표현과 그것과 고나련된 연산 일련의 자료들을 조직하고 구조화 어떠한 자료 구조에서도 필요한 모든 연산들을 처리하는 것이 가능 자료 구조에 따라 프로그램 실행시간이 달라진다.  자료 구조의 이용 정렬 : 기억 장치 내의 자료를 일정한 순서에 의해 나열하는 것 검색 : 기억장치 내의 자료를 찾는 것 파일 편성 : 자료를">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-10T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-30T05:37:48.575Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="블로그">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/avatar.JPG"><link rel="canonical" href="https://goberomsu.github.io/2022/03/10/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-162786459-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162786459-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '자료구조',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-30 14:37:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">자료구조</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-30T05:37:48.575Z" title="Updated 2022-06-30 14:37:48">2022-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/etc/">etc</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="자료구조"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="자료-구조의-개념"><a href="#자료-구조의-개념" class="headerlink" title="자료 구조의 개념"></a>자료 구조의 개념</h1><h2 id="자료-구조의-정의"><a href="#자료-구조의-정의" class="headerlink" title="자료 구조의 정의"></a>자료 구조의 정의</h2><ul>
+<li>자료의 표현과 그것과 고나련된 연산</li>
+<li>일련의 자료들을 조직하고 구조화</li>
+<li>어떠한 자료 구조에서도 필요한 모든 연산들을 처리하는 것이 가능</li>
+<li>자료 구조에 따라 프로그램 실행시간이 달라진다.</li>
+</ul>
+<h2 id="자료-구조의-이용"><a href="#자료-구조의-이용" class="headerlink" title="자료 구조의 이용"></a>자료 구조의 이용</h2><ul>
+<li>정렬 : 기억 장치 내의 자료를 일정한 순서에 의해 나열하는 것</li>
+<li>검색 : 기억장치 내의 자료를 찾는 것</li>
+<li>파일 편성 : 자료를 기억 매체에 저장할 때의 파일 구조</li>
+<li>인덱스 : 파일에서 특정 자료를 빠르게 찾기 위한 색인표</li>
+</ul>
+<h1 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h1><h2 id="스택의-개념"><a href="#스택의-개념" class="headerlink" title="스택의 개념"></a>스택의 개념</h2><ul>
+<li><p>LIFO &#x3D; 후입 선출 방식</p>
+</li>
+<li><p>TOP</p>
+<ul>
+<li>STACK으로 할당된 기억 공간에 가장 마지막으로 삽입된 자료가 기억된 위치를 가리키는 요소</li>
+<li>STACK 포인터라고 하기도 함</li>
+</ul>
+</li>
+<li><p>BOTTOM</p>
+<ul>
+<li>스택의 가장 밑바닥</li>
+</ul>
+</li>
+</ul>
+<h2 id="스택의-응용-분야"><a href="#스택의-응용-분야" class="headerlink" title="스택의 응용 분야"></a>스택의 응용 분야</h2><ul>
+<li>부 프로그램 호출 시 복귀주소를 저장할 때</li>
+<li>함수 호출의 순서 제어</li>
+<li>인터럽트가 발생하여 복귀주소를 저장할 때</li>
+<li>후위 표기법으로 표현된 수식을 연산 할 때</li>
+<li>0 주소 지정방식 명령어의 자료 저장소</li>
+<li>재귀 프로그램의 순서 제어</li>
+<li>컴파일러를 이용한 언어 번역 시</li>
+</ul>
+<h1 id="QUE-와-DEQUE"><a href="#QUE-와-DEQUE" class="headerlink" title="QUE 와 DEQUE"></a>QUE 와 DEQUE</h1><h2 id="QUE"><a href="#QUE" class="headerlink" title="QUE"></a>QUE</h2><ul>
+<li><p>선형 리스트의 한쪽에서는 삽입, 다른 한쪽에는 삭제 작업이 이루어지도록 구성한 자료구조</p>
+</li>
+<li><p>FIFO 방식</p>
+</li>
+<li><p>시작과 끝을 표시하는 두 개의 포인터가 있다.</p>
+</li>
+<li><p>Front 포인터</p>
+<ul>
+<li>가장 먼저 삽입 되는 자료의 기억 공간을 가리킴</li>
+<li>삭제 잡업을 할 때 사용</li>
+</ul>
+</li>
+<li><p>REAR 포인터</p>
+<ul>
+<li>가장 마지막에 삽입된 자료의 기억 장소를 가리키는 포인터</li>
+<li>삽입 작업을 할 때 사용</li>
+</ul>
+</li>
+<li><p>큐 응용</p>
+<ul>
+<li>대기 행렬 처리</li>
+<li>운영체제의 작업 스케줄링</li>
+</ul>
+</li>
+</ul>
+<h2 id="DEQUE"><a href="#DEQUE" class="headerlink" title="DEQUE"></a>DEQUE</h2><ul>
+<li><p>삽입과 삭제가 리스트의 양쪽 끝에서 모두 발생할 수 있는 자료 구조</p>
+</li>
+<li><p>stack과 queue의 장점만 따서 구성한것이다.</p>
+</li>
+<li><p>입력 제한 데크 : scroll</p>
+</li>
+<li><p>출력 제한 데크 : shelf</p>
+</li>
+</ul>
+<h1 id="트리-tree"><a href="#트리-tree" class="headerlink" title="트리(tree)"></a>트리(tree)</h1><h2 id="트리의-정의"><a href="#트리의-정의" class="headerlink" title="트리의 정의"></a>트리의 정의</h2><ul>
+<li>트리는 정점(node)와 선분(branch)를 이용하여 사이클을 이루지 않도록 구성한 graph의 특수한 형태이다</li>
+</ul>
+<h2 id="트리-관련-용어"><a href="#트리-관련-용어" class="headerlink" title="트리 관련 용어"></a>트리 관련 용어</h2><ul>
+<li>node : 트리의 기본 요소로서 자료 항목과 다른 항목에 대한 가지를 합친 것</li>
+<li>root node : 트리 맨 위에 있는 노드</li>
+<li>degree : 각 노드에 뻗어나온 가지의 수</li>
+<li>단말 노드(termianl node) : 자식이 없는 노드</li>
+</ul>
+<h1 id="이진-트리의-운행법"><a href="#이진-트리의-운행법" class="headerlink" title="이진 트리의 운행법"></a>이진 트리의 운행법</h1><h2 id="트리의-운행범"><a href="#트리의-운행범" class="headerlink" title="트리의 운행범"></a>트리의 운행범</h2><ul>
+<li>Pre order : root - left -right</li>
+<li>In order : left - order - right</li>
+<li>Post order : left - right - root</li>
+</ul>
+<h2 id="수식의-표기법"><a href="#수식의-표기법" class="headerlink" title="수식의 표기법"></a>수식의 표기법</h2><ul>
+<li>전위 표기</li>
+<li>후위 표기</li>
+<li>중위 표기 : 우린 보통 중위 표기</li>
+</ul>
+<h2 id="스레드-이진-트리"><a href="#스레드-이진-트리" class="headerlink" title="스레드 이진 트리"></a>스레드 이진 트리</h2><ul>
+<li><p>이진트리에서 발생하는 null 링크를 트리 운행에 필요한 다른 노드의 포인터로 사용하도록 고안된 트리</p>
+</li>
+<li><p>어떻게 사용하는가?</p>
+<ul>
+<li>어떤 노드의 왼쪽이 nil일 경우, 그 노드 직전에 검사된 노드를 가리키는 포인터로 사용</li>
+<li>어떤 노드의 오른쪽이 nil일 경우, 그 노드의 직후에 검사될 노드를 가리키는 포인터로 사용</li>
+</ul>
+</li>
+<li><p>해당 노드의 직전, 직후 노드는 트리의 운행법에 따라 방문한 노드의 순서대로 결정한다.</p>
+</li>
+</ul>
+<h1 id="그래프"><a href="#그래프" class="headerlink" title="그래프"></a>그래프</h1><h2 id="그래프의-정의"><a href="#그래프의-정의" class="headerlink" title="그래프의 정의"></a>그래프의 정의</h2><ul>
+<li>그래프 G는 정점과 간선의 두 집합으로 이루어진다.</li>
+<li>간선의 방향성 유무에 따라 방향 그래프와 무방향 그래프로 구분된다.</li>
+<li>tree는 사이클이 없는 그래프이다.</li>
+</ul>
+<h2 id="용어-정리"><a href="#용어-정리" class="headerlink" title="용어 정리"></a>용어 정리</h2><ul>
+<li>Loop : 한 정점에서 그 자신에 이어지는 간선 loop</li>
+<li>차수(degree)<ul>
+<li>무방향 그래프 : 한 정점에 여결된 간선의 수</li>
+<li>방향 그래프 : 진입 차수 + 진출 차수</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>경로<ul>
+<li>경로 길이 : 경로 상에 있는 간선들의 수</li>
+<li>단순 경로 : 같은 간선을 두번 이상 지나지 않는 경로</li>
+<li>기본 경로 : 같은 정점을 두번 이상 지나지 않는 경로</li>
+<li>사이클 : 같은 정점에서 시작과 끝이 이루어지는 경로</li>
+<li>최대 사이클 : 사이클을 이루는 경로 중 최대 경로 길이</li>
+</ul>
+</li>
+</ul>
+<h1 id="내부-정렬"><a href="#내부-정렬" class="headerlink" title="내부 정렬"></a>내부 정렬</h1><h2 id="삽입-정렬"><a href="#삽입-정렬" class="headerlink" title="삽입 정렬"></a>삽입 정렬</h2><ul>
+<li>순서화된 파일에 새로운 하나의 레코드를 순서에 맞게 삽입시켜 정렬</li>
+<li>평균 최악 모두 수행 시간 복잡도는 O(n^2)</li>
+</ul>
+<h2 id="쉘-정렬"><a href="#쉘-정렬" class="headerlink" title="쉘 정렬"></a>쉘 정렬</h2><ul>
+<li>삽입 정렬을 확장한 개념</li>
+<li>입력 파일이 부분적으로 정렬되어 있는 경우에 유리</li>
+<li>평균 수행 복잡도는 n^1.5, 최악의 수행 시간 복잡도는 n^2</li>
+</ul>
+<h2 id="선택-정렬"><a href="#선택-정렬" class="headerlink" title="선택 정렬"></a>선택 정렬</h2><ul>
+<li>n개의 레코드 중에서 최소값을 찾아 첫 번째 레코드 위치에 두고 나머지 (n-1)개중에 앞의 행위를 반복함</li>
+<li>평균과 최악 모두 수행시간 복잡도는 n^2</li>
+</ul>
+<h2 id="버블-정렬"><a href="#버블-정렬" class="headerlink" title="버블 정렬"></a>버블 정렬</h2><ul>
+<li>주어진 파일에서 인접한 두개의 레코드 키값을 비교하여 그 크기에 따라 레코드 위치를 서로 교환하는 정렬 방식</li>
+<li>계속 정렬 여부를 플래그 비트로 결정</li>
+<li>평균과 최악 모두 수행 시간 복잡도는 n^2</li>
+</ul>
+<h2 id="퀵-정렬"><a href="#퀵-정렬" class="headerlink" title="퀵 정렬"></a>퀵 정렬</h2><ul>
+<li>위치에는 관계없이 임의의 키를 분할 원소로 사용할 수 있다.</li>
+<li>정렬 방식 중 가장 빠른 방식이다</li>
+<li>분할과 정복을 통해 자료를 정렬한다.</li>
+<li>평균 수행 시간 복잡도는 nlog2n이고 최악의 수행시간 복잡도는 n^2</li>
+</ul>
+<h2 id="힙-정렬"><a href="#힙-정렬" class="headerlink" title="힙 정렬"></a>힙 정렬</h2><ul>
+<li>전이진 트리를 이용한 정렬 방식이다.</li>
+<li>평균과 최악 모두 시간 복잡도는 nlog2n이다.</li>
+</ul>
+<h2 id="2-way-합병-정렬"><a href="#2-way-합병-정렬" class="headerlink" title="2-way 합병 정렬"></a>2-way 합병 정렬</h2><ul>
+<li>이미 정렬되어 있는 두 개의 파일을 한 개의 파일로 합병하는 정렬 방식이다.</li>
+<li>평균과 최악 모두 시간 복잡도는 nlog2n</li>
+</ul>
+<h2 id="기수-정렬"><a href="#기수-정렬" class="headerlink" title="기수 정렬"></a>기수 정렬</h2><ul>
+<li>기수 정렬은 queue를 이용하여 자릿수별로 정렬하는 방식이다.</li>
+<li>평균과 최악 모두 시간 복잡도는 dn이다.</li>
+</ul>
+<h1 id="검색-해싱"><a href="#검색-해싱" class="headerlink" title="검색 - 해싱"></a>검색 - 해싱</h1><h2 id="해싱의-개요"><a href="#해싱의-개요" class="headerlink" title="해싱의 개요"></a>해싱의 개요</h2><ul>
+<li>DAM(직접 접근) 파일을 구성할 때 사용되며 접근 속도는 빠르나 기억공간이 많이 요구된다.</li>
+<li>다른 방식에 비해 검색 속도가 가장 빠르다</li>
+<li>삽입 삭제 작업의 빈도가 많을 때 유리한 방식이다.</li>
+<li>키 - 주소 변환 방법이라고도 한다.</li>
+</ul>
+<h2 id="해싱-관련-용어"><a href="#해싱-관련-용어" class="headerlink" title="해싱 관련 용어"></a>해싱 관련 용어</h2><ul>
+<li>Hash table : 레코드를 한 개 이상 보관할 수 있는 bucket들로 구성된 기억공간, 보조기억장치, 주기억장치에 구성할 수 있다.</li>
+<li>버킷 : 하나의 주소를 갖는 파일의 한 구역을 의미, 버킷의 크기는 같은 주소에 포함 될 수 있는 레코드의 수를 의미</li>
+<li>slot : 한 개의 레코드를 저장할 수 있는 공간으로 n개의 슬롯이 모여 하나의 버킷 형성</li>
+<li>Collision(충돌 현상) : 서로 다른 두 개 이상의 레코드가 같은 주소를 갖는 현상</li>
+<li>Synonym : 충돌로 인해 같은 home address를 갖는 레코드들의 집합이다</li>
+<li>Overflow : 계산된 home address의 bucket 내에 저장할 기억공간이 없는 상태</li>
+</ul>
+<h2 id="해싱-함수"><a href="#해싱-함수" class="headerlink" title="해싱 함수"></a>해싱 함수</h2><ul>
+<li><p>K : KEY ,Q &#x3D; Prime</p>
+</li>
+<li><p>제산법</p>
+<ul>
+<li>레코드 키를 해시표의 크기보다 큰 수 중에서 가장 작은 소수로 나눈 나머지를 홈 주소로 삼는 방식</li>
+<li>h(K) &#x3D; K mod Q</li>
+</ul>
+</li>
+<li><p>제곱법</p>
+<ul>
+<li>레코드 키 값을 제곱한 후 그 중간 부분의 값을 홈 주소로 삼는 방식</li>
+</ul>
+</li>
+<li><p>폴딩법</p>
+<ul>
+<li>레코드 키 값을 여러 부분으로 나눈 후 각 부분의 값을 더하거나 XOR한 값을 홈 주소로 삼는 방식이다.</li>
+</ul>
+</li>
+<li><p>기수 변환법</p>
+<ul>
+<li>키 숫자의 진수를 다른 진수로 변환시켜 주소 크기를 초과한 높은 자릴수는 절단하고 이를 다시 주소범위에 맞게 조정하는 방법이다.</li>
+</ul>
+</li>
+<li><p>대수적 코딩</p>
+<ul>
+<li>키 값을 이루고 있는 각 자리의 비트 수를 한 다항식의 계수로 간주 하고 이 다항식을 해시표의 크기에 의해 정의된 다항식으로 나누어 얻은 나머지 다항식의 계수를 홈주소로 삼는 방식이다.</li>
+</ul>
+</li>
+<li><p>계수 분석법</p>
+<ul>
+<li>계수 분석법은 키 값을 이루는 숫자의 분포를 분석하여 비교적 고른 자리를 필요한만큼 택해서 홈 주소로 삼는 방식이다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Overflow-해결-방법"><a href="#Overflow-해결-방법" class="headerlink" title="Overflow 해결 방법"></a>Overflow 해결 방법</h2><ul>
+<li>개방 주소법(open addressing)<ul>
+<li>선형 방법이라고도 하는데, collision이 발생했을 때 순차적으로 다음 빈 버킷을 찾아 저장하는 방법</li>
+</ul>
+</li>
+<li>폐쇄 주소법(close addressing)<ul>
+<li>Overflow된 레코드들을 별도의 overflow 영역에 저장하고 chain으로 홈버킷에 연결</li>
+<li>direct chaining<ul>
+<li>해시표 내의 <strong>빈 자리</strong> 에 overflow 레코드를 보관</li>
+</ul>
+</li>
+<li>indirect chaining<ul>
+<li>해시표와는 별도의 기억 공간에 overflow 레코드를 보관한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>재해싱<ul>
+<li>collision이 발생하면 새로운 해싱 함수로 새로운 홈 주소를 구하는 방식</li>
+</ul>
+</li>
+</ul>
+<h1 id="파일-편성"><a href="#파일-편성" class="headerlink" title="파일 편성"></a>파일 편성</h1><h2 id="순차-파일-sequential-file-x3D-순서-파일"><a href="#순차-파일-sequential-file-x3D-순서-파일" class="headerlink" title="순차 파일 (sequential file) &#x3D; 순서 파일"></a>순차 파일 (sequential file) &#x3D; 순서 파일</h2><ul>
+<li><p>입력되는 데이터들을 논리적 순서에 따라 물리적 연속 공간에 순차적으로 기록하는 방식</p>
+<ul>
+<li>순차접근이 가능한 자기테이프에서 사용한다.</li>
+<li>변동사항이 크지 않고 기간별로 일괄 처리를 주로 하는 경우에 적합</li>
+</ul>
+</li>
+<li><p>순차 파일의 장점</p>
+<ul>
+<li>기록 밀도가 높아 기억공간을 효율적으로 사용</li>
+<li>매체 변환이 쉬워 어떠한 매체에도 적용할 수 있다.</li>
+<li>레코드가 키 순서대로 편성되어 취급이 용이하다</li>
+<li>레코드를 기록할 때 <strong>사용한 키</strong> 순서대로 레코드를 처리하는 경우 다른 편성법 보다 처리 속도가 빠르다</li>
+</ul>
+</li>
+<li><p>순차 파일의 단점</p>
+<ul>
+<li>파일에 새로운 레코드를 삽입,삭제하는 경우 파일 재구성을 위해 전체를 복사해야하므로 시간이 많이 소요</li>
+<li>데이터 검색시 처음부터 순차적으로 검색하기 때문에 검색 효율이 낮고, 시간 및 응답 시간이 느림</li>
+</ul>
+</li>
+</ul>
+<h2 id="색인-순차-파일-indexed-sequential-file"><a href="#색인-순차-파일-indexed-sequential-file" class="headerlink" title="색인 순차 파일(indexed sequential file)"></a>색인 순차 파일(indexed sequential file)</h2><ul>
+<li>순차 처리와 랜덤 처리가 모두 가능한 레코드들을 키값 순으로 정렬시켜 기록하고, 레코드의 키 항목만을 모은 색인을 구성하여 편성하는 방식<ul>
+<li>색인을 이용한 순차적인 접근 방법을 제공하여 ISAM(index sequential access method)이라고 함</li>
+<li>레코드를 참조할 때 색인을 탐색한 후 색인이 가리키는 포인터(주소)를 사용하여 직접 참조할 수 있다.</li>
+<li>일반적으로 자기 디스크에 많이 사용되며, 자기 테이프에서는 사용할 수 없다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="색인-순차-파일의-구성"><a href="#색인-순차-파일의-구성" class="headerlink" title="색인 순차 파일의 구성"></a>색인 순차 파일의 구성</h3><ul>
+<li><p>색인 순차 파일은 기본구역, 색인 구역, 오버플로 구역으로 구성</p>
+</li>
+<li><p>기본 구역</p>
+<ul>
+<li>실제 레코드들을 기록하는 부분으로 각 레코드는 <strong>키 값</strong> 순으로 저장</li>
+</ul>
+</li>
+<li><p>색인 구역</p>
+<ul>
+<li>기본 구역에 있는 레코드들의 위치를 찾아가는 색인이 기록되는 부분으로 트랙 색인 구역, 실린더 색인 구역, 마스터 색인 구역이 있다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>색인 구역</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>트랙 색인 구역</td>
+<td>기본 구역의 한 트랙 상에 기록되어 있는 데이터 레코드 중의 최대 키 값과 주소가 기록되는 색인으로, 한 실린더당 하나씩 만들어진다.</td>
+</tr>
+<tr>
+<td></td>
+<td>처리할 레코드가 실제로 어느 트랙에 기록되어 있는지 판별할 수 있게 함</td>
+</tr>
+<tr>
+<td>실린더 색인 구역</td>
+<td>각 트랙 색인의 최대키 값과 해당 레코드가 기록된 실린더의 정보가 기록되는 색인, 한 파일당 하나씩 만들어진다.</td>
+</tr>
+<tr>
+<td>마스터 색인 구역</td>
+<td>실린더 색인 구역의 정보가 많을 경우 그것을 일정한 크기의 블록으로 구성하는데, 이때 해당 레코드가 어느 실린더 색인 구역에 기록되어 있는지를 기록하는 색인</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>오버플로 구역</p>
+<ul>
+<li>기본 구역에 빈 공간이 없어 새 레코드가 삽입 불가할 때 대비하여 예비적으로 확보해둔 부분</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>오버플로 구역</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>실린더 오버플로 구역</td>
+<td>각 실린더마다 만들어지는 오버플로 구역,해당 실린더의 오버플로 내용을 기록</td>
+</tr>
+<tr>
+<td>독립 오버플로 구역</td>
+<td>실린더 오버플로 구역에서 데이터를 더이상 기록 할 수 없을 때를 대비하는 구역</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>색인 순차 파일의 장점</p>
+<ul>
+<li>융통성</li>
+<li>효율적인 검색 가능, 레코드의 삽입 삭제 갱신이 용이</li>
+<li>레코드를 추가 및 삽입하는 경우, 파일 전체를 복사할 필요가 없음</li>
+</ul>
+</li>
+<li><p>색인 순차 파일의 단점</p>
+<ul>
+<li>색인 구역과 오버플로 구역을 구성하기 위한 추가 기억공간이 필요</li>
+<li>파일 사용 중 오버플로 레코드가 많아지면 파일을 재편성해야한다.</li>
+<li>파일이 정렬되어 있어야 하므로 추가 삭제가 많으면 효율이 떨어짐</li>
+<li>색인을 이용하여 액세스 하기 때문에 액세스 시간이 랜덤 편성 파일보다 느리다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="VSAM-파일"><a href="#VSAM-파일" class="headerlink" title="VSAM 파일"></a>VSAM 파일</h2><ul>
+<li>VSAM : Virtual storage access method ,동적 인덱스 방법을 이용한 색인 순차 파일</li>
+<li>제어 구간, 제어 구역, 순차 세트 , 인덱스 세트로 구성</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>이름</th>
+<th>기능</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>제어 구간</td>
+<td>데이터 레코드가 저장되는 부분</td>
+</tr>
+<tr>
+<td>제어 구역</td>
+<td>몇 개의 제어 구간을 모아 놓은 것</td>
+</tr>
+<tr>
+<td>순차 세트</td>
+<td>제어 구역에 대한 인덱스를 저장한 것</td>
+</tr>
+<tr>
+<td>안덱스 세트</td>
+<td>순차 세트의 상위 인덱스</td>
+</tr>
+</tbody></table>
+<ul>
+<li>기본 구역과 오버플로 구역을 구분하지 않음</li>
+<li>레코드를 삭제하면 그 공간을 재사용할 수 있다.</li>
+<li>제어 구간에 가변 길이 레코드를 쉽게 수용할 수 있다.</li>
+</ul>
+<h2 id="직접-파일-direct-file-random-file"><a href="#직접-파일-direct-file-random-file" class="headerlink" title="직접 파일(direct file, random file)"></a>직접 파일(direct file, random file)</h2><ul>
+<li><p>DAM파일이라고도 불림</p>
+</li>
+<li><p>레코드에 특정 기준으로 키 할당, 해시 함수를 이용하여 키에 대한 보조기억장치의 물리적 상대 레코드 주소를 계싼한 후 해당하는 주소에 레코드를 저장</p>
+</li>
+<li><p>레코드는 해시 함수에 의해 계산된 물리적 주소를 통해 접근</p>
+</li>
+<li><p>임의 접근이 가능한 자기 디스크나 자기드럼을 사용</p>
+</li>
+<li><p>직접 파일의 장점</p>
+<ul>
+<li>직접 접근 기억장치(DASD)의 물리적 주소를 통하여 파일의 각 레코드에 직접 접근하거나 기록할 수 있으며 접근 및 기록의 순서에는 제약이 없다.</li>
+<li>접근 시간이 빠르고 레코드의 삽입, 삭제, 갱신이 용이</li>
+<li>어떤 레코드라도 평균 접근 시간 내에 검색이 가능하다.</li>
+</ul>
+</li>
+<li><p>직접 파일의 단점</p>
+<ul>
+<li>레코드의 주소 변환과정(HASH)이 필요하며 이 과정으로 시간이 소요 됨</li>
+<li>기억 공간의 효율이 저하될 수 있음</li>
+<li>기억 장치의 물리적 구조에 대한 지식 필요, 프로그래밍 작업이 복잡</li>
+<li>충돌이 발생할 염려가 있으므로, 이를 위한 기억공간의 확보가 필요</li>
+</ul>
+</li>
+</ul>
+<h2 id="역-파일"><a href="#역-파일" class="headerlink" title="역 파일"></a>역 파일</h2><ul>
+<li><p>특정 항목을 여러 개의 색인으로 만들어 항목별 특성에 맞게 작업할수 있도록 한 파일로, 다중 키 파일에 속한다.</p>
+<ul>
+<li>하나 또는 몇 개의 색인값을 결합하여 레코드의 주소를 결정할 수 있다.</li>
+<li>각 응용마다 적합한 색인을 별도로 구현 할 수 있다.</li>
+<li>새로운 레코드를 파일 중간에 삽입하기 쉽고, 검색 속도가 빠르다</li>
+<li>데이터 파일에 접근하지 않아 질의 응답시간이 줄어들고, 처리가 비교적 쉽다.</li>
+<li>질의를 만족하는 레코드 검색 시 한 번씩만 접근하면 된다.</li>
+<li>색인의 각 항목들의 길이가 가변적이다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="다중-리스트-파일"><a href="#다중-리스트-파일" class="headerlink" title="다중 리스트 파일"></a>다중 리스트 파일</h2><ul>
+<li>다중 키 파일의 한 종류로 각 키에 대하여 색인을 만든 다음 각 데이터 레코드들 간에 다 중 리스틀 구축하여 구성한 파일이다.<ul>
+<li>색인은 동일한 키 값을 갖는 데이터 레코드 중 하나의 레코드에 대한 포인터만을 갖고 후속데이터는 포인터로 추적하도록함</li>
+<li>색인의 각 항목들의 길이가 고정적이므로 관리가 용이하며 수정 삭제 전체 검색이 효율적</li>
+</ul>
+</li>
+</ul>
+<h2 id="다중-링-파일"><a href="#다중-링-파일" class="headerlink" title="다중 링 파일"></a>다중 링 파일</h2><ul>
+<li>다중 링 파일은 같은 특성을 가진 레코드들을 일련의 포인터로 연결하여 구성한 것이다.</li>
+<li>같은 항목값을 가진 레코드들을 한꺼번에 처리하는 데 효과적이다.</li>
+<li>기억 장소가 절약되고 자료의 중복성을 배제할 수 있다.</li>
+<li>레코드 형식이 다른 경우에도 처리가 가능하다.</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://goberomsu.github.io/2022/03/10/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/">https://goberomsu.github.io/2022/03/10/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/">블로그</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/10/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%9D%98%EA%B0%9C%EB%85%90/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">운영체제</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/10/%EC%A0%95%EA%B7%9C%ED%99%94-%EC%8B%A4%EA%B8%B0/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">정규화(실기)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">이분 탐색</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1003 피보나치 함수</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1012 유기농 배추</div></div></a></div><div><a href="/2022/03/10/algorithm-boj1074/" title="백준 1074 Z"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 1074 Z</div></div></a></div><div><a href="/2022/03/10/algorithm-boj10820/" title="백준 10820 문자열 분석"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 10820 문자열 분석</div></div></a></div><div><a href="/2022/03/10/algorithm-boj11047/" title="백준 11047 동전 0"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-10</div><div class="title">백준 11047 동전 0</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">112</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0%EC%9D%98-%EA%B0%9C%EB%85%90"><span class="toc-number">1.</span> <span class="toc-text">자료 구조의 개념</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0%EC%9D%98-%EC%A0%95%EC%9D%98"><span class="toc-number">1.1.</span> <span class="toc-text">자료 구조의 정의</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0%EC%9D%98-%EC%9D%B4%EC%9A%A9"><span class="toc-number">1.2.</span> <span class="toc-text">자료 구조의 이용</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Stack"><span class="toc-number">2.</span> <span class="toc-text">Stack</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8A%A4%ED%83%9D%EC%9D%98-%EA%B0%9C%EB%85%90"><span class="toc-number">2.1.</span> <span class="toc-text">스택의 개념</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8A%A4%ED%83%9D%EC%9D%98-%EC%9D%91%EC%9A%A9-%EB%B6%84%EC%95%BC"><span class="toc-number">2.2.</span> <span class="toc-text">스택의 응용 분야</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#QUE-%EC%99%80-DEQUE"><span class="toc-number">3.</span> <span class="toc-text">QUE 와 DEQUE</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#QUE"><span class="toc-number">3.1.</span> <span class="toc-text">QUE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DEQUE"><span class="toc-number">3.2.</span> <span class="toc-text">DEQUE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%8A%B8%EB%A6%AC-tree"><span class="toc-number">4.</span> <span class="toc-text">트리(tree)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%8A%B8%EB%A6%AC%EC%9D%98-%EC%A0%95%EC%9D%98"><span class="toc-number">4.1.</span> <span class="toc-text">트리의 정의</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%8A%B8%EB%A6%AC-%EA%B4%80%EB%A0%A8-%EC%9A%A9%EC%96%B4"><span class="toc-number">4.2.</span> <span class="toc-text">트리 관련 용어</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC%EC%9D%98-%EC%9A%B4%ED%96%89%EB%B2%95"><span class="toc-number">5.</span> <span class="toc-text">이진 트리의 운행법</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%8A%B8%EB%A6%AC%EC%9D%98-%EC%9A%B4%ED%96%89%EB%B2%94"><span class="toc-number">5.1.</span> <span class="toc-text">트리의 운행범</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%88%98%EC%8B%9D%EC%9D%98-%ED%91%9C%EA%B8%B0%EB%B2%95"><span class="toc-number">5.2.</span> <span class="toc-text">수식의 표기법</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8A%A4%EB%A0%88%EB%93%9C-%EC%9D%B4%EC%A7%84-%ED%8A%B8%EB%A6%AC"><span class="toc-number">5.3.</span> <span class="toc-text">스레드 이진 트리</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B7%B8%EB%9E%98%ED%94%84"><span class="toc-number">6.</span> <span class="toc-text">그래프</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B7%B8%EB%9E%98%ED%94%84%EC%9D%98-%EC%A0%95%EC%9D%98"><span class="toc-number">6.1.</span> <span class="toc-text">그래프의 정의</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC"><span class="toc-number">6.2.</span> <span class="toc-text">용어 정리</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%82%B4%EB%B6%80-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.</span> <span class="toc-text">내부 정렬</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%82%BD%EC%9E%85-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.1.</span> <span class="toc-text">삽입 정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%89%98-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.2.</span> <span class="toc-text">쉘 정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.3.</span> <span class="toc-text">선택 정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%B2%84%EB%B8%94-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.4.</span> <span class="toc-text">버블 정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%80%B5-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.5.</span> <span class="toc-text">퀵 정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%9E%99-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.6.</span> <span class="toc-text">힙 정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-way-%ED%95%A9%EB%B3%91-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.7.</span> <span class="toc-text">2-way 합병 정렬</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B8%B0%EC%88%98-%EC%A0%95%EB%A0%AC"><span class="toc-number">7.8.</span> <span class="toc-text">기수 정렬</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B2%80%EC%83%89-%ED%95%B4%EC%8B%B1"><span class="toc-number">8.</span> <span class="toc-text">검색 - 해싱</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%B4%EC%8B%B1%EC%9D%98-%EA%B0%9C%EC%9A%94"><span class="toc-number">8.1.</span> <span class="toc-text">해싱의 개요</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%B4%EC%8B%B1-%EA%B4%80%EB%A0%A8-%EC%9A%A9%EC%96%B4"><span class="toc-number">8.2.</span> <span class="toc-text">해싱 관련 용어</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%B4%EC%8B%B1-%ED%95%A8%EC%88%98"><span class="toc-number">8.3.</span> <span class="toc-text">해싱 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Overflow-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95"><span class="toc-number">8.4.</span> <span class="toc-text">Overflow 해결 방법</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%8C%8C%EC%9D%BC-%ED%8E%B8%EC%84%B1"><span class="toc-number">9.</span> <span class="toc-text">파일 편성</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%88%9C%EC%B0%A8-%ED%8C%8C%EC%9D%BC-sequential-file-x3D-%EC%88%9C%EC%84%9C-%ED%8C%8C%EC%9D%BC"><span class="toc-number">9.1.</span> <span class="toc-text">순차 파일 (sequential file) &#x3D; 순서 파일</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%83%89%EC%9D%B8-%EC%88%9C%EC%B0%A8-%ED%8C%8C%EC%9D%BC-indexed-sequential-file"><span class="toc-number">9.2.</span> <span class="toc-text">색인 순차 파일(indexed sequential file)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%83%89%EC%9D%B8-%EC%88%9C%EC%B0%A8-%ED%8C%8C%EC%9D%BC%EC%9D%98-%EA%B5%AC%EC%84%B1"><span class="toc-number">9.2.1.</span> <span class="toc-text">색인 순차 파일의 구성</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSAM-%ED%8C%8C%EC%9D%BC"><span class="toc-number">9.3.</span> <span class="toc-text">VSAM 파일</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EC%A0%91-%ED%8C%8C%EC%9D%BC-direct-file-random-file"><span class="toc-number">9.4.</span> <span class="toc-text">직접 파일(direct file, random file)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%AD-%ED%8C%8C%EC%9D%BC"><span class="toc-number">9.5.</span> <span class="toc-text">역 파일</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8B%A4%EC%A4%91-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%ED%8C%8C%EC%9D%BC"><span class="toc-number">9.6.</span> <span class="toc-text">다중 리스트 파일</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8B%A4%EC%A4%91-%EB%A7%81-%ED%8C%8C%EC%9D%BC"><span class="toc-number">9.7.</span> <span class="toc-text">다중 링 파일</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/algorithm-boj9375/" title="No title"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="No title"/></a><div class="content"><a class="title" href="/2022/06/30/algorithm-boj9375/" title="No title">No title</a><time datetime="2022-06-30T06:12:38.049Z" title="Created 2022-06-30 15:12:38">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/30/hello-world/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/06/30/hello-world/" title="Hello World">Hello World</a><time datetime="2022-06-30T06:00:55.045Z" title="Created 2022-06-30 15:00:55">2022-06-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="이분 탐색"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-binarysearch/" title="이분 탐색">이분 탐색</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1003 피보나치 함수"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1003/" title="백준 1003 피보나치 함수">백준 1003 피보나치 함수</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="백준 1012 유기농 배추"/></a><div class="content"><a class="title" href="/2022/03/10/algorithm-boj1012/" title="백준 1012 유기농 배추">백준 1012 유기농 배추</a><time datetime="2022-03-10T09:00:00.000Z" title="Created 2022-03-10 18:00:00">2022-03-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
