@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>신고 결과 받기 - Programmers</title>
+      <link href="/2022/07/22/programmers-1/"/>
+      <url>/2022/07/22/programmers-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="신고-제목-받기"><a href="#신고-제목-받기" class="headerlink" title="신고 제목 받기"></a>신고 제목 받기</h1><h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><ul><li>한 유저가 중복해서 같은 유저를 계속 신고할 수 없다</li><li>k 번 이상 신고된 유저는 정지되고, 그 결과를 모든 유저에게 정지 사실을 메일로 발송한다</li></ul><p>즉 유저는 신고한 유저의 정보를 가지고 있어야 하고, 유저마다 신고된 횟수도 기록되어야 한다.<br>최종적으로 answer에는 각 유저들이 받은 처리 메일만 기록하면 된다.</p><p>풀이 방법은 신고 받은 유저 딕셔너리를 만들고, 해당 유저를 신고한 유저들을 한 명씩 넣는다<br>그리고 연산 끝에 한 번에 정지된 이용자를 정리한다</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">score = &#123;&#125;</span><br><span class="line">result = &#123;&#125;</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solution</span>(<span class="params">id_list, report, k</span>):</span><br><span class="line">    answer = []</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">id</span> <span class="keyword">in</span> id_list:</span><br><span class="line">        score[<span class="built_in">id</span>] =[]</span><br><span class="line">        result[<span class="built_in">id</span>]=<span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> rp <span class="keyword">in</span> report:</span><br><span class="line">        gUser,bUser = rp.split()</span><br><span class="line">        score[bUser].append(gUser)</span><br><span class="line">        score[bUser] = <span class="built_in">list</span>(<span class="built_in">set</span>(score[bUser]))</span><br><span class="line">    <span class="keyword">for</span> sc <span class="keyword">in</span> score.keys():</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(score[sc])&gt;=k:</span><br><span class="line">            <span class="keyword">for</span> s <span class="keyword">in</span> score[sc]:</span><br><span class="line">                result[s]+=<span class="number">1</span></span><br><span class="line">    answer = <span class="built_in">list</span>(result.values())</span><br><span class="line">    <span class="keyword">return</span> answer</span><br></pre></td></tr></table></figure><h2 id="회고"><a href="#회고" class="headerlink" title="회고"></a>회고</h2><ul><li>확실히 그냥 무지성으로 푸는 것이 아니라 쉬운 문제도 꼼꼼히 봐야 풀 수 있는 문제들이 출제되는구나</li><li>감이 확실히 많이 떨어졌다.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Programmers </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>이분 탐색</title>
       <link href="/2022/03/10/algorithm-binarysearch/"/>
       <url>/2022/03/10/algorithm-binarysearch/</url>
