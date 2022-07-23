@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://goberomsu.github.io/2022/07/22/webRTC/</loc>
+        <lastmod>2022-07-23T14:13:42.474Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://goberomsu.github.io/2022/07/23/programmers-4/</loc>
         <lastmod>2022-07-23T09:41:01.100Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,14 +27,6 @@
     <url>
         <loc>https://goberomsu.github.io/2022/07/23/programmers-3/</loc>
         <lastmod>2022-07-23T05:16:09.260Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://goberomsu.github.io/2022/07/22/webRTC/</loc>
-        <lastmod>2022-07-22T14:17:08.656Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
