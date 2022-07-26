@@ -9,8 +9,24 @@
 
 
     <url>
+        <loc>https://goberomsu.github.io/2022/07/26/docker/</loc>
+        <lastmod>2022-07-26T06:40:45.616Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://goberomsu.github.io/2022/07/25/programmers-5/</loc>
+        <lastmod>2022-07-25T06:59:25.700Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://goberomsu.github.io/2022/07/22/webRTC/</loc>
-        <lastmod>2022-07-24T09:32:49.591Z</lastmod>
+        <lastmod>2022-07-24T10:03:25.512Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
