@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>백준 1417 국회의원 선거</title>
+      <link href="/2022/07/27/algorithm-boj1417/"/>
+      <url>/2022/07/27/algorithm-boj1417/</url>
+      
+        <content type="html"><![CDATA[<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">num = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">heap = []</span><br><span class="line">ds = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(num):</span><br><span class="line">    nm = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</span><br><span class="line">        ds=nm</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        heapq.heappush(heap, -nm)</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> heap:</span><br><span class="line">    <span class="built_in">max</span> = -heapq.heappop(heap)</span><br><span class="line">    <span class="keyword">if</span> ds&gt;<span class="built_in">max</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    ds+=<span class="number">1</span></span><br><span class="line">    heapq.heappush(heap,-<span class="built_in">max</span>+<span class="number">1</span>)</span><br><span class="line">    count+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(count)</span><br></pre></td></tr></table></figure><ul><li>우선순위를 부여해서 값을 구하면 될거라 생각했다<ul><li>이런 정렬 자료구조에서 보통은 오름차순 정렬이 되서 값이 나오는데 이름 내림차순으로 바꿀 필요가 있었다</li><li>heapq를 사용했고, 값을 넣을 때 음수로 바꿔서 넣음으로써 내림차순을 구현했다</li></ul></li></ul><h2 id="배열에-우선순위를-부여하자"><a href="#배열에-우선순위를-부여하자" class="headerlink" title="배열에 우선순위를 부여하자"></a>배열에 우선순위를 부여하자</h2><h3 id="우선순위-큐"><a href="#우선순위-큐" class="headerlink" title="우선순위 큐"></a>우선순위 큐</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> PriorityQue <span class="comment"># Class Import</span></span><br><span class="line">que = PriorityQueue()<span class="comment"># 우선 순위 큐 생성</span></span><br></pre></td></tr></table></figure><ul><li>우선순위 큐는 iterable 하지 않기 때문에 인덱스로 접근이 불가능<ul><li>print하면 출력이 아니라 object 주소가 나온다</li></ul></li><li>기본적으로 오름차순 정렬이 되어 있다<ul><li>내림차순 하는 법을 찾고 있었는데 차라리 heapq를 사용하는게 더 편할거라 생각해서 바꿨다</li></ul></li></ul><h3 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h3><ul><li>완전 이진 트리의 일종으로 우선순위 큐를 위하여 만들어진 자료구조이다.</li><li>힙은 일종의 반 정렬 상태를 유지한다<ul><li>큰 값이 상위 레벨에 있고 작은 값이 하위 레벨에 있지만 엄격하진 않다</li></ul></li><li>구현하기가 쉽고, 배열을 이용하기 때문에 알고리즘 문제 풀 때 유용하다</li></ul><h2 id="회고"><a href="#회고" class="headerlink" title="회고"></a>회고</h2><ul><li>좀 더 파고들어서 공부할 필요가 있다.</li><li>그렇게 어려운 문제는 아니었는데 아이디어 떠올리는데서 조곰 헤맸다</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> algorithm </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker 삽질 기록</title>
       <link href="/2022/07/26/docker-error/"/>
       <url>/2022/07/26/docker-error/</url>
@@ -39,6 +58,25 @@
       <categories>
           
           <category> dev </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>백준 1343 폴리오미노</title>
+      <link href="/2022/07/25/algorithm-boj1343/"/>
+      <url>/2022/07/25/algorithm-boj1343/</url>
+      
+        <content type="html"><![CDATA[<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">st = sys.stdin.readline().rstrip()</span><br><span class="line">stl = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">st</span>):</span><br><span class="line">    answer=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    temp=<span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> st:</span><br><span class="line">        <span class="keyword">if</span> temp==<span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            temp+=s</span><br><span class="line">        <span class="keyword">elif</span> temp[<span class="number">0</span>]==s:</span><br><span class="line">            temp+=s</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            stl.append(temp)</span><br><span class="line">            temp=s</span><br><span class="line">    stl.append(temp)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(st)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> st <span class="keyword">in</span> stl:</span><br><span class="line">        <span class="keyword">if</span> st[<span class="number">0</span>]==<span class="string">&#x27;X&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(st)%<span class="number">2</span>!=<span class="number">0</span>:<span class="comment">#짝수가 아닌 것은 만들 수 없으니까 제거 한다</span></span><br><span class="line">                <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">            x = <span class="built_in">len</span>(st)//<span class="number">4</span></span><br><span class="line">            y= <span class="built_in">len</span>(st)-x*<span class="number">4</span></span><br><span class="line">            answer+=<span class="string">&#x27;A&#x27;</span>*x*<span class="number">4</span></span><br><span class="line">            answer+=y*<span class="string">&#x27;B&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            answer+=<span class="built_in">len</span>(st)*<span class="string">&#x27;.&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> answer</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(solve(st))</span><br></pre></td></tr></table></figure><ul><li>사전 순으로 나오라는 말은 그냥 A가 먼저 나오면 되니까 4로 나눠지는 몫으로 A를 입력 후 남는 값에 B를 넣었다<ul><li>당연히 홀수인 경우는 미리 예외 처리 했다</li></ul></li></ul><h2 id="회고"><a href="#회고" class="headerlink" title="회고"></a>회고</h2><ul><li>solve() 등을 만들어서 예외처리를 그냥 return -1하니까 문제 풀 때 편하다</li><li>구현력이 꽤나 떨어짐을 느낀다. 쉬운 문제부터 차근차근 해결해 나가자<ul><li>일단은 그리디 문제 풀면서 조곰씩 폼을 올릴 생각이다</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> algorithm </category>
           
       </categories>
       
