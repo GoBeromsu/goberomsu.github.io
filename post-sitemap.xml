@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://goberomsu.github.io/2022/10/14/blog-sitemap-seo/</loc>
+        <lastmod>2022-10-14T05:59:57.197Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://goberomsu.github.io/2022/08/14/howToUseDocker/</loc>
         <lastmod>2022-08-18T09:26:49.518Z</lastmod>
         <changefreq>weekly</changefreq>

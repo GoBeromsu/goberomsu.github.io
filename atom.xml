@@ -6,7 +6,7 @@
   <link href="https://goberomsu.github.io/atom.xml" rel="self"/>
   
   <link href="https://goberomsu.github.io/"/>
-  <updated>2022-08-15T06:27:49.455Z</updated>
+  <updated>2022-10-14T05:59:57.197Z</updated>
   <id>https://goberomsu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo blog SEO와 Sitemap setting</title>
+    <link href="https://goberomsu.github.io/2022/10/14/blog-sitemap-seo/"/>
+    <id>https://goberomsu.github.io/2022/10/14/blog-sitemap-seo/</id>
+    <published>2022-10-14T05:57:50.000Z</published>
+    <updated>2022-10-14T05:59:57.197Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Kurento 시그널링 서버 feat STUN/TURN</title>
@@ -481,6 +504,731 @@
     <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1012/</id>
     <published>2022-03-10T09:00:00.000Z</published>
     <updated>2022-06-30T05:37:48.428Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1074 Z</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1074/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1074/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.429Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 10820 문자열 분석</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj10820/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj10820/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.429Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 11047 동전 0</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj11047/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj11047/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.431Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 11279 최대 힙</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj11279/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj11279/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.432Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 11286 절댓값 힙</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj11286/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj11286/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.432Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 11403 경로 찾기</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj11403/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj11403/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.433Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1149 RGB 거리</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1149/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1149/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.433Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 11724 연결 요소 개수</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj11724/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj11724/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.434Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 11659 구간 합 구하기 4</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj11659/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj11659/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.434Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1260 DFS와 BFS</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1260/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1260/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.435Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1303 전쟁 - 전투</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1303/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1303/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.435Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1373 2진수 8진수</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1373/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1373/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.435Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1389 케빈 베이컨의 6단계 법칙</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1389/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1389/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.436Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1463 1로 만들기</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1463/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1463/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.436Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1541 잃어버린 괄호</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1541/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1541/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.436Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 15654 N과 M (5)</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj15654/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj15654/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.437Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1697 숨바꼭질</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1697/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1697/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.437Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1699 제곱수의 합</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1699/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1699/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.438Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 17219 비밀번호 찾기</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj17219/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj17219/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.438Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 17299 오등큰수</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj17299/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj17299/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.439Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1764 듣보잡</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1764/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1764/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.439Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1780 종이의 개수</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1780/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1780/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.440Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 18870 좌표 압축</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj18870/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj18870/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.440Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1931 회의실 배정</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1931/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1931/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1935 후위 표기식 2</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1935/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1935/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.538Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1992 쿼드 트리</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1992/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1992/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.538Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 1929 소수 구하기</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj1929/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1929/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.441Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 2004 조합 0의 개수</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj2004/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj2004/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.539Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>백준 2331 반복 수열</title>
+    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj2331/"/>
+    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj2331/</id>
+    <published>2022-03-10T09:00:00.000Z</published>
+    <updated>2022-06-30T05:37:48.541Z</updated>
     
     
       

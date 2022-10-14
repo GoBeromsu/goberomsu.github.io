@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>hexo blog SEO와 Sitemap setting</title>
+      <link href="/2022/10/14/blog-sitemap-seo/"/>
+      <url>/2022/10/14/blog-sitemap-seo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hexo-SEO와-sitemap-xml"><a href="#Hexo-SEO와-sitemap-xml" class="headerlink" title="Hexo SEO와 sitemap.xml"></a>Hexo SEO와 sitemap.xml</h1><ul><li>아래 커맨드를 터미널(git bash 등)에 실행해주세요</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br><span class="line">npm install hexo-generator-seo-friendly-sitemap --save</span><br></pre></td></tr></table></figure><ul><li>블로그 폴더의  <code>_config.yml</code>에 아래 복사 붙여 넣기 합니다</li></ul><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span> <span class="comment"># atom or rss2</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">50</span> <span class="comment"># 공개할 rss feed 수</span></span><br><span class="line">  <span class="comment"># 기본적으로 여기까지만 쓴다. 아래는 옵션</span></span><br><span class="line">  <span class="attr">hub:</span></span><br><span class="line">  <span class="attr">content:</span></span><br><span class="line">  <span class="attr">content_limit:</span> <span class="number">140</span> <span class="comment"># 요약 글자수</span></span><br><span class="line">  <span class="attr">content_limit_delim:</span> <span class="string">&#x27; &#x27;</span></span><br><span class="line"><span class="comment"># sitemap auto generator</span></span><br><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line">    <span class="attr">tag:</span> <span class="literal">true</span> <span class="comment"># 사이트맵에 태그 주소 포함 여부</span></span><br><span class="line">    <span class="attr">category:</span> <span class="literal">true</span> <span class="comment"># 사이트맵에 카테고리 주소 포함 여부</span></span><br></pre></td></tr></table></figure><ul><li><p>터미널에 <code>hexo deploy -g</code> 를 입력합니다</p></li><li><p><a href="https://search.google.com/search-console?hl=ko&resource_id=https://goberomsu.github.io/">구글 서치 콘솔</a>에 들어갑니다.</p><ul><li>처음 들어가면 속성 유형을 선택하라 뜰텐데, URL 접두어에 자신의 블로그 주소를 입력합니다<ul><li><img src="https://user-images.githubusercontent.com/37897508/195773123-a1485b63-d557-4220-89de-c319c13322c8.png" alt="image"></li><li>저의 경우 <a href="https://goberomsu.github.io/">https://goberomsu.github.io/</a>를 입력해야겠죠!?</li></ul></li><li>다음은 sitemaps에 들어가 sitemap.xml을 입력하고 제출합니다</li></ul></li><li><p>sitemap이 바로 뜨지 않기도 하는데 그럴 땐 조금 기다려주세요</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> algorithm </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Kurento 시그널링 서버 feat STUN/TURN</title>
       <link href="/2022/08/15/kurento-signaling/"/>
       <url>/2022/08/15/kurento-signaling/</url>
