@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linear Regression(회귀) - ML | Berom's Blog</title><meta name="author" content="Berom"><meta name="copyright" content="Berom"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linear Regression(회귀) - ML선형 예측 함수를 사용해 회귀식을 모델링하여 알려지지 않은 파라미터는 데이터부터 추정한다현실 세계의 많은 데이터들은 선형 그래프를 그리고, 선형 그래프는 직관적이다.늦게 잘수록 피곤하다. 많이 먹을수록 배부르다 등 대부분의 데이터가 근사하게 선을 그리게 된다 이러한 회귀 모델은 일반적으로 최소 제곱법을 사용해">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linear Regression(회귀) - ML">
+<meta property="og:url" content="https://goberomsu.github.io/2022/07/31/ai-LinearRegression/index.html">
+<meta property="og:site_name" content="Berom&#39;s Blog">
+<meta property="og:description" content="Linear Regression(회귀) - ML선형 예측 함수를 사용해 회귀식을 모델링하여 알려지지 않은 파라미터는 데이터부터 추정한다현실 세계의 많은 데이터들은 선형 그래프를 그리고, 선형 그래프는 직관적이다.늦게 잘수록 피곤하다. 많이 먹을수록 배부르다 등 대부분의 데이터가 근사하게 선을 그리게 된다 이러한 회귀 모델은 일반적으로 최소 제곱법을 사용해">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://goberomsu.github.io/img/index.jpg">
+<meta property="article:published_time" content="2022-07-31T13:03:35.000Z">
+<meta property="article:modified_time" content="2022-08-01T00:29:08.430Z">
+<meta property="article:author" content="Berom">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://goberomsu.github.io/img/index.jpg"><link rel="shortcut icon" href="/img/avatar.JPG"><link rel="canonical" href="https://goberomsu.github.io/2022/07/31/ai-LinearRegression/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-162786459-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162786459-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linear Regression(회귀) - ML',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-08-01 09:29:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Berom's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">128</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/index.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Berom's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linear Regression(회귀) - ML</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-07-31T13:03:35.000Z" title="Created 2022-07-31 22:03:35">2022-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-08-01T00:29:08.430Z" title="Updated 2022-08-01 09:29:08">2022-08-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ai/">ai</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linear Regression(회귀) - ML"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linear-Regression-회귀-ML"><a href="#Linear-Regression-회귀-ML" class="headerlink" title="Linear Regression(회귀) - ML"></a>Linear Regression(회귀) - ML</h1><p>선형 예측 함수를 사용해 회귀식을 모델링하여 알려지지 않은 파라미터는 데이터부터 추정한다<br>현실 세계의 많은 데이터들은 선형 그래프를 그리고, 선형 그래프는 직관적이다.<br>늦게 잘수록 피곤하다. 많이 먹을수록 배부르다 등 대부분의 데이터가 근사하게 선을 그리게 된다</p>
+<p>이러한 회귀 모델은 일반적으로 최소 제곱법을 사용해 선형 회귀 모델을 만든다<br>    - 최소 제곱법을 사용하면 일단 값이 모두 양수가 나오고, 선형 함수 - 실제 값에 가중치를 주는 것을 의미한다</p>
+<h2 id="Linear-Hypothesis"><a href="#Linear-Hypothesis" class="headerlink" title="Linear Hypothesis"></a>Linear Hypothesis</h2><p>선형한 그래프를 예측한다는 것은 어떤 데이터 값의 집합에서 Linear한 선을 찾는다 생각할 수 있다<br>이 때  Linear Regression Model이 학습 하는 것은 해당 데이터를 가장 잘 표현하는 선형 그래프를 찾는 것이다.</p>
+<p>또한 축이 2개이고, 일반적으로 변수가 2개이므로, H(x) &#x3D; Wx+b의 그래프를 가진다<br>H(x)는 가설이며, Hypothesis를 세우는 것이 선형 회귀의 시작이다.</p>
+<h2 id="Cost-오차-x2F-손실"><a href="#Cost-오차-x2F-손실" class="headerlink" title="Cost (오차&#x2F;손실)"></a>Cost (오차&#x2F;손실)</h2><p>데이터 분석에서 중요한 것은 오차를 파악하는 것이다.<br>실제 데이터와 모델의 값 차이를 오차라고 한다. 이 값 차이가 작을수록 당연히 정밀하다</p>
+<p>오차를 Cost라하며 오차를 최소화하는 것이 모델링의 주요한 요점이다.<br>그렇다면 이 Cost를 표현해야할텐데 표현하는 방식은 다양하다.<br>이러한 방법들을 Cost(Loss) Function이라하며, Cost를 최소화하는 함수를 minimize Cost Function이라고 한다.</p>
+<h3 id="Gradient-descent-algorithm"><a href="#Gradient-descent-algorithm" class="headerlink" title="Gradient descent algorithm"></a>Gradient descent algorithm</h3><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%84%A0%ED%98%95_%ED%9A%8C%EA%B7%80">선형 회귀</a><br><a target="_blank" rel="noopener" href="https://ko.wikipedia.org/wiki/%EC%84%A0%ED%98%95_%ED%9A%8C%EA%B7%80">선형 회귀 쉽게 이해하기</a></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/index.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/10/howToUseGit/"><img class="prev-cover" src="/img/index.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">git 사용 방법</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/28/kurentoSetUp/"><img class="next-cover" src="/img/index.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Kurento Docker로 설치하는 방법 feat Window</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linear-Regression-%ED%9A%8C%EA%B7%80-ML"><span class="toc-number">1.</span> <span class="toc-text">Linear Regression(회귀) - ML</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linear-Hypothesis"><span class="toc-number">1.1.</span> <span class="toc-text">Linear Hypothesis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Cost-%EC%98%A4%EC%B0%A8-x2F-%EC%86%90%EC%8B%A4"><span class="toc-number">1.2.</span> <span class="toc-text">Cost (오차&#x2F;손실)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-descent-algorithm"><span class="toc-number">1.2.1.</span> <span class="toc-text">Gradient descent algorithm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">1.3.</span> <span class="toc-text">Reference</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;20 - 2022 By Berom</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadUtterances () {
+  let ele = document.createElement('script')
+  ele.setAttribute('id', 'utterances_comment')
+  ele.setAttribute('src', 'https://utteranc.es/client.js')
+  ele.setAttribute('repo', 'GoBeromsu/goberomsu.github.io')
+  ele.setAttribute('issue-term', 'pathname')
+  let nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+  ele.setAttribute('theme', nowTheme)
+  ele.setAttribute('crossorigin', 'anonymous')
+  ele.setAttribute('async', 'true')
+  document.getElementById('utterances-wrap').insertAdjacentElement('afterbegin',ele)
+}
+
+function utterancesTheme () {
+  const iframe = document.querySelector('.utterances-frame')
+  if (iframe) {
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    const message = {
+      type: 'set-theme',
+      theme: theme
+    };
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+  }
+}
+
+if ('Utterances' === 'Utterances' || !false) {
+  if (false) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+  else loadUtterances()
+} else {
+  function loadOtherComment () {
+    loadUtterances()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

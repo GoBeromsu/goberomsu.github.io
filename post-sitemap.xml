@@ -9,8 +9,32 @@
 
 
     <url>
-        <loc>https://goberomsu.github.io/2022/07/28/kurentoSetUp/</loc>
-        <lastmod>2022-07-31T07:11:17.734Z</lastmod>
+        <loc>https://goberomsu.github.io/2022/08/14/howToUseDocker/</loc>
+        <lastmod>2022-08-18T09:26:49.518Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://goberomsu.github.io/2022/08/15/kurento-signaling/</loc>
+        <lastmod>2022-08-15T06:27:49.455Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://goberomsu.github.io/2022/08/10/howToUseGit/</loc>
+        <lastmod>2022-08-10T10:27:12.586Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://goberomsu.github.io/2022/07/27/ai-hello/</loc>
+        <lastmod>2022-08-10T10:18:56.542Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,7 +42,23 @@
 
     <url>
         <loc>https://goberomsu.github.io/2022/07/27/kurentoGroupCall/</loc>
-        <lastmod>2022-07-28T01:41:37.560Z</lastmod>
+        <lastmod>2022-08-10T10:17:42.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://goberomsu.github.io/2022/07/28/kurentoSetUp/</loc>
+        <lastmod>2022-08-01T11:13:58.178Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://goberomsu.github.io/2022/07/31/ai-LinearRegression/</loc>
+        <lastmod>2022-08-01T00:29:08.430Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -59,14 +99,6 @@
     <url>
         <loc>https://goberomsu.github.io/2022/07/22/programmers-2/</loc>
         <lastmod>2022-07-27T07:12:40.489Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://goberomsu.github.io/2022/07/27/ai-hello/</loc>
-        <lastmod>2022-07-27T07:01:38.970Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
