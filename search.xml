@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Hexo 블로그 구글 애널리스틱스 등록</title>
+      <link href="/2022/10/31/blog-googleAnalistic/"/>
+      <url>/2022/10/31/blog-googleAnalistic/</url>
+      
+        <content type="html"><![CDATA[<h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>멘토링 중 hexo blog를 구글 서치 콘솔에 등록하려던 중 문제 발생<br>일반적인 html 삽입 방식 말고 깔끔한 방법이 있었던걸로 기억해서 기억 복구 겸 재정리합니다</p><h1 id="Google-Analistics"><a href="#Google-Analistics" class="headerlink" title="Google Analistics"></a>Google Analistics</h1><ul><li>구글 애널리스틱스는 웹,앱 등의 메타데이터 관리 지원해주는 구글 서비스입니다</li></ul><h2 id="Google-Analistics-등록"><a href="#Google-Analistics-등록" class="headerlink" title="Google Analistics 등록"></a>Google Analistics 등록</h2><ul><li><a href="https://analytics.google.com/">구글 애널리스틱스 홈페이지</a>에 접속합니다</li><li>설정 - 관리에서 속성을 생성합니다<ul><li>속성 생성시 이름은 <code>Github Pages</code>로 생성합니다</li><li>데이터 스트림 - 웹 - 본인의 블로그 url을 등록합니다</li></ul></li><li>url 등록까지 마치면 코드가 발급 됨을 확인할 수 있습니다</li></ul><h2 id="Hexo-등록"><a href="#Hexo-등록" class="headerlink" title="Hexo 등록"></a>Hexo 등록</h2><ul><li>본인의 theme 하위의 config.yml에 들어가 생성된 코드를 아래 형식으로 입력<ul><li><code>google_analytics: G-C17******</code></li></ul></li><li><code>hexo deploy -g</code>후 구글 서치 콘솔 등록시 구글 애널리스틱스로 등록하시면 됩니다</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo blog SEO와 Sitemap setting</title>
       <link href="/2022/10/14/blog-sitemap-seo/"/>
       <url>/2022/10/14/blog-sitemap-seo/</url>
