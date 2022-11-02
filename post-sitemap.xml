@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://goberomsu.github.io/2022/11/03/blog-hexoTheme/</loc>
+        <lastmod>2022-11-02T20:51:24.937Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://goberomsu.github.io/2022/10/31/blog-googleAnalistic/</loc>
         <lastmod>2022-10-30T22:36:26.753Z</lastmod>
         <changefreq>weekly</changefreq>

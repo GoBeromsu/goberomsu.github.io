@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Hexo 블로그 테마 추가</title>
+      <link href="/2022/11/03/blog-hexoTheme/"/>
+      <url>/2022/11/03/blog-hexoTheme/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hexo-Blog-테마-설치"><a href="#Hexo-Blog-테마-설치" class="headerlink" title="Hexo Blog 테마 설치"></a>Hexo Blog 테마 설치</h1><p>저의 경우 butterfly theme을 사용하고 있어, butterfly theme 기준으로 설명하겠습니다</p><ul><li>command 창에 아래 명령어를 입력해 테마를 github에서 다운로드 받아옵니다</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure><ul><li>root 폴더의 config.yml로 이동하여 테마를 butterfly로 변경합니다</li></ul><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure><ul><li><p>이제 <code>hexo clean &amp;&amp; hexo server</code>로 local에서 테마가 바뀌었는지 테스트 합니다</p><ul><li>만약 바뀌지 않았다면?<ul><li>themes 폴더에 들어가서 butterfly를 제외하고 모두 삭제</li><li>브라우저에서 캐시 모두 삭제</li><li><code>hexo deploy -g</code> 실행</li></ul></li></ul></li><li><p>테마 별로 지원하는 기능이 다르니 기존의 설정도 다시 해봅니다</p><ul><li><code>google-analystics</code>를 themes-config.yml에서 다시 설정할 수 있습니다</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> algorithm </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo 블로그 구글 애널리스틱스 등록</title>
       <link href="/2022/10/31/blog-googleAnalistic/"/>
       <url>/2022/10/31/blog-googleAnalistic/</url>

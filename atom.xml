@@ -6,7 +6,7 @@
   <link href="https://goberomsu.github.io/atom.xml" rel="self"/>
   
   <link href="https://goberomsu.github.io/"/>
-  <updated>2022-10-30T22:36:26.753Z</updated>
+  <updated>2022-11-02T20:51:24.937Z</updated>
   <id>https://goberomsu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo 블로그 테마 추가</title>
+    <link href="https://goberomsu.github.io/2022/11/03/blog-hexoTheme/"/>
+    <id>https://goberomsu.github.io/2022/11/03/blog-hexoTheme/</id>
+    <published>2022-11-02T20:42:31.000Z</published>
+    <updated>2022-11-02T20:51:24.937Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hexo 블로그 구글 애널리스틱스 등록</title>
@@ -1202,31 +1225,6 @@
     <id>https://goberomsu.github.io/2022/03/10/algorithm-boj1929/</id>
     <published>2022-03-10T09:00:00.000Z</published>
     <updated>2022-06-30T05:37:48.441Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://goberomsu.github.io/categories/algorithm/"/>
-    
-    
-    <category term="블로그" scheme="https://goberomsu.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>백준 2004 조합 0의 개수</title>
-    <link href="https://goberomsu.github.io/2022/03/10/algorithm-boj2004/"/>
-    <id>https://goberomsu.github.io/2022/03/10/algorithm-boj2004/</id>
-    <published>2022-03-10T09:00:00.000Z</published>
-    <updated>2022-06-30T05:37:48.539Z</updated>
     
     
       
